@@ -1,0 +1,42 @@
+Package: ecip
+Type: Package
+Title: Convenience Package for Regression Models
+Version: 0.1.0
+Date: 2024-09-10
+Description: Need to think more..
+Authors@R: c(person(given = 'Tingting', family = 'Zhan',
+      role = c('aut', 'cre'), email =
+      'tingtingzhan@gmail.com', comment = c(ORCID =
+      '0000-0001-9971-4844')))
+Language: en-US
+LazyData: true
+LazyDataCompression: xz
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Encoding: UTF-8
+License: GPL-2
+Depends: R (>= 4.4), 
+  aggRate, consort.tzh, DanielBiostatistics10th, DemographicTable, flextable.tzh, 
+  gee.tzh, ggplot.tzh,
+  lcmm.tzh, lme4.tzh, ltm.tzh, 
+  MASS.tzh, mDFR, multcomp.tzh,
+  nlme.tzh, pscl.tzh, 
+  roc.tzh, rmarkdown.tzh, rpart.tzh, 
+  survival.tzh,
+  ThomasJeffersonUniv,
+  vcd.tzh,
+  venn.tzh
+Imports: flextable (== 0.9.7),
+  lmtest (== 0.9.40), 
+  methods
+Suggests: knitr (== 1.50), 
+  geepack (== 1.3.12),
+  lme4, ltm,
+  MatchIt (== 4.7.1), MASS (== 7.3.65),
+  microbenchmark, multcomp, 
+  ordinal (== 2023.12.4.1),
+  pscl (== 1.5.9),
+  survival (== 3.8.3), survivalROC (== 1.0.3.1),
+  testthat (== 3.2.3),
+  vcd (== 1.4.13),
+  VGAM (== 1.1.13)
