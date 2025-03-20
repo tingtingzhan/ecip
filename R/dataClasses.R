@@ -38,9 +38,6 @@
 #' we use the default pipeline and do *not* write a `model.frame.*` function, e.g., \link[nlme]{lme} and \link[nlme]{gls} objects}
 #' }
 #' 
-#' @examples 
-#' dataClasses(ortho1)
-#' 
 #' @name dataClasses
 #' @export
 dataClasses <- function(x) UseMethod(generic = 'dataClasses')

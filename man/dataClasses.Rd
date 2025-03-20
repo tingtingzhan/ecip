@@ -56,7 +56,3 @@ Therefore,
 we use the default pipeline and do \emph{not} write a \verb{model.frame.*} function, e.g., \link[nlme]{lme} and \link[nlme]{gls} objects}
 }
 }
-\examples{
-dataClasses(ortho1)
-
-}

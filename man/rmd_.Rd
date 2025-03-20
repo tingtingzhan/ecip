@@ -67,10 +67,11 @@ list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> render_(file = 'lm')
 
+library(nlme)
 list(
- 'one `lme`' = ortho1,
- 'another `lme`' = ortho2,
- '`gls`' = ovary1
+ '`lme`' = lme(distance ~ age, data = Orthodont, keep.data = TRUE),
+ '`gls`' = gls(follicles ~ sin(2*pi*Time) + cos(2*pi*Time), 
+     data = Ovary, correlation = corAR1(form = ~ 1 | Mare))
 ) |> render_(file = 'lme_gls')
 
 library(geepack); list(

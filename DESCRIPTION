@@ -16,16 +16,17 @@ RoxygenNote: 7.3.2
 Encoding: UTF-8
 License: GPL-2
 Depends: R (>= 4.4), 
-  aggRate, consort.tzh, DanielBiostatistics10th, DemographicTable, flextable.tzh, 
-  gee.tzh, ggplot.tzh,
+  aggRate,
+  DanielBiostatistics10th, DemographicTable, 
+  flextable.tzh, 
+  gee.tzh, ggplot.tzh, grid.tzh, 
   lcmm.tzh, lme4.tzh, ltm.tzh, 
   MASS.tzh, mDFR, multcomp.tzh,
   nlme.tzh, pscl.tzh, 
   roc.tzh, rmarkdown.tzh, rpart.tzh, 
   survival.tzh,
   ThomasJeffersonUniv,
-  vcd.tzh,
-  venn.tzh
+  vcd.tzh
 Imports: flextable (== 0.9.7),
   lmtest (== 0.9.40), 
   methods
@@ -34,6 +35,7 @@ Suggests: knitr (== 1.50),
   lme4, ltm,
   MatchIt (== 4.7.1), MASS (== 7.3.65),
   microbenchmark, multcomp, 
+  nlme,
   ordinal (== 2023.12.4.1),
   pscl (== 1.5.9),
   survival (== 3.8.3), survivalROC (== 1.0.3.1),
