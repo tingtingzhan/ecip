@@ -32,7 +32,6 @@ rmd_.multivar <- rmd_flextable_
 #' @export
 rmd_.stepAIC <- rmd_flextable_
 
-
 #' @rdname rmd_
 #' @export rmd_.aov
 #' @export
