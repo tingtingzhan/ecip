@@ -96,7 +96,7 @@ rename_xlevels <- function(model) {
   t0 <- trm |> attr(which = 'intercept', exact = TRUE)
   if (length(trm) && !t0) return(invisible()) # no-intercept model will be dangerous
   
-  mapply(FUN = function(l, nm) {
+  mapply(FUN = \(l, nm) {
     tmp <- paste0(nm, ' \u2e22', l[-1L], ' vs ', l[1L], '\u2e25')
     names(tmp) <- paste0(nm, l[-1L])
     return(tmp)

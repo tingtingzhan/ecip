@@ -19,10 +19,10 @@
 .pval.default <- function(x) {
   tryCatch(expr = {
     x |> summary() |> .pval()
-  }, error = function(e) {
+  }, error = \(e) {
     tryCatch(expr = {
       x |> coeftest() |> .pval() # [.pval.coeftest()]
-    }, error = function(e) double())
+    }, error = \(e) double())
   })
 }
 

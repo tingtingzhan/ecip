@@ -24,7 +24,7 @@ getLink.default <- function(x) {
     lk <- tryCatch(
       expr = getElement(object = x, name = 'link'), 
       # S4 missing slot causes error
-      error = function(e) return(character())
+      error = \(e) return(character())
     )
     if (length(lk)) return(lk)
   } # I want pscl::zerolink go through the pipeline `x |> family() |> getLink()`

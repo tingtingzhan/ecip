@@ -29,7 +29,7 @@ as_flextable.glht <- function(x, ...) {
   id <- paste0('^', x$focus, '\\:') |>
     lapply(FUN = grep, x = nm)
   
-  c1 <- id |> vapply(FUN = function(i) {
+  c1 <- id |> vapply(FUN = \(i) {
     if (length(i) == 1L) return(TRUE)
     identical(1L, i |> diff.default() |> unique.default())
   }, FUN.VALUE = NA) # each consecutive

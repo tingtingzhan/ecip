@@ -28,7 +28,7 @@ pkgText <- function(x) {
       eval() |> # function call could be un-exported, e.g., nlme:::lme.formula, and err
       environment() |>
       getNamespaceName()
-  }, error = function(e) {
+  }, error = \(e) {
     aw <- f |>
       as.character() |>
       getAnywhere()

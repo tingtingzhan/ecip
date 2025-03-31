@@ -16,7 +16,5 @@ as.multivar(x, ...)
 as.multivar
 }
 \examples{
-lm(mpg ~ cyl + am + vs + hp + wt + qsec + drat + disp, data = mtc) |>
- as.univar() |>
- as.multivar(subset = min_pvalue < .1)
+# see ?rmd_
 }

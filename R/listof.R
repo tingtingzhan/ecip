@@ -19,7 +19,7 @@ as_flextable.listof <- function(x, ...) {
     # i.e., a list of ?ltm::cronbach.alpha
     
     y <- x |> 
-      lapply(FUN = function(i) {
+      lapply(FUN = \(i) {
         i |>
           intercept_rm.ecip() |>
           as.matrix.ecip()

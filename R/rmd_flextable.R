@@ -18,10 +18,19 @@ rmd_.listof <- rmd_flextable_
 
 #' @rdname rmd_
 #' @examples
+#' library(lme4)
+#' library(HSAUR3)
+#' library(ordinal)
+#' m1 = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc)
+#' m2 = glmer(outcome ~ treatment + visit + (1|patientID), data = toenail,
+#'   family = binomial, nAGQ = 20)
+#' m3 = clmm(SURENESS ~ PROD + SOUPTYPE + (1|RESP) + (1|RESP:PROD), data = soup,
+#'  link = 'probit', threshold = 'equidistant')
+#'   
 #' list(
-#'   multivar = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc) |>
-#'      as.univar() |>
-#'      as.multivar(subset = min_pvalue < .1)
+#'  'multivar, `lm`' = m1 |> as.univar() |> as.multivar(subset = min_pvalue < .1),
+#'  'multivar, `merMod`' = m2 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# ,
+#'  # 'multivar, `clmm`' = m3 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# still bug
 #' ) |> render_(file = 'multivar')
 #' @export rmd_.multivar
 #' @export

@@ -7,7 +7,7 @@ estnm <- function(x) UseMethod(generic = 'estnm')
 estnm_ <- function(x) {
   if (inherits(x, what = 'error')) return('Estimate')
   # `getLink(zeroinfl)` returns multiple links
-  vapply(X = x, FUN = function(i) {
+  vapply(X = x, FUN = \(i) {
     switch(EXPR = i, identity = {
       'Mean Diff.'
     }, 

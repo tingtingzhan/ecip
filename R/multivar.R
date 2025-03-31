@@ -6,9 +6,7 @@
 #' @param ... parameters of [subset.univar()]
 #' 
 #' @examples
-#' lm(mpg ~ cyl + am + vs + hp + wt + qsec + drat + disp, data = mtc) |>
-#'  as.univar() |>
-#'  as.multivar(subset = min_pvalue < .1)
+#' # see ?rmd_
 #' @importFrom stats update
 #' @aliases multivar
 #' @export
@@ -16,22 +14,34 @@ as.multivar <- function(x, ...) {
   
   if (!inherits(x, what = 'univar')) stop()
   
-  lhs <- .vterms(x[[1L]])[[1L]] # do not bother to check `lhs` being same accross `x`
+  lhs <- vterms(x[[1L]])[[1L]] # do not bother to check `lhs` being same accross `x`
   
   x1 <- x |> 
     subset.univar(...)
   
   if (length(x1)) {
-    rhs <- x1 |>
-      vapply(FUN = function(i) {
-        (.vterms(i)[[2L]]) |> deparse1()
-      }, FUN.VALUE = '') |>
-      paste(collapse = ' + ') |>
-      str2lang()
-  } else rhs <- 1 
+    #rhs <- x1 |>
+    #  vapply(FUN = \(i) {
+    #    (vterms(i)[[2L]]) |> deparse1()
+    #  }, FUN.VALUE = '') |>
+    #  paste(collapse = ' + ') |>
+    #  str2lang() # only good for non-random effects
+    trm <- x1 |> lapply(FUN = vterms)
+    group <- trm |> lapply(FUN = attr, which = 'group', exact = TRUE) |> unique()
+    if (length(group) != 1L) stop('should not happen')
+    fix. <- trm |>
+      lapply(FUN = '[[', 2L) |>
+      Reduce(f = \(e1, e2) call(name = '+', e1, e2))
+    rhs <- if (!length(group[[1L]])) fix. else {
+      c(list(fix.), group[[1L]]) |>
+        Reduce(f = \(e1, e2) call(name = '+', e1, e2))
+    }
+  } else {
+    rhs <- 1 # only good for non-random effects!!!
+  }
   
   ret <- x[[1L]] |> 
-    update(formula. = eval(call(name = '~', lhs, rhs))) |>
+    update(formula. = call(name = '~', lhs, rhs) |> eval()) |>
     stepAIC_complete()
   attr(ret, which = 'univar') <- x
   attr(ret, which = 'p_thres') <- attr(x1, which = 'p_thres', exact = TRUE)
@@ -131,7 +141,7 @@ desc_.multivar <- function(x) (x[[length(x)]]) |> desc_()
 Sprintf.multivar <- function(x) {
   
   u <- x |> attr(which = 'univar', exact = TRUE)
-  v <- vapply(u, FUN = function(i) deparse1(.vterms(i)[[2L]]), FUN.VALUE = '')
+  v <- vapply(u, FUN = \(i) deparse1(vterms(i)[[2L]]), FUN.VALUE = '')
   
   str1 <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by first fitting univariable *%s* models due to the limited sample size, denegerated experimental design and/or substantial missingness across the predictors, using %s.',

@@ -8,21 +8,12 @@
 #' 
 #' @param ... additional parameters, currently of no
 #' 
+#' @keywords internal
 #' @name as.univar
 #' @aliases univar
 #' @export
 as.univar <- function(object, ...) UseMethod(generic = 'as.univar')
 
-
-# `variables in terms`
-#' @importFrom stats terms
-.vterms <- function(x) {
-  tmp <- x |>
-    terms() |> # ?stats:::terms.terms handles exception :)
-    attr(which = 'variables', exact = TRUE) |>
-    as.list.default()
-  tmp[-1L] # remove first element of quote(list)
-}
 
 
 
@@ -35,12 +26,33 @@ as.univar <- function(object, ...) UseMethod(generic = 'as.univar')
 #' 
 #' @examples
 #' as.univar(y ~ x1 + I(x2^2))
+#' as.univar(y ~ x1 + x2 + (1|g) + (1|g1:g2)) # e.g., ?ordinal::clmm
 #' @method as.univar terms
 #' @export as.univar.terms
 #' @export
 as.univar.terms <- function(object, envir = parent.frame(), ...) {
-  v <- .vterms(object)
-  lapply(v[-1], FUN = function(e) eval(call(name = '~', v[[1L]], e), envir = envir))
+  
+  v <- vterms(object)
+  
+  group <- v |> attr(which = 'group', exact = TRUE)
+  
+  if (!length(group)) {
+    fn <- \(e) {
+      call(name = '~', v[[1L]], e) |> 
+        eval(envir = envir)
+    }
+  } else {
+    fn <- \(e) {
+      eg <- Reduce(f = \(e1, e2) call(name = '+', e1, e2), x = c(list(e), group))
+      # connect all groupings naively by `+`
+      call(name = '~', v[[1L]], eg) |> 
+        eval(envir = envir)
+    }
+  }
+  
+  v[-1] |> # remove left-hand-side
+    lapply(FUN = fn)
+  
 }
 
 
@@ -51,14 +63,17 @@ as.univar.terms <- function(object, envir = parent.frame(), ...) {
 #' @export as.univar.formula
 #' @export
 as.univar.formula <- function(formula, envir = parent.frame(), ...) {
-  formula |> terms.formula() |> as.univar.terms(envir = envir, ...)
+  formula |> 
+    terms.formula() |> 
+    as.univar.terms(envir = envir, ...)
 }
+
+
 
 
 #' @rdname as.univar
 #' @examples
-#' lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc) |>
-#'   as.univar()
+#' # see ?rmd_
 #' @importFrom stats terms update
 #' @method as.univar default
 #' @export as.univar.default
@@ -66,9 +81,10 @@ as.univar.formula <- function(formula, envir = parent.frame(), ...) {
 as.univar.default <- function(object, ...) {
   
   ret <- object |> 
+    formula() |> # must for mixed models, e.g., ?ordinal::clmm, ?lme4::merMod
     terms() |> 
     as.univar.terms() |>
-    lapply(FUN = function(fom) update(object, formula. = fom))
+    lapply(FUN = \(fom) update(object, formula. = fom))
   # univariable regression models
   
   fn_min_pvalue <- function(x) {
@@ -95,7 +111,7 @@ as.matrix.univar <- function(x, ...) {
   # !! needed when combining `univar` and `multivar`
   # !! only prints \link[flextable.tzh]{format_pval} and `@nobs`
   y <- x |> 
-    lapply(FUN = function(i) {
+    lapply(FUN = \(i) {
       i |>
         ecip() |>
         intercept_rm.ecip() |>
