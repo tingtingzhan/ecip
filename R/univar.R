@@ -73,7 +73,7 @@ as.univar.formula <- function(formula, envir = parent.frame(), ...) {
 
 #' @rdname as.univar
 #' @examples
-#' # see ?rmd_
+#' # see ?md_
 #' @importFrom stats terms update
 #' @method as.univar default
 #' @export as.univar.default

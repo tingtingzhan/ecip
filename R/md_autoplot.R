@@ -1,6 +1,6 @@
 
 
-rmd_autoplot_ <- function(x, xnm, ...) {
+md_autoplot_ <- function(x, xnm, ...) {
   h <- attr(x, which = 'fig.height', exact = TRUE) %||% 4
   w <- attr(x, which = 'fig.width', exact = TRUE) %||% 7
   return(c(
@@ -12,7 +12,7 @@ rmd_autoplot_ <- function(x, xnm, ...) {
     '<any-text>'))
 }
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' data(mayo, package = 'survivalROC'); list(
 #'  'survival_roc' = mayo |> 
@@ -23,13 +23,13 @@ rmd_autoplot_ <- function(x, xnm, ...) {
 #'   survival_roc(formula = edp ~ mayoscore4, predict.time = 365)
 #' ) |> render_(file = 'survival_roc')
 #' @export
-rmd_.survival_roc <- rmd_autoplot_
+md_.survival_roc <- md_autoplot_
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(lcmm.tzh); list(
 #'  '`lcmm`' = m20
 #' ) |> render_(file = 'lcmm')
-#' @export rmd_.lcmm
+#' @export md_.lcmm
 #' @export
-rmd_.lcmm <- rmd_autoplot_
+md_.lcmm <- md_autoplot_

@@ -16,5 +16,5 @@ as.multivar(x, ...)
 as.multivar
 }
 \examples{
-# see ?rmd_
+# see ?md_
 }

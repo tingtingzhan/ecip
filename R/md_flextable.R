@@ -1,6 +1,6 @@
 
 
-rmd_flextable_ <- function(x, xnm, font.size, ...) {
+md_flextable_ <- function(x, xnm, font.size, ...) {
   return(c(
     Sprintf(x), # S3 generic [Sprintf()]
     '```{r}', 
@@ -11,12 +11,12 @@ rmd_flextable_ <- function(x, xnm, font.size, ...) {
     '<any-text>'))
 }
 
-#' @name rmd_
-#' @export rmd_.listof
+#' @name md_
+#' @export md_.listof
 #' @export
-rmd_.listof <- rmd_flextable_
+md_.listof <- md_flextable_
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(lme4)
 #' library(HSAUR3)
@@ -32,77 +32,77 @@ rmd_.listof <- rmd_flextable_
 #'  'multivar, `merMod`' = m2 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# ,
 #'  # 'multivar, `clmm`' = m3 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# still bug
 #' ) |> render_(file = 'multivar')
-#' @export rmd_.multivar
+#' @export md_.multivar
 #' @export
-rmd_.multivar <- rmd_flextable_
+md_.multivar <- md_flextable_
 
-#' @rdname rmd_
-#' @export rmd_.stepAIC
+#' @rdname md_
+#' @export md_.stepAIC
 #' @export
-rmd_.stepAIC <- rmd_flextable_
+md_.stepAIC <- md_flextable_
 
-#' @rdname rmd_
-#' @export rmd_.aov
+#' @rdname md_
+#' @export md_.aov
 #' @export
-rmd_.aov <- rmd_flextable_
+md_.aov <- md_flextable_
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' list(
 #'   '`TukeyHSD`' = aov(breaks ~ wool + tension, data = warpbreaks) |> 
 #'     TukeyHSD(which = 'tension', ordered = TRUE)
 #' ) |> render_(file = 'aov_etc')
-#' @export rmd_.TukeyHSD
+#' @export md_.TukeyHSD
 #' @export
-rmd_.TukeyHSD <- rmd_flextable_
+md_.TukeyHSD <- md_flextable_
 
-# below: small variations on [rmd_flextable_()]
+# below: small variations on [md_flextable_()]
 
-#' @rdname rmd_
-#' @export rmd_.glht
+#' @rdname md_
+#' @export md_.glht
 #' @export
-rmd_.glht <- function(x, xnm, ...) {
+md_.glht <- function(x, xnm, ...) {
   if (!is.character(xnm)) xnm <- deparse1(xnm)
   return(c(
-    rmd_(x$model, xnm = paste0(xnm, '$model'), ...),
-    rmd_flextable_(x, xnm = xnm, ...)
+    md_(x$model, xnm = paste0(xnm, '$model'), ...),
+    md_flextable_(x, xnm = xnm, ...)
   ))
 }
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(DanielBiostatistics10th); list(
 #'   '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
 #' ) |> render_(file = 'binTab')
-#' @export rmd_.binTab
+#' @export md_.binTab
 #' @export
-rmd_.binTab <- function(x, xnm, ...) {
+md_.binTab <- function(x, xnm, ...) {
   return(c(
-    rmd_flextable_(x, xnm = xnm),
+    md_flextable_(x, xnm = xnm),
     '```{r comment = NA}', 
-    paste0('print.binTab(', xnm, ', print_flextable = FALSE)'), # how to put in `prevalence` here??
+    paste0('summary.binTab(', xnm, ')'), # how to put in `prevalence` here??
     '```'
   ))
 }
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(DemographicTable); list(
 #'   '`DemographicTable`' = DemographicTable(CO2, groups = 'Type', include = c('conc', 'uptake'))
 #' ) |> render_(file = 'DemographicTable')
-#' @export rmd_.DemographicTable
+#' @export md_.DemographicTable
 #' @export
-rmd_.DemographicTable <- function(x, xnm, font.size = 9, ...) {
-  rmd_flextable_(x, xnm = xnm, font.size = font.size, ...)
+md_.DemographicTable <- function(x, xnm, font.size = 9, ...) {
+  md_flextable_(x, xnm = xnm, font.size = font.size, ...)
 }
 
 
-#' @rdname rmd_
-#' @export rmd_.summary.matchit
+#' @rdname md_
+#' @export md_.summary.matchit
 #' @export
-rmd_.summary.matchit <- rmd_flextable_ 
+md_.summary.matchit <- md_flextable_ 
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(MatchIt)
 #' m = matchit(treat ~ age+educ+race+nodegree+married+re74+re75, data = lalonde)
@@ -110,10 +110,10 @@ rmd_.summary.matchit <- rmd_flextable_
 #'  '`matchit1`' = m,
 #'  '`matchit2`' = m |> summary(addlvariables = 're78')
 #' ) |> render_(file = 'matchit')
-#' @export rmd_.matchit
+#' @export md_.matchit
 #' @export
-rmd_.matchit <- function(x, xnm, ...) {
-  rmd_.summary.matchit(
+md_.matchit <- function(x, xnm, ...) {
+  md_.summary.matchit(
     x = summary(x), # ?MatchIt:::summary.matchit
     xnm = sprintf(fmt = 'summary(%s)', xnm),
     ...)

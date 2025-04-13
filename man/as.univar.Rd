@@ -34,6 +34,6 @@ Convert into Multiple Univariable Structures
 \examples{
 as.univar(y ~ x1 + I(x2^2))
 as.univar(y ~ x1 + x2 + (1|g) + (1|g1:g2)) # e.g., ?ordinal::clmm
-# see ?rmd_
+# see ?md_
 }
 \keyword{internal}

@@ -76,12 +76,12 @@
 #' library(vcd); list(
 #'  '`Kappa`' = Kappa(SexualFun)
 #' ) |> render_(file = 'Kappa')
-#' @name rmd_
-#' @importFrom rmarkdown.tzh rmd_
-#' @export rmd_.default
+#' @name md_
+#' @importFrom rmarkdown.tzh md_
+#' @export md_.default
 #' @export
-rmd_.default <- function(x, xnm, ...) {
-  # `rmd_ecip_flextable`
+md_.default <- function(x, xnm, ...) {
+  # `md_ecip_flextable`
   return(c(
     Sprintf(x), # S3 generic [Sprintf()]
     '```{r}', 
@@ -90,15 +90,6 @@ rmd_.default <- function(x, xnm, ...) {
     '<any-text>'
   ))
 }
-
-
-
-
-
-
-
-
-
 
 
 

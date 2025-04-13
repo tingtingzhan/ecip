@@ -1,6 +1,6 @@
 
 # multiple models
-rmd_multiple_ <- function(x, xnm, ...) {
+md_multiple_ <- function(x, xnm, ...) {
   
   n <- x |> ecip() |> length()
   
@@ -20,23 +20,23 @@ rmd_multiple_ <- function(x, xnm, ...) {
   
 }
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 #' ) |> render_(file = 'mlm')
-#' @export rmd_.mlm
+#' @export md_.mlm
 #' @export
-rmd_.mlm <- rmd_multiple_
+md_.mlm <- md_multiple_
 
-#' @rdname rmd_
+#' @rdname md_
 #' @examples
 #' library(pscl); list(
 #'  '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)
 #' ) |> render_(file = 'zeroinfl')
-#' @export rmd_.zeroinfl
+#' @export md_.zeroinfl
 #' @export
-rmd_.zeroinfl <- rmd_multiple_
+md_.zeroinfl <- md_multiple_
 
 
 

@@ -6,7 +6,7 @@
 #' @param ... parameters of [subset.univar()]
 #' 
 #' @examples
-#' # see ?rmd_
+#' # see ?md_
 #' @importFrom stats update
 #' @aliases multivar
 #' @export
