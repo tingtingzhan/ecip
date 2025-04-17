@@ -1,12 +1,12 @@
 
 
 md_autoplot_ <- function(x, xnm, ...) {
-  h <- attr(x, which = 'fig.height', exact = TRUE) %||% 4
-  w <- attr(x, which = 'fig.width', exact = TRUE) %||% 7
   return(c(
     Sprintf(x), # S3 generic [Sprintf()]
     '\n',
-    sprintf(fmt = '```{r fig.height = %.1f, fig.width = %.1f}', h, w),
+    '```{r}',
+    (attr(x, which = 'fig.height', exact = TRUE) %||% 4) |> sprintf(fmt = '#| fig-height: %.1f'),
+    (attr(x, which = 'fig.width', exact = TRUE) %||% 7) |> sprintf(fmt = '#| fig-width: %.1f'),
     sprintf(fmt = '(%s) |> autoplot()', xnm),
     '```', 
     '<any-text>'))

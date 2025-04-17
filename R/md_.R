@@ -77,7 +77,7 @@
 #'  '`Kappa`' = Kappa(SexualFun)
 #' ) |> render_(file = 'Kappa')
 #' @name md_
-#' @importFrom rmarkdown.tzh md_
+#' @importFrom rmd.tzh md_
 #' @export md_.default
 #' @export
 md_.default <- function(x, xnm, ...) {
