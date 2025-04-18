@@ -24,7 +24,7 @@ Depends: R (>= 4.4),
   MASS.tzh, mDFR, multcomp.tzh,
   nlme.tzh, pscl.tzh, 
   roc.tzh, rmd.tzh, rpart.tzh, 
-  survival.tzh,
+  scales.tzh, survival.tzh,
   ThomasJeffersonUniv,
   vcd.tzh
 Imports: flextable (== 0.9.7),

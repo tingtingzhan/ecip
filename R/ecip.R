@@ -150,7 +150,7 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 #' 
 #' @param ... additional parameters, currently not in use
 #' 
-#' @importFrom flextable.tzh format_pval
+#' @importFrom scales.tzh label_pvalue_sym
 #' @method as.matrix ecip
 #' @export as.matrix.ecip
 #' @export
@@ -163,7 +163,7 @@ as.matrix.ecip <- function(
   
   type <- match.arg(type)
   
-  p <- x@p.value |> format_pval(add_p = TRUE)
+  p <- x@p.value |> label_pvalue_sym(add_p = TRUE)()
   
   if (type == 'p_only') {
     if (!length(p)) stop('not applicable to p_only')
@@ -322,11 +322,11 @@ intercept_rm.matrix <- function(x) {
   x[!isIntercept(rownames(x)), , drop = FALSE] # `[.ecip`
 }
 
-#' @importFrom flextable.tzh format_pval
+#' @importFrom scales.tzh label_pvalue_sym
 simple_matrix_ecip <- function(x) {
   if (!length(x@p.value)) stop('not meaningful in application!!')
   
-  ret <- paste(format_pval(x@p.value, add_p = TRUE), x@nobs, sep = '\n')
+  ret <- paste(x@p.value |> label_pvalue_sym(add_p = TRUE)(), x@nobs, sep = '\n')
   dim(ret) <- c(length(x@coef), 1L)
   dimnames(ret) <- list(names(x@coef), x@estnm)
   return(ret)

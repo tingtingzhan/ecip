@@ -61,7 +61,7 @@ as.multivar <- function(x, ...) {
 #' @param ... additional parameters, currently of no use
 #'  
 #' @importFrom flextable as_flextable color
-#' @importFrom flextable.tzh format_pval
+#' @importFrom scales.tzh label_pvalue_sym
 #' @export as_flextable.multivar
 #' @export
 as_flextable.multivar <- function(x, ...) {
@@ -75,7 +75,9 @@ as_flextable.multivar <- function(x, ...) {
   
   names(x)[[1L]] <- paste(
     names(x)[[1L]], 
-    x |> attr(which = 'p_thres', exact = TRUE) |> format_pval(add_p = TRUE)
+    x |> 
+      attr(which = 'p_thres', exact = TRUE) |> 
+      label_pvalue_sym(add_p = TRUE)()
   )
   
   m <- x |>

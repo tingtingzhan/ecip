@@ -109,7 +109,7 @@ as.univar.default <- function(object, ...) {
 #' @export
 as.matrix.univar <- function(x, ...) {
   # !! needed when combining `univar` and `multivar`
-  # !! only prints \link[flextable.tzh]{format_pval} and `@nobs`
+  # !! only prints \link[scales.tzh]{label_pvalue_sym} and `@nobs`
   y <- x |> 
     lapply(FUN = \(i) {
       i |>
