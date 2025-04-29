@@ -12,7 +12,7 @@
 \item{row.title}{..}
 
 \item{...}{potential parameters of functions \code{\link[=as.matrix.ecip]{as.matrix.ecip()}}
-and \link[flextable.tzh]{as_flextable.array}}
+and \link[flextable.tzh]{as_flextable.matrix}}
 }
 \description{
 ..

@@ -92,8 +92,12 @@ library(ordinal); list(
  '`clmm`' = clmm(rating ~ temp + contact + (1|judge), data = wine)
 ) |> render_(file = 'clm_clmm')
 
-list(
- '`coxph`' = coxph(os ~ age + ph.ecog, data = lung2)
+library(survival); list(
+ '`coxph`' = rotterdam |>
+ within.data.frame(expr = {
+  os = Surv(dtime, death)
+ }) |>
+ coxph(formula = os ~ size)
 ) |> render_(file = 'coxph')
 
 library(lme4); list(

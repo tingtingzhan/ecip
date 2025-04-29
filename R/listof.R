@@ -27,7 +27,7 @@ as_flextable.listof <- function(x, ...) {
     
     y |> 
       do.call(what = rbind) |>
-      as_flextable.array(
+      as_flextable.matrix(
         row.title = x[[1L]]@endpoint,
         hline_i = y |> vapply(FUN = nrow, FUN.VALUE = NA_integer_) |> cumsum()
       )

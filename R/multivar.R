@@ -92,7 +92,7 @@ as_flextable.multivar <- function(x, ...) {
   colnames(ret)[1L] <- paste('(Univariable)', colnames(ret)[1L], sep = '\n')
   
   ret |>
-    as_flextable.array(
+    as_flextable.matrix(
       row.title = ecip(x[[length(x)]])@endpoint,
       hline_i = u |> attr(which = 'nrow', exact = TRUE) |> cumsum()
     ) |>

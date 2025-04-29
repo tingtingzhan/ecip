@@ -233,7 +233,7 @@ as.matrix.ecip <- function(
 #' @param row.title ..
 #' 
 #' @param ... potential parameters of functions [as.matrix.ecip()] 
-#' and \link[flextable.tzh]{as_flextable.array}
+#' and \link[flextable.tzh]{as_flextable.matrix}
 #' 
 #' @export as_flextable.ecip
 #' @export
@@ -244,7 +244,7 @@ as_flextable.ecip <- function(
 ) {
   x |>
     as.matrix.ecip(...) |>
-    as_flextable.array(row.title = row.title, ...)
+    as_flextable.matrix(row.title = row.title, ...)
 }
 
 

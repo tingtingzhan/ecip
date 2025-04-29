@@ -22,10 +22,9 @@ as_flextable.stepAIC <- function(
 ) {
   z <- as.matrix.stepAIC(x, ...)
   z |>
-    as_flextable.array(
+    as_flextable.matrix(
       row.title = row.title,
-      hline_i = hline_i#,
-      #vline_j = vline_j
+      hline_i = hline_i
     ) |>
     color(j = vline_j + 1L, color = 'grey60', part = 'all') |>
     add_footer_lines(values = c(

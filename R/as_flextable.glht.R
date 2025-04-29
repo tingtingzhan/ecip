@@ -38,9 +38,9 @@ as_flextable.glht <- function(x, ...) {
   c2 <- identical(1L, unlist(id) |> diff.default() |> unique.default()) # all consecutive
   if (!c2) return(z)
   
-  hline_i <- id |> lengths() |> cumsum()
-  hline_i <- hline_i[-length(id)]
+  h <- id |> lengths() |> cumsum()
+  h <- h[-length(id)]
   z |> 
-    hline(i = hline_i)
+    hline(i = h)
   
 }

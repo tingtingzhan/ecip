@@ -145,7 +145,7 @@ as_flextable.univar <- function(x, ...) {
     as.matrix.univar()
   
   y |> 
-    as_flextable.array(
+    as_flextable.matrix(
       row.title = deparse1(endpoint(x[[1L]])),
       hline_i = y |> attr(which = 'nrow', exact = TRUE) |> cumsum()
     )
