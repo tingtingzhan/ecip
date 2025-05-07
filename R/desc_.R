@@ -40,7 +40,9 @@ family_text.family <- function(x) family_text.character(x$family)
 family_text.character <- function(x) {
   switch(x, 
          # from glm, ?stats::family
-         binomial = 'binary', gaussian = 'Gaussian', Gamma = 'Gamma',
+         binomial = 'binary', 
+         gaussian = 'Gaussian', 
+         Gamma = 'Gamma',
          # inverse.gaussian ?
          poisson = 'Poisson', 
          geometric = 'Geometric', #?
@@ -54,19 +56,10 @@ family_text.character <- function(x) {
 
 #' @export
 desc_.family <- function(x) {
-  lnk <- x$link
-  switch(x$family, binomial = {
-    return(switch(lnk, logit = {
-      'logistic' # canonical link
-    } , stop('Link ', sQuote(lnk), ' not programed?')))
-  }, poisson = {
-    return(switch(lnk, log = {
-      'Poisson' # canonical link
-    }, paste0('Poisson regression with ', lnk, '-link')))
-  }, {
-    lk <- if (length(tmp <- link_text(x))) paste0('(with ', tmp, '-link)') 
-    trimws_(paste0(family_text(x), '-response ', lk)) # using of [link_text] is changed
-  })
+  lk <- if (length(tmp <- link_text(x))) paste0('(', tmp, '-link)') 
+  family_text(x) |>
+    paste0('-response ', lk) |> 
+    trimws()
 }
 
 

@@ -15,7 +15,7 @@ desc_.lm <- function(x) 'ordinary least squares'
 
 #' @importFrom stats family
 #' @export
-desc_.glm <- function(x) x |> family() |> desc_.family()
+desc_.glm <- function(x) 'generalized linear'
 
 
 #' @export
