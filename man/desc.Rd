@@ -4,15 +4,22 @@
 \alias{desc}
 \alias{desc_}
 \alias{desc_.default}
+\alias{desc_.family}
 \title{Model Description}
 \usage{
 desc_(x)
 
 \method{desc_}{default}(x)
+
+\method{desc_}{family}(x)
 }
 \arguments{
 \item{x}{an R object}
 }
+\value{
+Function \code{\link[=desc_]{desc_()}} returns a \link[base]{character} scalar.
+}
 \description{
 ..
 }
+\keyword{internal}

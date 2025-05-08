@@ -70,8 +70,7 @@ list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> render_(file = 'lm')
 
-library(nlme)
-list(
+library(nlme); list(
  '`lme`' = lme(distance ~ age, data = Orthodont, keep.data = TRUE),
  '`gls`' = gls(follicles ~ sin(2*pi*Time) + cos(2*pi*Time), 
      data = Ovary, correlation = corAR1(form = ~ 1 | Mare))

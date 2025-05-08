@@ -6,7 +6,7 @@
 \alias{getCanonicalLink.family}
 \alias{getCanonicalLink.function}
 \alias{getCanonicalLink.character}
-\title{getCanonicalLink}
+\title{Get Canonical Link Function of a Model Fit or \link[stats]{family}}
 \usage{
 getCanonicalLink(x)
 
@@ -19,7 +19,10 @@ getCanonicalLink(x)
 \method{getCanonicalLink}{character}(x)
 }
 \arguments{
-\item{x}{..}
+\item{x}{an R object of model fit, or \link[stats]{family}}
+}
+\value{
+Function \code{\link[=getCanonicalLink]{getCanonicalLink()}} returns a \link[base]{character} scalar.
 }
 \description{
 ..
@@ -28,3 +31,4 @@ getCanonicalLink(x)
 getCanonicalLink(binomial)
 getCanonicalLink('binomial')
 }
+\keyword{internal}

@@ -76,6 +76,7 @@ as_flextable.backwardCriterion <- function(
 
 #' @rdname Sprintf
 #' @importFrom glmtoolbox.tzh textCriterion
+#' @importFrom rmd.tzh pkg_text
 #' @export Sprintf.backwardCriterion
 #' @export
 Sprintf.backwardCriterion <- function(x) {
@@ -96,10 +97,10 @@ Sprintf.backwardCriterion <- function(x) {
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.  %s stepwise variable selection is performed by %s.', 
     x0 |> endpoint() |> vapply(FUN = deparse1, FUN.VALUE = '') |> unique() |> paste(collapse = '; '), # is.symbol(endpoint) compatible
     paste0('`', xvar, '`', collapse = ', '),
-    nobsText(x0),
+    x0 |> nobsText(),
     if (length(xvar) > 1L) 'multi' else 'uni',
     model_name,
-    pkgText(x0),
+    x0 |> pkg_text(),
     switch(EXPR = x$direction, backward = 'Backward', forward = 'Forward'),
     textCriterion(x)
   )

@@ -139,6 +139,7 @@ desc_.multivar <- function(x) (x[[length(x)]]) |> desc_()
 #' @param x a [multivar] object
 #' 
 #' @importFrom stats formula
+#' @importFrom rmd.tzh pkg_text
 #' @export Sprintf.multivar
 #' @export
 Sprintf.multivar <- function(x) {
@@ -152,7 +153,7 @@ Sprintf.multivar <- function(x) {
     paste0('`', v, '`', collapse = ', '),
     nobsText(x),
     desc_(x),
-    '<u>**`R`**</u>' # pkgText(x) # this is tzh's \pkg{tzh}
+    u[[1L]] |> pkg_text()
   )
   
   str2 <- sprintf(

@@ -2,11 +2,14 @@
 % Please edit documentation in R/getLink.R
 \name{getLink}
 \alias{getLink}
+\alias{getLink.family}
 \alias{getLink.default}
 \alias{getLink.listof}
-\title{Get link function of a model fit}
+\title{Get Link Function of a Model Fit}
 \usage{
 getLink(x)
+
+\method{getLink}{family}(x)
 
 \method{getLink}{default}(x)
 
@@ -22,3 +25,4 @@ and determine whether the model is using the canonical link of the family!
 \details{
 Not sure how useful \code{marked:::inverse.link} will be in future!
 }
+\keyword{internal}
