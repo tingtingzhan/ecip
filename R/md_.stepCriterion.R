@@ -1,6 +1,6 @@
 
 
-#' @title md_.stepCriterion
+#' @title md_.backwardCriterion
 #' 
 #' @param x ..
 #' 
@@ -9,9 +9,9 @@
 #' @param ... ..
 #' 
 #' @importFrom rmd.tzh md_
-#' @export md_.stepCriterion
+#' @export md_.backwardCriterion
 #' @export
-md_.stepCriterion <- function(x, xnm, ...) {
+md_.backwardCriterion <- function(x, xnm, ...) {
   
   xvar <- eval(parse(text = x$initial)) |> all.vars()
   x0 <- x$final.fit
