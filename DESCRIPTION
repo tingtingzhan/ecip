@@ -15,11 +15,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Encoding: UTF-8
 License: GPL-2
-Depends: R (>= 4.4), 
+Depends: R (>= 4.5), 
   aggRate,
   DanielBiostatistics10th, DemographicTable, 
   factor.tzh, flextable.tzh, 
-  gee.tzh, ggplot.tzh, grid.tzh, 
+  ggplot.tzh, glmtoolbox.tzh, grid.tzh, 
   lcmm.tzh, lme4.tzh, ltm.tzh, 
   MASS.tzh, mDFR, multcomp.tzh,
   nlme.tzh, pscl.tzh, 

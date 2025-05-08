@@ -8,7 +8,7 @@
 #' ..
 #' 
 #' @import methods
-#' @import aggRate DanielBiostatistics10th DemographicTable factor.tzh flextable.tzh gee.tzh ggplot.tzh grid.tzh lcmm.tzh lme4.tzh ltm.tzh MASS.tzh mDFR multcomp.tzh nlme.tzh pscl.tzh roc.tzh rpart.tzh survival.tzh ThomasJeffersonUniv vcd.tzh
+#' @import aggRate DanielBiostatistics10th DemographicTable factor.tzh flextable.tzh glmtoolbox.tzh ggplot.tzh grid.tzh lcmm.tzh lme4.tzh ltm.tzh MASS.tzh mDFR multcomp.tzh nlme.tzh pscl.tzh roc.tzh rpart.tzh survival.tzh ThomasJeffersonUniv vcd.tzh
 '_PACKAGE'
 
 #

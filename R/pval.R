@@ -41,7 +41,6 @@
 # but other dispatches are in
 # ?AER:::coeftest.polr
 # ?AER:::coeftest.multinom
-# packageDate('lmtest')
 # \link[lmtest]{coeftest.default} does not have parameter `alternative`
 # ?lmtest:::coef.coeftest good enough, since at least 2022-03-21
 #' @export
