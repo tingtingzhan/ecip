@@ -7,6 +7,7 @@
 #' 
 #' @examples
 #' # see ?md_
+#' @importFrom MASS.tzh stepAIC_complete
 #' @importFrom stats update
 #' @aliases multivar
 #' @export

@@ -21,3 +21,4 @@ Function \code{\link[=as_flextable.glht]{as_flextable.glht()}} returns a \link[f
 Function \code{\link[=as_flextable.glht]{as_flextable.glht()}} add additional \link[flextable]{hline}(s)
 for multiple \verb{$focus} in the input \link[multcomp]{glht} object.
 }
+\keyword{internal}

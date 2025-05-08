@@ -4,11 +4,11 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
   return(c(
     Sprintf(x), # S3 generic [Sprintf()]
     '```{r}', 
-    if (!missing(font.size)) sprintf(fmt = 'flextable::set_flextable_defaults(font.size = %.1f)', font.size),
+    if (!missing(font.size)) font.size |> sprintf(fmt = 'set_flextable_defaults(font.size = %.1f)'),
     sprintf(fmt = '(%s) |> as_flextable()', xnm),
-    if (!missing(font.size)) 'flextable::init_flextable_defaults()',
-    '```', 
-    '<any-text>'))
+    if (!missing(font.size)) 'init_flextable_defaults()',
+    '```'
+  ))
 }
 
 #' @name md_
@@ -35,11 +35,6 @@ md_.listof <- md_flextable_
 #' @export md_.multivar
 #' @export
 md_.multivar <- md_flextable_
-
-#' @rdname md_
-#' @export md_.stepAIC
-#' @export
-md_.stepAIC <- md_flextable_
 
 #' @rdname md_
 #' @export md_.aov

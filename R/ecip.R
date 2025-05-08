@@ -163,7 +163,7 @@ as.matrix.ecip <- function(
   
   type <- match.arg(type)
   
-  p <- x@p.value |> label_pvalue_sym(add_p = (type == 'p_only'))()
+  p <- x@p.value |> label_pvalue_sym(add_p = (type %in% c('ncol1', 'p_only')))()
   
   if (type == 'p_only') {
     if (!length(p)) stop('not applicable to p_only')

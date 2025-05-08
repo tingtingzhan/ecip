@@ -42,15 +42,3 @@ as_flextable.listof <- function(x, ...) {
 Sprintf.listof <- function(x) character()
 
 
-#' @rdname Sprintf
-#' @importFrom MASS.tzh .Sprintf.stepAIC
-#' @export Sprintf.stepAIC
-#' @export
-Sprintf.stepAIC <- function(x) {
-  c(
-    Sprintf(x[[length(x)]]), # requires S3 generic [Sprintf()]
-    .Sprintf.stepAIC(x)
-  )
-}
-
-

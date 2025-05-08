@@ -22,3 +22,4 @@ Function \code{\link[=xlevels]{xlevels()}} is a wrapper of function \link[stats]
 Function \link[stats]{.getXlevels} only reports \link[base]{factor} levels,
 \link[base]{logical} predictors will \emph{not} be included!
 }
+\keyword{internal}

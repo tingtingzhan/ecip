@@ -3,9 +3,9 @@
 \docType{package}
 \name{ecip-package}
 \alias{ecip-package}
-\title{Simplified Statistic Models by Tingting}
+\title{ecip: Convenience Package for Regression Models}
 \description{
-..
+Need to think more..
 }
 \author{
 \strong{Maintainer}: Tingting Zhan \email{tingtingzhan@gmail.com} (\href{https://orcid.org/0000-0001-9971-4844}{ORCID})

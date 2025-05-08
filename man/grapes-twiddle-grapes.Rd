@@ -19,7 +19,6 @@ Only for end-user!!!!
 Function \link{\%~\%} appends two \link[base]{character} \link[base]{vector}s
 of variable names into a \link[stats]{formula}.
 This is much slower than \link[base]{~} operator, thus should only be used by end-user
-(see function \link[MASS]{stepAIC}, which uses pretty naive methods too).
 }
 \examples{
 xs = c('age', 'sex')

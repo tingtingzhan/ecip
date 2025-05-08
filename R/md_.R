@@ -90,8 +90,7 @@ md_.default <- function(x, xnm, ...) {
     Sprintf(x), # S3 generic [Sprintf()]
     '```{r}', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
-    '```',
-    '<any-text>'
+    '```'
   ))
 }
 

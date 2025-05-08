@@ -16,6 +16,7 @@
 #' @returns
 #' Function [as_flextable.glht()] returns a \link[flextable]{flextable}.
 #'  
+#' @keywords internal  
 #' @importFrom flextable as_flextable hline
 #' @export as_flextable.glht
 #' @export

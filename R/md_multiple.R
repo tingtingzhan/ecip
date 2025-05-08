@@ -14,8 +14,7 @@ md_multiple_ <- function(x, xnm, ...) {
   
   return(c(
     Sprintf(x), # S3 generic [Sprintf()]
-    ret,
-    '<any-text>'
+    ret
   ))
   
 }

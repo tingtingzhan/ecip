@@ -6,8 +6,9 @@
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [Sprintf] returns a \link[base]{noquote} \link[base]{character} scalar
+#' Function [Sprintf()] returns a \link[base]{noquote} \link[base]{character} scalar
 #' 
+#' @keywords internal
 #' @name Sprintf
 #' @export
 Sprintf <- function(x) UseMethod(generic = 'Sprintf')
