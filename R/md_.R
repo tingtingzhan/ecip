@@ -32,9 +32,9 @@
 #'      data = Ovary, correlation = corAR1(form = ~ 1 | Mare))
 #' ) |> render_(file = 'lme_gls')
 #' 
-#' library(geepack); list(
-#'  '`geeglm`' = geeglm(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
-#' ) |> render_(file = 'geeglm')
+#' library(glmtoolbox); list(
+#'  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
+#' ) |> render_(file = 'glmgee')
 #' 
 #' library(multcomp); list(
 #'  '`glht` via `aov`' = aov(breaks ~ tension + wool, data = warpbreaks) |> 
