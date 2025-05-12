@@ -51,6 +51,14 @@ md_.aov <- md_flextable_
 #' @export
 md_.TukeyHSD <- md_flextable_
 
+
+#' @rdname md_
+#' @export md_.summary.matchit
+#' @export
+md_.summary.matchit <- md_flextable_ 
+
+
+
 # below: small variations on [md_flextable_()]
 
 #' @rdname md_
@@ -92,10 +100,6 @@ md_.DemographicTable <- function(x, xnm, font.size = 9, ...) {
 }
 
 
-#' @rdname md_
-#' @export md_.summary.matchit
-#' @export
-md_.summary.matchit <- md_flextable_ 
 
 #' @rdname md_
 #' @examples

@@ -10,10 +10,10 @@
 \alias{md_.multivar}
 \alias{md_.aov}
 \alias{md_.TukeyHSD}
+\alias{md_.summary.matchit}
 \alias{md_.glht}
 \alias{md_.binTab}
 \alias{md_.DemographicTable}
-\alias{md_.summary.matchit}
 \alias{md_.matchit}
 \alias{md_.mlm}
 \alias{md_.zeroinfl}
@@ -35,13 +35,13 @@
 
 \method{md_}{TukeyHSD}(x, xnm, font.size, ...)
 
+\method{md_}{summary.matchit}(x, xnm, font.size, ...)
+
 \method{md_}{glht}(x, xnm, ...)
 
 \method{md_}{binTab}(x, xnm, ...)
 
 \method{md_}{DemographicTable}(x, xnm, font.size = 9, ...)
-
-\method{md_}{summary.matchit}(x, xnm, font.size, ...)
 
 \method{md_}{matchit}(x, xnm, ...)
 
