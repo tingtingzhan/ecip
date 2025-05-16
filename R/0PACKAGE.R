@@ -1,7 +1,7 @@
 
 
 #' @import methods
-#' @import aggRate DanielBiostatistics10th DemographicTable factor.tzh flextable.tzh ggplot.tzh glmtoolbox.tzh grid.tzh hexExcel lcmm.tzh lme4.tzh ltm.tzh mDFR multcomp.tzh nlme.tzh pscl.tzh roc.tzh rpart.tzh survival.tzh ThomasJeffersonUniv vcd.tzh
+#' @import aggRate DanielBiostatistics10th DemographicTable factor.tzh flextable.tzh ggplot.tzh glmtoolbox.tzh grid.tzh hexExcel lcmm.tzh lme4.tzh ltm.tzh mDFR multcomp.tzh nlme.tzh pscl.tzh reshape.tzh roc.tzh rpart.tzh rx.tzh survival.tzh time.tzh ThomasJeffersonUniv vcd.tzh
 '_PACKAGE'
 
 #
