@@ -10,6 +10,7 @@
 #' This is quite exploratory
 #' 
 #' @importFrom flextable as_flextable
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.listof
 #' @export
 as_flextable.listof <- function(x, ...) {

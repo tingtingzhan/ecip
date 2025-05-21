@@ -1,7 +1,19 @@
 
 
 #' @import methods
-#' @import aggRate DanielBiostatistics10th DemographicTable factor.tzh flextable.tzh ggplot.tzh glmtoolbox.tzh grid.tzh hexExcel lcmm.tzh lme4.tzh ltm.tzh mDFR multcomp.tzh nlme.tzh pscl.tzh reshape.tzh roc.tzh rpart.tzh rx.tzh survival.tzh time.tzh ThomasJeffersonUniv vcd.tzh
+#' 
+#' @import aggRate
+#' @import DanielBiostatistics10th
+#' @import flextable.tzh
+#' @import glmtoolbox.tzh
+#' @import lcmm.tzh
+#' @import lme4.tzh
+#' @import ltm.tzh
+#' @import multcomp.tzh
+#' @import nlme.tzh
+#' @import pscl.tzh
+#' @import survival.tzh
+#' @import vcd.tzh
 '_PACKAGE'
 
 #

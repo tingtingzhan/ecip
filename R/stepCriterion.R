@@ -54,6 +54,7 @@ as.matrix.backwardCriterion <- function(x, ...) {
 #' 
 #' @keywords internal
 #' @importFrom flextable as_flextable
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.backwardCriterion
 #' @export
 as_flextable.backwardCriterion <- function(

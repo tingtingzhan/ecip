@@ -77,6 +77,7 @@ as.matrix.stepAIC <- function(x, ...) {
 #' 
 #' @keywords internal
 #' @importFrom flextable as_flextable color
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.stepAIC
 #' @export
 as_flextable.stepAIC <- function(

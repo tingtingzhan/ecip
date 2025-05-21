@@ -12,18 +12,6 @@ md_autoplot_ <- function(x, xnm, ...) {
   ))
 }
 
-#' @rdname md_
-#' @examples
-#' data(mayo, package = 'survivalROC'); list(
-#'  'survival_roc' = mayo |> 
-#'   within.data.frame(expr = {
-#'    time = as.difftime(time, units = 'days')
-#'    edp = Surv(time, censor)
-#'   }) |>
-#'   survival_roc(formula = edp ~ mayoscore4, predict.time = 365)
-#' ) |> render_(file = 'survival_roc')
-#' @export
-md_.survival_roc <- md_autoplot_
 
 #' @rdname md_
 #' @examples

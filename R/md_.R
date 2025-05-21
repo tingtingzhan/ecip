@@ -1,6 +1,6 @@
 
 
-# library(logistf); list(
+# library(logistf); library(rmd.tzh); list(
 #  '`logistf`' = logistf(case ~ age+oc+vic+vicl+vis+dia, data = sex2)
 # ) |> render_(file = 'logistf')
 # # I will finalize \pkg{logistf.tzh} when I have time :)
@@ -21,6 +21,8 @@
 #' @param ... ..
 #' 
 #' @examples
+#' library(rmd.tzh)
+#' 
 #' list(
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 #' ) |> render_(file = 'lm')

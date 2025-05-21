@@ -138,6 +138,7 @@ as.matrix.univar <- function(x, ...) {
 #' Function [as_flextable.univar()] returns a \link[flextable]{flextable}.
 #'  
 #' @importFrom flextable as_flextable
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.univar
 #' @export
 as_flextable.univar <- function(x, ...) {

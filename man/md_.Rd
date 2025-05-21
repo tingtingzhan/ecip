@@ -4,7 +4,6 @@
 \name{md_}
 \alias{md_}
 \alias{md_.default}
-\alias{md_.survival_roc}
 \alias{md_.lcmm}
 \alias{md_.listof}
 \alias{md_.multivar}
@@ -22,8 +21,6 @@
 \title{Writing R Objects to \pkg{rmarkdown} Document}
 \usage{
 \method{md_}{default}(x, xnm, ...)
-
-\method{md_}{survival_roc}(x, xnm, ...)
 
 \method{md_}{lcmm}(x, xnm, ...)
 
@@ -66,6 +63,8 @@
 Writing R Objects to \pkg{rmarkdown} Document
 }
 \examples{
+library(rmd.tzh)
+
 list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> render_(file = 'lm')
@@ -124,14 +123,6 @@ list(
 library(vcd); list(
  '`Kappa`' = Kappa(SexualFun)
 ) |> render_(file = 'Kappa')
-data(mayo, package = 'survivalROC'); list(
- 'survival_roc' = mayo |> 
-  within.data.frame(expr = {
-   time = as.difftime(time, units = 'days')
-   edp = Surv(time, censor)
-  }) |>
-  survival_roc(formula = edp ~ mayoscore4, predict.time = 365)
-) |> render_(file = 'survival_roc')
 library(lcmm.tzh); list(
  '`lcmm`' = m20
 ) |> render_(file = 'lcmm')

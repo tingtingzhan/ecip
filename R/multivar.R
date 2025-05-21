@@ -63,6 +63,7 @@ as.multivar <- function(x, ...) {
 #'  
 #' @importFrom flextable as_flextable color
 #' @importFrom scales.tzh label_pvalue_sym
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.multivar
 #' @export
 as_flextable.multivar <- function(x, ...) {

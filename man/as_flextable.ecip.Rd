@@ -17,3 +17,4 @@ and \link[flextable.tzh]{as_flextable.matrix}}
 \description{
 ..
 }
+\keyword{internal}

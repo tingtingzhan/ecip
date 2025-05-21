@@ -235,6 +235,8 @@ as.matrix.ecip <- function(
 #' @param ... potential parameters of functions [as.matrix.ecip()] 
 #' and \link[flextable.tzh]{as_flextable.matrix}
 #' 
+#' @keywords internal
+#' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.ecip
 #' @export
 as_flextable.ecip <- function(
