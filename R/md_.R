@@ -87,12 +87,16 @@
 #' @export
 md_.default <- function(x, xnm, ...) {
   # `md_ecip_flextable`
-  return(c(
-    Sprintf(x), # S3 generic [Sprintf()]
+  txt <- Sprintf(x) # S3 generic [Sprintf()]
+  ret <- c(
+    txt, 
     '```{r}', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
     '```'
-  ))
+  )
+  bib <- txt |> attr(which = 'bibentry', exact = TRUE)
+  if (length(bib)) attr(ret, which = 'bibentry') <- bib
+  return(ret)
 }
 
 

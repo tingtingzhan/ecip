@@ -88,7 +88,7 @@ ecip <- function(model) {
       coef = cf, 
       p.value = p, 
       conf.int = ci, 
-      endpoint = edp |> lapply(FUN = as.character), 
+      endpoint = edp |> lapply(FUN = deparse1), 
       exp = expo, 
       estnm = estname
     ), MoreArgs = list(
@@ -104,7 +104,7 @@ ecip <- function(model) {
     coef = cf,
     p.value = p,
     conf.int = ci,
-    endpoint = edp |> as.character(),
+    endpoint = edp |> deparse1(),
     nobs = nobsText(model),
     exp = expo,
     estnm = estname,

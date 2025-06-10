@@ -111,10 +111,14 @@ as_flextable.stepAIC <- function(
 #' @export Sprintf.stepAIC
 #' @export
 Sprintf.stepAIC <- function(x) {
-  c(
-    Sprintf(x[[length(x)]]), # requires S3 generic [Sprintf()]
-    .Sprintf.stepAIC(x)
+  txt <- Sprintf(x[[length(x)]]) # requires S3 generic [Sprintf()]
+  ret <- c(
+    txt,
+    .Sprintf.stepAIC(x) # !!! probably bib from here too!!
   )
+  bib <- txt |> attr(which = 'bibentry', exact = TRUE)
+  if (length(bib)) attr(ret, which = 'bibentry') <- bib
+  return(ret)
 }
 
 

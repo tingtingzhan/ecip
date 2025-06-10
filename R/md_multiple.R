@@ -12,11 +12,14 @@ md_multiple_ <- function(x, xnm, ...) {
     '```'
   ) # silly but works!!
   
-  return(c(
-    Sprintf(x), # S3 generic [Sprintf()]
+  txt <- Sprintf(x) # S3 generic [Sprintf()]
+  ret <- c(
+    txt,
     ret
-  ))
-  
+  )
+  bib <- txt |> attr(which = 'bibentry', exact = TRUE)
+  if (length(bib)) attr(ret, which = 'bibentry') <- bib
+  return(ret)
 }
 
 #' @rdname md_

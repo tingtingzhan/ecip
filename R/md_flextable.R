@@ -1,14 +1,18 @@
 
 
 md_flextable_ <- function(x, xnm, font.size, ...) {
-  return(c(
-    Sprintf(x), # S3 generic [Sprintf()]
+  txt <- Sprintf(x) # S3 generic [Sprintf()]
+  ret <- c(
+    txt,
     '```{r}', 
     if (!missing(font.size)) font.size |> sprintf(fmt = 'set_flextable_defaults(font.size = %.1f)'),
     sprintf(fmt = '(%s) |> as_flextable()', xnm),
     if (!missing(font.size)) 'init_flextable_defaults()',
     '```'
-  ))
+  )
+  bib <- txt |> attr(which = 'bibentry', exact = TRUE)
+  if (length(bib)) attr(ret, which = 'bibentry') <- bib
+  return(ret)
 }
 
 #' @name md_
