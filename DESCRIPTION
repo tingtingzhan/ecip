@@ -2,7 +2,6 @@ Package: ecip
 Type: Package
 Title: Convenience Package for Regression Models
 Version: 0.1.0
-Date: 2024-09-10
 Description: Need to think more..
 Authors@R: c(person(given = 'Tingting', family = 'Zhan',
       role = c('aut', 'cre'), email =
