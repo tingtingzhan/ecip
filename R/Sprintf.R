@@ -36,20 +36,23 @@ Sprintf.default <- function(x) {
   xvar <- (fixedfom[[3L]]) |> all.vars() |> unique.default()
   
   xfam <- tryCatch(x |> family(), error = identity)
+  
+  desc. <- desc_(x)
+  
   model_name <- if (inherits(xfam, what = 'error')) {
-    paste(desc_(x), 'model')
+    paste(desc., 'model')
   } else if (!length(xfam)) {
-    paste(desc_(x), 'model')
+    paste(desc., 'model')
   } else if (inherits(xfam, what = 'listof')) {
     # i.e., from ?pscl::zeroinfl
-    paste(desc_(x), 'model')
+    paste(desc., 'model')
   } else if (isS4(xfam)) {
-    paste(desc_(x), 'model')
+    paste(desc., 'model')
   } else if ((xfam$family != 'gaussian') || (xfam$link != 'identity')) {
-    paste(desc_(x), 'model with', xfam |> desc_.family())
-  } else paste(desc_(x), 'model')
+    paste(desc., 'model with', xfam |> desc_.family())
+  } else paste(desc., 'model')
     
-  sprintf(
+  ret <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.', 
     x |> endpoint() |> vapply(FUN = deparse1, FUN.VALUE = '') |> unique() |> paste(collapse = '; '), # is.symbol(endpoint) compatible
     paste0('`', xvar, '`', collapse = ', '),
@@ -58,6 +61,11 @@ Sprintf.default <- function(x) {
     model_name,
     x |> pkg_text()
   )
+  
+  bib <- desc. |> attr(which = 'bibentry', exact = TRUE)
+  if (length(bib)) attr(ret, which = 'bibentry') <- bib
+  # keep this here ..
+  return(ret)
   
 }
 

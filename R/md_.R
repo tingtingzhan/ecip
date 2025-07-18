@@ -64,10 +64,6 @@
 #'      data = cbpp, family = binomial)
 #' ) |> render_(file = 'glmerMod')
 #'   
-#' library(ltm); list(
-#'  '`cronbachAlpha`' = cronbach.alpha(LSAT, CI = TRUE, B = 500)
-#' ) |> render_(file = 'cronbachAlpha')
-#'
 #' library(MASS); list(
 #'  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
 #' ) |> render_(file = 'rlm')
@@ -78,25 +74,26 @@
 #'  '`vglm`' = vglm(cbind(normal, mild, severe) ~ let, propodds, data = pneumo)
 #' ) |> render_(file = 'vglm')
 #' 
-#' library(vcd); list(
-#'  '`Kappa`' = Kappa(SexualFun)
-#' ) |> render_(file = 'Kappa')
 #' @name md_
 #' @importFrom rmd.tzh md_
 #' @export md_.default
 #' @export
 md_.default <- function(x, xnm, ...) {
   # `md_ecip_flextable`
-  txt <- Sprintf(x) # S3 generic [Sprintf()]
-  ret <- c(
-    txt, 
+  
+  return(list(
+    
+    Sprintf(x), # S3 generic [Sprintf()]
+    
     '```{r}', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
-    '```'
-  )
-  bib <- txt |> attr(which = 'bibentry', exact = TRUE)
-  if (length(bib)) attr(ret, which = 'bibentry') <- bib
-  return(ret)
+    '```',
+    '<any-text>',
+    
+    '\n\n'
+    
+  ))
+  
 }
 
 
