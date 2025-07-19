@@ -77,7 +77,6 @@ as_flextable.backwardCriterion <- function(
 
 #' @rdname Sprintf
 #' @importFrom glmtoolbox.tzh textCriterion
-#' @importFrom rmd.tzh pkg_text
 #' @export Sprintf.backwardCriterion
 #' @export
 Sprintf.backwardCriterion <- function(x) {
@@ -88,11 +87,7 @@ Sprintf.backwardCriterion <- function(x) {
   
   txt[] <- paste(
     txt, 
-    sprintf(
-      fmt = '%s stepwise variable selection is performed by %s.',
-      switch(EXPR = x$direction, backward = 'Backward', forward = 'Forward'),
-      textCriterion(x)
-    )
+    sprintf(fmt = 'Backward stepwise variable selection is performed by %s.', textCriterion(x))
   ) # keep attr intact
   
   return(txt)
