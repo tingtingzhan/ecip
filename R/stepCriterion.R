@@ -82,29 +82,20 @@ as_flextable.backwardCriterion <- function(
 #' @export
 Sprintf.backwardCriterion <- function(x) {
   
-  xvar <- eval(parse(text = x$initial)) |> all.vars()
-  x0 <- x$final.fit
+  txt <- x |>
+    attr(which = 'initial.fit', exact = TRUE) |>
+    Sprintf.default()
   
-  xfam <- tryCatch(x0 |> family(), error = identity)
-  model_name <- if (inherits(xfam, what = 'error')) {
-    paste(desc_(x0), 'model')
-  } else if (!length(xfam)) {
-    paste(desc_(x0), 'model')
-  } else if ((xfam$family != 'gaussian') || (xfam$link != 'identity')) {
-    paste(desc_(x0), 'model with', xfam |> desc_.family())
-  } else paste(desc_(x0), 'model')
+  txt[] <- paste(
+    txt, 
+    sprintf(
+      fmt = '%s stepwise variable selection is performed by %s.',
+      switch(EXPR = x$direction, backward = 'Backward', forward = 'Forward'),
+      textCriterion(x)
+    )
+  ) # keep attr intact
   
-  txt <- sprintf(
-    fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.  %s stepwise variable selection is performed by %s.', 
-    x0 |> endpoint() |> vapply(FUN = deparse1, FUN.VALUE = '') |> unique() |> paste(collapse = '; '), # is.symbol(endpoint) compatible
-    paste0('`', xvar, '`', collapse = ', '),
-    x0 |> nobsText(),
-    if (length(xvar) > 1L) 'multi' else 'uni',
-    model_name,
-    x0 |> pkg_text(),
-    switch(EXPR = x$direction, backward = 'Backward', forward = 'Forward'),
-    textCriterion(x)
-  )
+  return(txt)
   
 }
 

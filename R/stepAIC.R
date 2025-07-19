@@ -111,10 +111,16 @@ as_flextable.stepAIC <- function(
 #' @export Sprintf.stepAIC
 #' @export
 Sprintf.stepAIC <- function(x) {
-  return(list(
-    Sprintf(x[[length(x)]]),
-    .Sprintf.stepAIC(x) # !!! probably bib from here too!!
-  ))
+  
+  txt <- Sprintf(x[[length(x)]])
+  
+  txt[] <- paste(
+    txt, 
+    .Sprintf.stepAIC(x)
+  ) # keep attr intact
+  
+  return(txt)
+  
 }
 
 
