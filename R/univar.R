@@ -97,6 +97,7 @@ as.univar.default <- function(object, ...) {
   
   attr(ret, which = 'min_pvalue') <- ret |>
     vapply(FUN = fn_min_pvalue, FUN.VALUE = NA_real_)
+  attr(ret, which = 'initial.model') <- object
   class(ret) <- c(
     'univar', 
     'listof' # tzh is learning about 'listof'

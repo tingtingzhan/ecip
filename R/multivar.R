@@ -145,8 +145,15 @@ desc_.multivar <- function(x) (x[[length(x)]]) |> desc_()
 #' @export
 Sprintf.multivar <- function(x) {
   
-  u <- x |> attr(which = 'univar', exact = TRUE)
-  v <- vapply(u, FUN = \(i) deparse1(vterms(i)[[2L]]), FUN.VALUE = '')
+  u <- x |> 
+    attr(which = 'univar', exact = TRUE)
+  
+  v <- u |>
+    vapply(FUN = \(i) deparse1(vterms(i)[[2L]]), FUN.VALUE = '')
+  
+  #u |> 
+  #  attr(which = 'initial.model', exact = TRUE) |>
+  #  Sprintf.default() # do not use this :)
   
   str1 <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by first fitting univariable *%s* models due to the limited sample size, denegerated experimental design and/or substantial missingness across the predictors, using %s.',
