@@ -53,10 +53,24 @@ Sprintf.default <- function(x) {
   } else if ((xfam$family != 'gaussian') || (xfam$link != 'identity')) {
     paste(desc., 'model with', xfam |> desc_.family())
   } else paste(desc., 'model')
+  
+  print_endpoint <- function(e) {
+    # `e` is returned value from `endpoint()`
+    if (is.symbol(e)) return(as.character(e))
+    if (is.language(e)) return(deparse1(e))
+    if (is.recursive(e)) {
+      ret <- e |> 
+        vapply(FUN = deparse1, FUN.VALUE = '') |> 
+        unique.default() |> 
+        paste(collapse = '; ')
+      return(ret)
+    }
+    stop('shouldnt come here')
+  }
     
   ret <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.', 
-    x |> endpoint() |> vapply(FUN = deparse1, FUN.VALUE = '') |> unique() |> paste(collapse = '; '), # is.symbol(endpoint) compatible
+    x |> endpoint() |> print_endpoint(),
     paste0('`', xvar, '`', collapse = ', '),
     nobsText(x),
     if (length(xvar) > 1L) 'multi' else 'uni',
