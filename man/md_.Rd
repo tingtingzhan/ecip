@@ -152,7 +152,7 @@ list(
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 ) |> render_(file = 'mlm')
-library(pscl); list(
+library(pscl.tzh); list(
  '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)
 ) |> render_(file = 'zeroinfl')
 }

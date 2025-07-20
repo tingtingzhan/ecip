@@ -81,16 +81,15 @@ as_flextable.backwardCriterion <- function(
 #' @export
 Sprintf.backwardCriterion <- function(x) {
   
-  txt <- x |>
+  z1 <- x |>
     attr(which = 'initial.fit', exact = TRUE) |>
     Sprintf.default()
   
-  txt[] <- paste(
-    txt, 
-    sprintf(fmt = 'Backward stepwise variable selection is performed by %s.', textCriterion(x))
-  ) # keep attr intact
+  z2 <- sprintf(fmt = 'Backward stepwise variable selection is performed by %s.', textCriterion(x)) |>
+    new(Class = 'md_lines')
+   # keep attr intact
   
-  return(txt)
+  c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
 

@@ -17,6 +17,7 @@ Sprintf <- function(x) UseMethod(generic = 'Sprintf')
 
 
 #' @rdname Sprintf
+#' @importFrom methods new
 #' @importFrom stats formula
 #' @importFrom rmd.tzh pkg_text
 #' @export Sprintf.default
@@ -37,7 +38,8 @@ Sprintf.default <- function(x) {
   
   xfam <- tryCatch(x |> family(), error = identity)
   
-  desc. <- desc_(x)
+  desc. <- desc_(x) |>
+    new(Class = 'md_lines')
   
   model_name <- if (inherits(xfam, what = 'error')) {
     paste(desc., 'model')
@@ -62,10 +64,12 @@ Sprintf.default <- function(x) {
     x |> pkg_text()
   )
   
-  bib <- desc. |> attr(which = 'bibentry', exact = TRUE)
-  if (length(bib)) attr(ret, which = 'bibentry') <- bib
-  # keep this here ..
-  return(ret)
+  bib <- desc.@bibentry
+  z <- if (length(bib)) {
+    ret |> 
+      new(Class = 'md_lines', bibentry = bib)
+  } else ret |> new(Class = 'md_lines')
+  return(z)
   
 }
 

@@ -12,10 +12,13 @@ md_multiple_ <- function(x, xnm, ...) {
     '```'
   ) # silly but works!!
   
-  return(list(
-    Sprintf(x), # S3 generic [Sprintf()]
-    ret
-  ))
+  z1 <- Sprintf(x) |> # S3 generic [Sprintf()]
+    new(Class = 'md_lines')
+  
+  z2 <- ret |>
+    new(Class = 'md_lines')
+  
+  c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
 
@@ -30,7 +33,7 @@ md_.mlm <- md_multiple_
 
 #' @rdname md_
 #' @examples
-#' library(pscl); list(
+#' library(pscl.tzh); list(
 #'  '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)
 #' ) |> render_(file = 'zeroinfl')
 #' @export md_.zeroinfl

@@ -75,24 +75,22 @@
 #' ) |> render_(file = 'vglm')
 #' 
 #' @name md_
+#' @importFrom methods new
 #' @importFrom rmd.tzh md_
 #' @export md_.default
 #' @export
 md_.default <- function(x, xnm, ...) {
   # `md_ecip_flextable`
   
-  return(list(
-    
-    Sprintf(x), # S3 generic [Sprintf()]
-    
+  z1 <- Sprintf(x) # S3 generic [Sprintf()]
+  
+  z2 <- c(
     '```{r}', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
-    '```',
-    '<any-text>',
-    
-    '\n\n'
-    
-  ))
+    '```'
+  ) |> new(Class = 'md_lines')
+  
+  c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
 

@@ -15,7 +15,8 @@ RoxygenNote: 7.3.2
 Encoding: UTF-8
 License: GPL-2
 Depends: R (>= 4.5)
-Imports: flextable (== 0.9.9),
+Imports: methods,
+  flextable (== 0.9.9),
   lmtest (== 0.9.40), 
   methods,
   aggRate,

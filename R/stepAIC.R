@@ -112,14 +112,15 @@ as_flextable.stepAIC <- function(
 #' @export
 Sprintf.stepAIC <- function(x) {
   
-  txt <- Sprintf(x[[length(x)]])
+  z1 <- x[[length(x)]] |> 
+    Sprintf() |>
+    new(Class = 'md_lines')
   
-  txt[] <- paste(
-    txt, 
-    .Sprintf.stepAIC(x)
-  ) # keep attr intact
+  z2 <- x |>
+    .Sprintf.stepAIC() |>
+    new(Class = 'md_lines')
   
-  return(txt)
+  c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
 
