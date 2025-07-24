@@ -140,7 +140,7 @@ desc_.multivar <- function(x) (x[[length(x)]]) |> desc_()
 #' @param x a [multivar] object
 #' 
 #' @importFrom stats formula
-#' @importFrom rmd.tzh pkg_text
+#' @importFrom rmd.tzh fromPackage pkg_text
 #' @export Sprintf.multivar
 #' @export
 Sprintf.multivar <- function(x) {
@@ -155,13 +155,15 @@ Sprintf.multivar <- function(x) {
   #  attr(which = 'initial.model', exact = TRUE) |>
   #  Sprintf.default() # do not use this :)
   
+  pkg <- u[[1L]] |> fromPackage()
+  
   str1 <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by first fitting univariable *%s* models due to the limited sample size, denegerated experimental design and/or substantial missingness across the predictors, using %s.',
     x |> endpoint() |> deparse1(),
     paste0('`', v, '`', collapse = ', '),
     nobsText(x),
     desc_(x),
-    u[[1L]] |> pkg_text()
+    pkg |> pkg_text()
   )
   
   str2 <- sprintf(
@@ -175,7 +177,8 @@ Sprintf.multivar <- function(x) {
   #}
   #return(paste(str1, str2, str3))
   
-  return(paste(str1, str2))
+  paste(str1, str2) |>
+    new(Class = 'md_lines', package = c(pkg, 'MASS'))
   
 }
 

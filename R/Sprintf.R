@@ -19,7 +19,7 @@ Sprintf <- function(x) UseMethod(generic = 'Sprintf')
 #' @rdname Sprintf
 #' @importFrom methods new
 #' @importFrom stats formula
-#' @importFrom rmd.tzh pkg_text
+#' @importFrom rmd.tzh fromPackage pkg_text
 #' @export Sprintf.default
 #' @export
 Sprintf.default <- function(x) {
@@ -68,6 +68,8 @@ Sprintf.default <- function(x) {
     stop('shouldnt come here')
   }
     
+  pkg <- x |> fromPackage()
+  
   ret <- sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.', 
     x |> endpoint() |> print_endpoint(),
@@ -75,14 +77,14 @@ Sprintf.default <- function(x) {
     nobsText(x),
     if (length(xvar) > 1L) 'multi' else 'uni',
     model_name,
-    x |> pkg_text()
+    pkg |> pkg_text()
   )
   
   bib <- desc.@bibentry
   z <- if (length(bib)) {
     ret |> 
-      new(Class = 'md_lines', bibentry = bib)
-  } else ret |> new(Class = 'md_lines')
+      new(Class = 'md_lines', bibentry = bib, package = pkg)
+  } else ret |> new(Class = 'md_lines', package = pkg)
   return(z)
   
 }
