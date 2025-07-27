@@ -125,11 +125,6 @@ Sprintf.stepAIC <- function(x) {
 }
 
 
-#' @rdname md_
-#' @export md_.stepAIC
-#' @export
-md_.stepAIC <- md_flextable_
-
 
 
 

@@ -7,8 +7,13 @@ md_autoplot_ <- function(x, xnm, ...) {
     
   z2 <- c(
     '```{r}',
-    (attr(x, which = 'fig.height', exact = TRUE) %||% 4) |> sprintf(fmt = '#| fig-height: %.1f'),
-    (attr(x, which = 'fig.width', exact = TRUE) %||% 7) |> sprintf(fmt = '#| fig-width: %.1f'),
+    x |>
+      attr(which = 'fig-height', exact = TRUE) |> 
+      sprintf(fmt = '#| fig-height: %.1f'),
+    x |>
+      attr(which = 'fig-width', exact = TRUE) |> 
+      sprintf(fmt = '#| fig-width: %.1f'),
+    
     sprintf(fmt = '(%s) |> ggplot2::autoplot()', xnm),
     '```'
   ) |> 

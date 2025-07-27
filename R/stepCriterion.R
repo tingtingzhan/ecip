@@ -94,8 +94,4 @@ Sprintf.backwardCriterion <- function(x) {
 }
 
 
-#' @rdname md_
-#' @export md_.backwardCriterion
-#' @export
-md_.backwardCriterion <- md_flextable_
 

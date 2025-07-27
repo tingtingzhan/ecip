@@ -6,17 +6,31 @@
 # # I will finalize \pkg{logistf.tzh} when I have time :)
 # # this example works fine when logistf::logistf was supported in \pkg{tzh}
 
+#' @importFrom methods new
+md_ecip <- function(x, xnm, ...) {
+  z1 <- Sprintf(x) # S3 generic [Sprintf()]
+  
+  z2 <- c(
+    '```{r}', 
+    sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
+    '```'
+  ) |> new(Class = 'md_lines')
+  
+  c(z1, z2) # ?rmd.tzh::c.md_lines
+  
+}
 
 
 
 
-#' @title Writing R Objects to \pkg{rmarkdown} Document
+
+
+
+#' @title \pkg{rmarkdown} Lines based on [ecip()]
 #' 
 #' @param x .. 
 #' 
 #' @param xnm ..
-#' 
-#' @param font.size see function \link[flextable]{set_flextable_defaults}
 #' 
 #' @param ... ..
 #' 
@@ -36,15 +50,6 @@
 #' library(glmtoolbox); list(
 #'  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
 #' ) |> render_(file = 'glmgee')
-#' 
-#' library(multcomp); list(
-#'  '`glht` via `aov`' = aov(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett')),
-#'  '`glht` via `lm`, single `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey')),
-#'  '`glht` via `lm`, multiple `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett'))
-#' ) |> render_(file = 'glht')
 #' 
 #' library(ordinal); list(
 #'  '`clm`' = clm(rating ~ temp + contact, data = wine), 
@@ -75,24 +80,64 @@
 #' ) |> render_(file = 'vglm')
 #' 
 #' @name md_
-#' @importFrom methods new
 #' @importFrom rmd.tzh md_
-#' @export md_.default
+#' @export md_.lm
 #' @export
-md_.default <- function(x, xnm, ...) {
-  # `md_ecip_flextable`
-  
-  z1 <- Sprintf(x) # S3 generic [Sprintf()]
-  
-  z2 <- c(
-    '```{r}', 
-    sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
-    '```'
-  ) |> new(Class = 'md_lines')
-  
-  c(z1, z2) # ?rmd.tzh::c.md_lines
-  
-}
+md_.lm <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.lme
+#' @export
+md_.lme <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.gls
+#' @export
+md_.gls <- md_ecip
 
 
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.glmgee
+#' @export
+md_.glmgee <- md_ecip
+
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.clm
+#' @export
+md_.clm <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.clmm
+#' @export
+md_.clmm <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.coxph
+#' @export
+md_.coxph <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.merMod
+#' @export
+md_.merMod <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.rlm
+#' @export
+md_.rlm <- md_ecip
+
+#' @rdname md_
+#' @importFrom rmd.tzh md_
+#' @export md_.vlm
+#' @export
+md_.vlm <- md_ecip
 

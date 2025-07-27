@@ -18,12 +18,26 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
   
 }
 
-#' @name md_
+
+
+#' @title \pkg{rmarkdown} Lines based on \link[flextable]{flextable}
+#' 
+#' @param x ..
+#' 
+#' @param xnm ..
+#' 
+#' @param font.size see function \link[flextable]{set_flextable_defaults}
+#' 
+#' @examples
+#' library(rmd.tzh)
+#' 
+#' @keywords internal
+#' @name md_flextable
 #' @export md_.listof
 #' @export
 md_.listof <- md_flextable_
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @examples
 #' library(lme4)
 #' library(HSAUR3)
@@ -43,12 +57,12 @@ md_.listof <- md_flextable_
 #' @export
 md_.multivar <- md_flextable_
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @export md_.aov
 #' @export
 md_.aov <- md_flextable_
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @examples
 #' list(
 #'   '`TukeyHSD`' = aov(breaks ~ wool + tension, data = warpbreaks) |> 
@@ -59,7 +73,7 @@ md_.aov <- md_flextable_
 md_.TukeyHSD <- md_flextable_
 
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @export md_.summary.matchit
 #' @export
 md_.summary.matchit <- md_flextable_ 
@@ -68,7 +82,17 @@ md_.summary.matchit <- md_flextable_
 
 # below: small variations on [md_flextable_()]
 
-#' @rdname md_
+#' @rdname md_flextable
+#' @examples
+#' library(multcomp); list(
+#'  '`glht` via `aov`' = aov(breaks ~ tension + wool, data = warpbreaks) |> 
+#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett')),
+#'  '`glht` via `lm`, single `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
+#'    glht(linfct = mcp(tension = 'Tukey')),
+#'  '`glht` via `lm`, multiple `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
+#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett'))
+#' ) |> render_(file = 'glht')
+#' 
 #' @export md_.glht
 #' @export
 md_.glht <- function(x, xnm, ...) {
@@ -79,7 +103,9 @@ md_.glht <- function(x, xnm, ...) {
   ))
 }
 
-#' @rdname md_
+
+
+#' @rdname md_flextable
 #' @examples
 #' library(DanielBiostatistics10th); list(
 #'   '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
@@ -104,7 +130,7 @@ md_.binTab <- function(x, xnm, ...) {
 
 
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @examples
 #' library(DemographicTable); list(
 #'   '`DemographicTable`' = DemographicTable(CO2, groups = 'Type', include = c('conc', 'uptake'))
@@ -117,7 +143,7 @@ md_.DemographicTable <- function(x, xnm, font.size = 9, ...) {
 
 
 
-#' @rdname md_
+#' @rdname md_flextable
 #' @examples
 #' library(MatchIt)
 #' m = matchit(treat ~ age+educ+race+nodegree+married+re74+re75, data = lalonde)
@@ -134,4 +160,19 @@ md_.matchit <- function(x, xnm, ...) {
     ...)
 }
 
+
+
+
+#' @rdname md_flextable
+#' @export md_.stepAIC
+#' @export
+md_.stepAIC <- md_flextable_
+
+
+
+
+#' @rdname md_flextable
+#' @export md_.backwardCriterion
+#' @export
+md_.backwardCriterion <- md_flextable_
 
