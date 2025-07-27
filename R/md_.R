@@ -8,6 +8,7 @@
 
 #' @importFrom methods new
 md_ecip <- function(x, xnm, ...) {
+  
   z1 <- Sprintf(x) # S3 generic [Sprintf()]
   
   z2 <- c(
