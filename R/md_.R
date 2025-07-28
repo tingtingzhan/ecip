@@ -13,6 +13,7 @@ md_ecip <- function(x, xnm, ...) {
   
   z2 <- c(
     '```{r}', 
+    '#| echo: false', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
     '```'
   ) |> new(Class = 'md_lines')

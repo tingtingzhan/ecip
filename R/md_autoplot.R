@@ -7,6 +7,7 @@ md_autoplot_ <- function(x, xnm, ...) {
     
   z2 <- c(
     '```{r}',
+    '#| echo: false', 
     x |>
       attr(which = 'fig-height', exact = TRUE) |> 
       sprintf(fmt = '#| fig-height: %.1f'),

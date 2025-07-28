@@ -8,6 +8,7 @@ md_multiple_ <- function(x, xnm, ...) {
   for (i in seq_len(n)) ret <- c(
     ret, 
     '```{r}', 
+    '#| echo: false', 
     sprintf(fmt = '(ecip(%s)[[%d]]) |> as_flextable.ecip()', xnm, i),
     '```'
   ) # silly but works!!

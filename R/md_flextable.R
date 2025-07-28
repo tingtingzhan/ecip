@@ -7,6 +7,7 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
   
   z2 <- c(
     '```{r}', 
+    '#| echo: false', 
     if (!missing(font.size)) font.size |> sprintf(fmt = 'set_flextable_defaults(font.size = %.1f)'),
     sprintf(fmt = '(%s) |> as_flextable()', xnm),
     if (!missing(font.size)) 'init_flextable_defaults()',
@@ -110,7 +111,6 @@ md_.glht <- function(x, xnm, ...) {
 #' library(DanielBiostatistics10th); list(
 #'   '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
 #' ) |> render_(file = 'binTab')
-#' @importFrom methods new
 #' @export md_.binTab
 #' @export
 md_.binTab <- function(x, xnm, ...) {
@@ -118,7 +118,9 @@ md_.binTab <- function(x, xnm, ...) {
   z1 <- md_flextable_(x, xnm = xnm)
   
   z2 <- c(
-    '```{r comment = NA}', 
+    '```{r}', 
+    '#| echo: false', 
+    '#| comment:', 
     paste0('summary.binTab(', xnm, ')'), # how to put in `prevalence` here??
     '```'
   ) |> 
