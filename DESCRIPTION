@@ -29,7 +29,7 @@ Imports: methods,
   nlme.tzh,
   pscl.tzh,
   rmd.tzh,
-  scales.tzh, survival.tzh,
+  survival.tzh,
   vcd.tzh
 Suggests: knitr (== 1.50),
   glmtoolbox (== 0.1.12),

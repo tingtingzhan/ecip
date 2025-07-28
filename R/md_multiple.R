@@ -22,20 +22,8 @@ md_multiple_ <- function(x, xnm, ...) {
   
 }
 
-
-#' @title \pkg{rmarkdown} Lines of Multiple Models
-#' 
-#' @param x .. 
-#' 
-#' @param xnm ..
-#' 
-#' @param ... ..
-#' 
-#' @keywords internal
-#' @name md_multiple
+#' @rdname md_
 #' @examples
-#' library(rmd.tzh)
-#' 
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 #' ) |> render_(file = 'mlm')
@@ -43,7 +31,7 @@ md_multiple_ <- function(x, xnm, ...) {
 #' @export
 md_.mlm <- md_multiple_
 
-#' @rdname md_multiple
+#' @rdname md_
 #' @examples
 #' library(pscl.tzh); list(
 #'  '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)

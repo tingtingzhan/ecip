@@ -150,7 +150,7 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 #' 
 #' @param ... additional parameters, currently not in use
 #' 
-#' @importFrom scales.tzh label_pvalue_sym
+#' @importFrom rmd.tzh label_pvalue_sym
 #' @method as.matrix ecip
 #' @export as.matrix.ecip
 #' @export
@@ -324,7 +324,7 @@ intercept_rm.matrix <- function(x) {
   x[!isIntercept(rownames(x)), , drop = FALSE] # `[.ecip`
 }
 
-#' @importFrom scales.tzh label_pvalue_sym
+#' @importFrom rmd.tzh label_pvalue_sym
 simple_matrix_ecip <- function(x) {
   if (!length(x@p.value)) stop('not meaningful in application!!')
   
