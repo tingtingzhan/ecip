@@ -12,3 +12,4 @@ nobsText(x)
 \description{
 ..
 }
+\keyword{internal}

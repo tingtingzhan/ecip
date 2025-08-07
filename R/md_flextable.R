@@ -72,8 +72,3 @@ md_.multivar <- md_flextable_
 md_.stepAIC <- md_flextable_
 
 
-#' @rdname md_flextable
-#' @export md_.backwardCriterion
-#' @export
-md_.backwardCriterion <- md_flextable_
-

@@ -3,7 +3,6 @@
 #' @import methods
 #' 
 #' @import flextable.tzh
-#' @import glmtoolbox.tzh
 '_PACKAGE'
 
 #

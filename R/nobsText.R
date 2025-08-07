@@ -5,6 +5,7 @@
 #' 
 #' @param x regression model
 #' 
+#' @keywords internal
 #' @export
 nobsText <- function(x) {
   if (!length(x)) stop('do not allow') # return('')

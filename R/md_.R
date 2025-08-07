@@ -11,6 +11,7 @@
 #' @param x,xnm,... ..
 #' 
 #' @keywords internal
+#' @importClassesFrom rmd.tzh md_lines
 #' @importFrom methods new
 #' @export 
 md_ecip <- function(x, xnm, ...) {
@@ -22,7 +23,8 @@ md_ecip <- function(x, xnm, ...) {
     '#| echo: false', 
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
     '```'
-  ) |> new(Class = 'md_lines')
+  ) |> 
+    new(Class = 'md_lines')
   
   c(z1, z2) # ?rmd.tzh::c.md_lines
   
@@ -49,10 +51,6 @@ md_ecip <- function(x, xnm, ...) {
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 #' ) |> render_(file = 'lm')
 #' 
-#' library(glmtoolbox); list(
-#'  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
-#' ) |> render_(file = 'glmgee')
-#' 
 #' library(MASS); list(
 #'  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
 #' ) |> render_(file = 'rlm')
@@ -63,12 +61,6 @@ md_ecip <- function(x, xnm, ...) {
 #' @export
 md_.lm <- md_ecip
 
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.glmgee
-#' @export
-md_.glmgee <- md_ecip
 
 
 #' @rdname md_

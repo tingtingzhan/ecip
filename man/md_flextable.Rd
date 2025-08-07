@@ -5,7 +5,6 @@
 \alias{md_.listof}
 \alias{md_.multivar}
 \alias{md_.stepAIC}
-\alias{md_.backwardCriterion}
 \title{\pkg{rmarkdown} Lines based on \link[flextable]{flextable}}
 \usage{
 \method{md_}{listof}(x, xnm, font.size, ...)
@@ -13,8 +12,6 @@
 \method{md_}{multivar}(x, xnm, font.size, ...)
 
 \method{md_}{stepAIC}(x, xnm, font.size, ...)
-
-\method{md_}{backwardCriterion}(x, xnm, font.size, ...)
 }
 \arguments{
 \item{x}{..}
