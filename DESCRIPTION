@@ -28,8 +28,7 @@ Imports: methods,
   MASS.tzh, multcomp.tzh,
   nlme.tzh,
   pscl.tzh,
-  rmd.tzh,
-  vcd.tzh
+  rmd.tzh
 Suggests: knitr (== 1.50),
   glmtoolbox (== 0.1.12),
   HSAUR3 (== 1.0.15),
@@ -41,5 +40,4 @@ Suggests: knitr (== 1.50),
   pscl (== 1.5.9),
   survival (== 3.8.3), survivalROC (== 1.0.3.1),
   testthat (== 3.2.3),
-  vcd (== 1.4.13),
   VGAM (== 1.1.13)
