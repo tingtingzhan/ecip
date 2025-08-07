@@ -3,37 +3,16 @@
 \name{md_}
 \alias{md_}
 \alias{md_.lm}
-\alias{md_.lme}
-\alias{md_.gls}
 \alias{md_.glmgee}
-\alias{md_.clm}
-\alias{md_.clmm}
-\alias{md_.coxph}
-\alias{md_.merMod}
 \alias{md_.rlm}
-\alias{md_.vlm}
 \alias{md_.mlm}
 \title{\pkg{rmarkdown} Lines based on \code{\link[=ecip]{ecip()}}}
 \usage{
 \method{md_}{lm}(x, xnm, ...)
 
-\method{md_}{lme}(x, xnm, ...)
-
-\method{md_}{gls}(x, xnm, ...)
-
 \method{md_}{glmgee}(x, xnm, ...)
 
-\method{md_}{clm}(x, xnm, ...)
-
-\method{md_}{clmm}(x, xnm, ...)
-
-\method{md_}{coxph}(x, xnm, ...)
-
-\method{md_}{merMod}(x, xnm, ...)
-
 \method{md_}{rlm}(x, xnm, ...)
-
-\method{md_}{vlm}(x, xnm, ...)
 
 \method{md_}{mlm}(x, xnm, ...)
 }
@@ -58,20 +37,9 @@ library(glmtoolbox); list(
  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
 ) |> render_(file = 'glmgee')
 
-library(ordinal); list(
- '`clm`' = clm(rating ~ temp + contact, data = wine), 
- '`clmm`' = clmm(rating ~ temp + contact + (1|judge), data = wine)
-) |> render_(file = 'clm_clmm')
-
 library(MASS); list(
  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
 ) |> render_(file = 'rlm')
-
-library(VGAM)
-pneumo = transform(pneumo, let = log(exposure.time))
-list(
- '`vglm`' = vglm(cbind(normal, mild, severe) ~ let, propodds, data = pneumo)
-) |> render_(file = 'vglm')
 
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)

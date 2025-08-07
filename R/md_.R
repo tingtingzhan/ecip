@@ -6,7 +6,13 @@
 # # I will finalize \pkg{logistf.tzh} when I have time :)
 # # this example works fine when logistf::logistf was supported in \pkg{tzh}
 
+#' @title R Markdown Lines via \link[ecip]{ecip}
+#' 
+#' @param x,xnm,... ..
+#' 
+#' @keywords internal
 #' @importFrom methods new
+#' @export 
 md_ecip <- function(x, xnm, ...) {
   
   z1 <- Sprintf(x) # S3 generic [Sprintf()]
@@ -47,38 +53,15 @@ md_ecip <- function(x, xnm, ...) {
 #'  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
 #' ) |> render_(file = 'glmgee')
 #' 
-#' library(ordinal); list(
-#'  '`clm`' = clm(rating ~ temp + contact, data = wine), 
-#'  '`clmm`' = clmm(rating ~ temp + contact + (1|judge), data = wine)
-#' ) |> render_(file = 'clm_clmm')
-#' 
 #' library(MASS); list(
 #'  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
 #' ) |> render_(file = 'rlm')
-#' 
-#' library(VGAM)
-#' pneumo = transform(pneumo, let = log(exposure.time))
-#' list(
-#'  '`vglm`' = vglm(cbind(normal, mild, severe) ~ let, propodds, data = pneumo)
-#' ) |> render_(file = 'vglm')
 #' 
 #' @name md_
 #' @importFrom rmd.tzh md_
 #' @export md_.lm
 #' @export
 md_.lm <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.lme
-#' @export
-md_.lme <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.gls
-#' @export
-md_.gls <- md_ecip
 
 
 #' @rdname md_
@@ -90,37 +73,7 @@ md_.glmgee <- md_ecip
 
 #' @rdname md_
 #' @importFrom rmd.tzh md_
-#' @export md_.clm
-#' @export
-md_.clm <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.clmm
-#' @export
-md_.clmm <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.coxph
-#' @export
-md_.coxph <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.merMod
-#' @export
-md_.merMod <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
 #' @export md_.rlm
 #' @export
 md_.rlm <- md_ecip
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.vlm
-#' @export
-md_.vlm <- md_ecip
 
