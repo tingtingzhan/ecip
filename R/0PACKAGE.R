@@ -1,8 +1,8 @@
 
 
-#' @import methods
-#' 
-#' @import flextable.tzh
+# @import methods
+# @import flextable.tzh
+#' @keywords internal
 '_PACKAGE'
 
 #

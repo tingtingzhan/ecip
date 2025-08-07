@@ -114,7 +114,7 @@ ecip <- function(model) {
 }  
 
 
-
+#' @importFrom methods callNextMethod
 setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...) {
   
   x <- callNextMethod(.Object, ...)
@@ -262,8 +262,9 @@ as_flextable.ecip <- function(
 #' 
 #' @param object \linkS4class{ecip} object
 #' 
+#' @importFrom methods show signature
 #' @export
-setMethod(f = show, signature(object = 'ecip'), definition = function(object) {
+setMethod(f = show, signature = signature(object = 'ecip'), definition = function(object) {
   object |> 
     as_flextable.ecip() |>
     print() # ?flextable:::print.flextable
