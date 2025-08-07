@@ -10,18 +10,27 @@
 vterms <- function(x) UseMethod(generic = 'vterms')
 
 #' @rdname vterms
-#' @examples
-#' library(ordinal)
-#' m = clmm(SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD), data = soup,
-#'  link = 'probit', threshold = 'equidistant')
-#' m |> vterms()
 #' @importFrom stats formula terms
 #' @export vterms.default
 #' @export
 vterms.default <- function(x) {
-  
-  tmp. <- x |>
+  x |>
     formula() |> # must!!  terms.* of many mixed effect models only returns fixed effect
+    vterms.formula()
+}
+
+
+#' @rdname vterms
+#' @examples
+#' # see ?ordinal::clmm examples
+#' (SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD)) |>
+#'   vterms()
+#' @importFrom stats formula terms
+#' @export vterms.formula
+#' @export
+vterms.formula <- function(formula) {
+  
+  tmp. <- formula |> 
     terms() |> # ?stats:::terms.terms handles exception :)
     attr(which = 'variables', exact = TRUE) |>
     as.list.default()
@@ -37,6 +46,5 @@ vterms.default <- function(x) {
   return(ret)
   
 }
-
 
 

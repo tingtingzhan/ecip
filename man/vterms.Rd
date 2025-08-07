@@ -3,11 +3,14 @@
 \name{vterms}
 \alias{vterms}
 \alias{vterms.default}
+\alias{vterms.formula}
 \title{Variables in Terms}
 \usage{
 vterms(x)
 
 \method{vterms}{default}(x)
+
+\method{vterms}{formula}(formula)
 }
 \arguments{
 \item{x}{an \code{R} model fit}
@@ -16,9 +19,8 @@ vterms(x)
 Variables in Terms
 }
 \examples{
-library(ordinal)
-m = clmm(SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD), data = soup,
- link = 'probit', threshold = 'equidistant')
-m |> vterms()
+# see ?ordinal::clmm examples
+(SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD)) |>
+  vterms()
 }
 \keyword{internal}
