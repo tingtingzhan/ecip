@@ -3,14 +3,11 @@
 \name{expcoef}
 \alias{expcoef}
 \alias{expcoef.default}
-\alias{expcoef.glht}
 \title{Taking Exponential of Coefficients}
 \usage{
 expcoef(x)
 
 \method{expcoef}{default}(x)
-
-\method{expcoef}{glht}(x)
 }
 \arguments{
 \item{x}{an R object}

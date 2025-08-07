@@ -3,14 +3,11 @@
 \name{estnm}
 \alias{estnm}
 \alias{estnm.default}
-\alias{estnm.glht}
 \title{Proper Name of Estimates}
 \usage{
 estnm(x)
 
 \method{estnm}{default}(x)
-
-\method{estnm}{glht}(x)
 }
 \arguments{
 \item{x}{an R object}

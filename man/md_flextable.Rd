@@ -7,7 +7,6 @@
 \alias{md_.aov}
 \alias{md_.TukeyHSD}
 \alias{md_.summary.matchit}
-\alias{md_.glht}
 \alias{md_.binTab}
 \alias{md_.DemographicTable}
 \alias{md_.matchit}
@@ -24,8 +23,6 @@
 \method{md_}{TukeyHSD}(x, xnm, font.size, ...)
 
 \method{md_}{summary.matchit}(x, xnm, font.size, ...)
-
-\method{md_}{glht}(x, xnm, ...)
 
 \method{md_}{binTab}(x, xnm, ...)
 
@@ -68,15 +65,6 @@ list(
   '`TukeyHSD`' = aov(breaks ~ wool + tension, data = warpbreaks) |> 
     TukeyHSD(which = 'tension', ordered = TRUE)
 ) |> render_(file = 'aov_etc')
-library(multcomp); list(
- '`glht` via `aov`' = aov(breaks ~ tension + wool, data = warpbreaks) |> 
-   glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett')),
- '`glht` via `lm`, single `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-   glht(linfct = mcp(tension = 'Tukey')),
- '`glht` via `lm`, multiple `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-   glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett'))
-) |> render_(file = 'glht')
-
 library(DanielBiostatistics10th); list(
   '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
 ) |> render_(file = 'binTab')

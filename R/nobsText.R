@@ -21,9 +21,5 @@ nobsText.default <- function(x) {
 }
 
 
-#' @export
-nobsText.glht <- function(x) nobsText(x$model)
-# requires S3 generic [nobsText()]; do *not* move to \pkg{multcomp.tzh}
-
 
 

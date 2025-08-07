@@ -45,13 +45,6 @@ estnm.default <- function(x) {
 }
 
 
-#' @rdname estnm
-#' @export estnm.glht
-#' @export
-estnm.glht <- function(x) estnm(x$model)
-# requires S3 generic [estnm()]; do *not* move to \pkg{multcomp.tzh}
-
-
 
 
 #' @title Taking Exponential of Coefficients
@@ -75,13 +68,6 @@ expcoef <- function(x) UseMethod(generic = 'expcoef')
 expcoef.default <- function(x) {
   x |> estnm() |> grepl(pattern = 'Ratio')
 }
-
-#' @rdname expcoef
-#' @export expcoef.glht
-#' @export
-expcoef.glht <- function(x) expcoef(x$model)
-# requires S3 generic [expcoef()]; do *not* move to \pkg{multcomp.tzh}
-
 
 
 

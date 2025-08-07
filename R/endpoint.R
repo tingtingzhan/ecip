@@ -44,12 +44,4 @@ endpoint.formula <- function(formula) {
 }
 
 
-# requires S3 generic [endpoint()]; do *not* move to \pkg{multcomp.tzh}
-# ?multcomp::glht
-#' @rdname endpoint
-#' @export endpoint.glht
-#' @export
-endpoint.glht <- function(x) endpoint(x$model) # must need!!
-
-
 

@@ -1,5 +1,12 @@
 
+
+#' @title R Markdown by \link[flextable]{flextable}
+#' 
+#' @param x,xnm,font.size,... ..
+#' 
+#' @keywords internal
 #' @importFrom methods new
+#' @export
 md_flextable_ <- function(x, xnm, font.size, ...) {
   
   z1 <- Sprintf(x) |> # S3 generic [Sprintf()]
@@ -82,27 +89,6 @@ md_.summary.matchit <- md_flextable_
 
 
 # below: small variations on [md_flextable_()]
-
-#' @rdname md_flextable
-#' @examples
-#' library(multcomp); list(
-#'  '`glht` via `aov`' = aov(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett')),
-#'  '`glht` via `lm`, single `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey')),
-#'  '`glht` via `lm`, multiple `$focus`' = lm(breaks ~ tension + wool, data = warpbreaks) |> 
-#'    glht(linfct = mcp(tension = 'Tukey', wool = 'Dunnett'))
-#' ) |> render_(file = 'glht')
-#' 
-#' @export md_.glht
-#' @export
-md_.glht <- function(x, xnm, ...) {
-  if (!is.character(xnm)) xnm <- deparse1(xnm)
-  return(c(
-    md_(x$model, xnm = paste0(xnm, '$model'), ...),
-    md_flextable_(x, xnm = xnm, ...)
-  ))
-}
 
 
 

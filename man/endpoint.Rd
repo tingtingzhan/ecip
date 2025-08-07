@@ -4,7 +4,6 @@
 \alias{endpoint}
 \alias{endpoint.default}
 \alias{endpoint.formula}
-\alias{endpoint.glht}
 \title{Endpoint}
 \usage{
 endpoint(x)
@@ -12,8 +11,6 @@ endpoint(x)
 \method{endpoint}{default}(x)
 
 \method{endpoint}{formula}(formula)
-
-\method{endpoint}{glht}(x)
 }
 \arguments{
 \item{x}{..}
