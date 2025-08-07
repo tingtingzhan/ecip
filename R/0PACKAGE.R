@@ -6,7 +6,6 @@
 #' @import DanielBiostatistics10th
 #' @import flextable.tzh
 #' @import glmtoolbox.tzh
-#' @import lcmm.tzh
 #' @import lme4.tzh
 #' @import multcomp.tzh
 '_PACKAGE'

@@ -1,6 +1,12 @@
 
 
+#' @title R Markdown Lines by `ggplot2::autoplot`
+#' 
+#' @param x,xnm,... ..
+#' 
+#' @keywords internal
 #' @importFrom methods new
+#' @export
 md_autoplot_ <- function(x, xnm, ...) {
   
   z1 <- Sprintf(x) # S3 generic [Sprintf()]
@@ -25,11 +31,3 @@ md_autoplot_ <- function(x, xnm, ...) {
 }
 
 
-#' @rdname md_
-#' @examples
-#' library(lcmm.tzh); list(
-#'  '`lcmm`' = m20
-#' ) |> render_(file = 'lcmm')
-#' @export md_.lcmm
-#' @export
-md_.lcmm <- md_autoplot_
