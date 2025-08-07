@@ -4,12 +4,6 @@
 \alias{md_flextable}
 \alias{md_.listof}
 \alias{md_.multivar}
-\alias{md_.aov}
-\alias{md_.TukeyHSD}
-\alias{md_.summary.matchit}
-\alias{md_.binTab}
-\alias{md_.DemographicTable}
-\alias{md_.matchit}
 \alias{md_.stepAIC}
 \alias{md_.backwardCriterion}
 \title{\pkg{rmarkdown} Lines based on \link[flextable]{flextable}}
@@ -17,18 +11,6 @@
 \method{md_}{listof}(x, xnm, font.size, ...)
 
 \method{md_}{multivar}(x, xnm, font.size, ...)
-
-\method{md_}{aov}(x, xnm, font.size, ...)
-
-\method{md_}{TukeyHSD}(x, xnm, font.size, ...)
-
-\method{md_}{summary.matchit}(x, xnm, font.size, ...)
-
-\method{md_}{binTab}(x, xnm, ...)
-
-\method{md_}{DemographicTable}(x, xnm, font.size = 9, ...)
-
-\method{md_}{matchit}(x, xnm, ...)
 
 \method{md_}{stepAIC}(x, xnm, font.size, ...)
 
@@ -61,21 +43,5 @@ list(
  'multivar, `merMod`' = m2 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# ,
  # 'multivar, `clmm`' = m3 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# still bug
 ) |> render_(file = 'multivar')
-list(
-  '`TukeyHSD`' = aov(breaks ~ wool + tension, data = warpbreaks) |> 
-    TukeyHSD(which = 'tension', ordered = TRUE)
-) |> render_(file = 'aov_etc')
-library(DanielBiostatistics10th); list(
-  '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
-) |> render_(file = 'binTab')
-library(DemographicTable); list(
-  '`DemographicTable`' = DemographicTable(CO2, groups = 'Type', include = c('conc', 'uptake'))
-) |> render_(file = 'DemographicTable')
-library(MatchIt)
-m = matchit(treat ~ age+educ+race+nodegree+married+re74+re75, data = lalonde)
-list(
- '`matchit1`' = m,
- '`matchit2`' = m |> summary(addlvariables = 're78')
-) |> render_(file = 'matchit')
 }
 \keyword{internal}

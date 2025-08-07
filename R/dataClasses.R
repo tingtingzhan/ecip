@@ -36,13 +36,11 @@ dataClasses <- function(x) UseMethod(generic = 'dataClasses')
 dataClasses.default <- function(x) x |> terms() |> dataClasses.terms()
 
 #' @rdname dataClasses
-#' @importFrom DemographicTable msg_logical
 #' @export dataClasses.terms
 #' @export
 dataClasses.terms <- function(x) { # primary work horse!!!
   ret <- attr(x, which = 'dataClasses', exact = TRUE) %||% 
     stop('`terms` object does not have `dataClasses` attribute?')
-  if (any(ret[-1L] == 'logical')) warning(msg_logical()) # first element is endpoint
   return(ret)
 }
 

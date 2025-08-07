@@ -65,98 +65,11 @@ md_.listof <- md_flextable_
 #' @export
 md_.multivar <- md_flextable_
 
-#' @rdname md_flextable
-#' @export md_.aov
-#' @export
-md_.aov <- md_flextable_
-
-#' @rdname md_flextable
-#' @examples
-#' list(
-#'   '`TukeyHSD`' = aov(breaks ~ wool + tension, data = warpbreaks) |> 
-#'     TukeyHSD(which = 'tension', ordered = TRUE)
-#' ) |> render_(file = 'aov_etc')
-#' @export md_.TukeyHSD
-#' @export
-md_.TukeyHSD <- md_flextable_
-
-
-#' @rdname md_flextable
-#' @export md_.summary.matchit
-#' @export
-md_.summary.matchit <- md_flextable_ 
-
-
-
-# below: small variations on [md_flextable_()]
-
-
-
-#' @rdname md_flextable
-#' @examples
-#' library(DanielBiostatistics10th); list(
-#'   '`binTab`' = binTab(array(c(7L, 3L, 8L, 6L), dim = c(2,2)))
-#' ) |> render_(file = 'binTab')
-#' @export md_.binTab
-#' @export
-md_.binTab <- function(x, xnm, ...) {
-  
-  z1 <- md_flextable_(x, xnm = xnm)
-  
-  z2 <- c(
-    '```{r}', 
-    '#| echo: false', 
-    '#| comment:', 
-    paste0('summary.binTab(', xnm, ')'), # how to put in `prevalence` here??
-    '```'
-  ) |> 
-    new(Class = 'md_lines')
-  
-  c(z1, z2) # ?rmd.tzh::c.md_lines
-  
-}
-
-
-
-#' @rdname md_flextable
-#' @examples
-#' library(DemographicTable); list(
-#'   '`DemographicTable`' = DemographicTable(CO2, groups = 'Type', include = c('conc', 'uptake'))
-#' ) |> render_(file = 'DemographicTable')
-#' @export md_.DemographicTable
-#' @export
-md_.DemographicTable <- function(x, xnm, font.size = 9, ...) {
-  md_flextable_(x, xnm = xnm, font.size = font.size, ...)
-}
-
-
-
-#' @rdname md_flextable
-#' @examples
-#' library(MatchIt)
-#' m = matchit(treat ~ age+educ+race+nodegree+married+re74+re75, data = lalonde)
-#' list(
-#'  '`matchit1`' = m,
-#'  '`matchit2`' = m |> summary(addlvariables = 're78')
-#' ) |> render_(file = 'matchit')
-#' @export md_.matchit
-#' @export
-md_.matchit <- function(x, xnm, ...) {
-  md_.summary.matchit(
-    x = summary(x), # ?MatchIt:::summary.matchit
-    xnm = sprintf(fmt = 'summary(%s)', xnm),
-    ...)
-}
-
-
-
 
 #' @rdname md_flextable
 #' @export md_.stepAIC
 #' @export
 md_.stepAIC <- md_flextable_
-
-
 
 
 #' @rdname md_flextable
