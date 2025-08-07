@@ -51,21 +51,10 @@ md_ecip <- function(x, xnm, ...) {
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 #' ) |> render_(file = 'lm')
 #' 
-#' library(MASS); list(
-#'  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
-#' ) |> render_(file = 'rlm')
-#' 
 #' @name md_
 #' @importFrom rmd.tzh md_
 #' @export md_.lm
 #' @export
 md_.lm <- md_ecip
 
-
-
-#' @rdname md_
-#' @importFrom rmd.tzh md_
-#' @export md_.rlm
-#' @export
-md_.rlm <- md_ecip
 

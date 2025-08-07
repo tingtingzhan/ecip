@@ -3,15 +3,9 @@
 \name{md_flextable}
 \alias{md_flextable}
 \alias{md_.listof}
-\alias{md_.multivar}
-\alias{md_.stepAIC}
 \title{\pkg{rmarkdown} Lines based on \link[flextable]{flextable}}
 \usage{
 \method{md_}{listof}(x, xnm, font.size, ...)
-
-\method{md_}{multivar}(x, xnm, font.size, ...)
-
-\method{md_}{stepAIC}(x, xnm, font.size, ...)
 }
 \arguments{
 \item{x}{..}
@@ -24,21 +18,8 @@
 \pkg{rmarkdown} Lines based on \link[flextable]{flextable}
 }
 \examples{
-library(rmd.tzh)
+# library(rmd.tzh)
+# none yet..
 
-library(lme4.tzh)
-library(HSAUR3)
-library(ordinal)
-m1 = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc)
-m2 = glmer(outcome ~ treatment + visit + (1|patientID), data = toenail,
-  family = binomial, nAGQ = 20)
-m3 = clmm(SURENESS ~ PROD + SOUPTYPE + (1|RESP) + (1|RESP:PROD), data = soup,
- link = 'probit', threshold = 'equidistant')
-  
-list(
- 'multivar, `lm`' = m1 |> as.univar() |> as.multivar(subset = min_pvalue < .1),
- 'multivar, `merMod`' = m2 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# ,
- # 'multivar, `clmm`' = m3 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# still bug
-) |> render_(file = 'multivar')
 }
 \keyword{internal}

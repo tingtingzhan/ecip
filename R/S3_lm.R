@@ -2,6 +2,7 @@
 #' @export
 desc_.lm <- function(x) 'ordinary least squares'
 
+#' @method .pval summary.lm
 #' @export
 .pval.summary.lm <- function(x) {
   cf <- x$coefficients
@@ -12,12 +13,11 @@ desc_.lm <- function(x) 'ordinary least squares'
 
 
 
-
-#' @importFrom stats family
 #' @export
 desc_.glm <- function(x) 'generalized linear'
 
 
+#' @method .pval summary.glm
 #' @export
 .pval.summary.glm <- function(x) {
   cf <- x$coefficients

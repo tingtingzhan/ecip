@@ -16,7 +16,7 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
     '```{r}', 
     '#| echo: false', 
     if (!missing(font.size)) font.size |> sprintf(fmt = 'set_flextable_defaults(font.size = %.1f)'),
-    sprintf(fmt = '(%s) |> as_flextable()', xnm),
+    xnm |> sprintf(fmt = 'as_flextable(%s)'),
     if (!missing(font.size)) 'init_flextable_defaults()',
     '```'
   ) |>
@@ -37,7 +37,8 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
 #' @param font.size see function \link[flextable]{set_flextable_defaults}
 #' 
 #' @examples
-#' library(rmd.tzh)
+#' # library(rmd.tzh)
+#' # none yet..
 #' 
 #' @keywords internal
 #' @name md_flextable
@@ -45,30 +46,6 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
 #' @export
 md_.listof <- md_flextable_
 
-#' @rdname md_flextable
-#' @examples
-#' library(lme4.tzh)
-#' library(HSAUR3)
-#' library(ordinal)
-#' m1 = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc)
-#' m2 = glmer(outcome ~ treatment + visit + (1|patientID), data = toenail,
-#'   family = binomial, nAGQ = 20)
-#' m3 = clmm(SURENESS ~ PROD + SOUPTYPE + (1|RESP) + (1|RESP:PROD), data = soup,
-#'  link = 'probit', threshold = 'equidistant')
-#'   
-#' list(
-#'  'multivar, `lm`' = m1 |> as.univar() |> as.multivar(subset = min_pvalue < .1),
-#'  'multivar, `merMod`' = m2 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# ,
-#'  # 'multivar, `clmm`' = m3 |> as.univar() |> as.multivar(subset = min_pvalue < .1)# still bug
-#' ) |> render_(file = 'multivar')
-#' @export md_.multivar
-#' @export
-md_.multivar <- md_flextable_
 
-
-#' @rdname md_flextable
-#' @export md_.stepAIC
-#' @export
-md_.stepAIC <- md_flextable_
 
 

@@ -300,7 +300,11 @@ setMethod(f = show, signature = signature(object = 'ecip'), definition = functio
 
 
 
-
+#' @title [isIntercept]
+#' 
+#' @param x ..
+#' 
+#' @export
 isIntercept <- function(x) { 
   if (is.null(x)) return(FALSE)
   if (!is.character(x)) stop('Input must be character (e.g. coefficients names)')
@@ -311,21 +315,38 @@ isIntercept <- function(x) {
 }
 
 
-
+#' @title [intercept_rm]
+#' 
+#' @param x ..
+#' 
+#' @keywords intercept_rm
+#' @name intercept_rm
+#' @export
 intercept_rm <- function(x) UseMethod(generic = 'intercept_rm')
 
+#' @rdname intercept_rm
+#' @export intercept_rm.ecip
 #' @export
 intercept_rm.ecip <- function(x) {
   # my old [trim_cibeta]
   x[!isIntercept(names(x@coef)), ] # `[.ecip`
 }
 
+#' @rdname intercept_rm
+#' @export intercept_rm.matrix
 #' @export
 intercept_rm.matrix <- function(x) {
   x[!isIntercept(rownames(x)), , drop = FALSE] # `[.ecip`
 }
 
+
+#' @title [simple_matrix_ecip]
+#' 
+#' @param x ..
+#' 
+#' @keywords internal
 #' @importFrom rmd.tzh label_pvalue_sym
+#' @export
 simple_matrix_ecip <- function(x) {
   if (!length(x@p.value)) stop('not meaningful in application!!')
   

@@ -19,10 +19,5 @@ Imports: methods,
   flextable (== 0.9.9),
   lmtest (== 0.9.40), 
   flextable.tzh,
-  MASS.tzh,
   rmd.tzh
-Suggests: knitr (== 1.50),
-  HSAUR3 (== 1.0.15),
-  MASS (== 7.3.65),
-  ordinal (== 2023.12.4.1),
-  lme4.tzh
+Suggests: knitr (== 1.50)

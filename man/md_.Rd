@@ -3,13 +3,10 @@
 \name{md_}
 \alias{md_}
 \alias{md_.lm}
-\alias{md_.rlm}
 \alias{md_.mlm}
 \title{\pkg{rmarkdown} Lines based on \code{\link[=ecip]{ecip()}}}
 \usage{
 \method{md_}{lm}(x, xnm, ...)
-
-\method{md_}{rlm}(x, xnm, ...)
 
 \method{md_}{mlm}(x, xnm, ...)
 }
@@ -29,10 +26,6 @@ library(rmd.tzh)
 list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> render_(file = 'lm')
-
-library(MASS); list(
- '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
-) |> render_(file = 'rlm')
 
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
