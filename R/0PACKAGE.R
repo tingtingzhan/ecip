@@ -12,7 +12,6 @@
 #' @import multcomp.tzh
 #' @import nlme.tzh
 #' @import pscl.tzh
-#' @import survival.tzh
 #' @import vcd.tzh
 '_PACKAGE'
 

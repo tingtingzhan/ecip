@@ -52,22 +52,4 @@ endpoint.formula <- function(formula) {
 endpoint.glht <- function(x) endpoint(x$model) # must need!!
 
 
-# ?survival:::survfit.coxph
-# requires [endpoint.default()]; do *not* move to \pkg{survival.tzh}
-#' @rdname endpoint
-#' @examples
-#' library(survival)
-#' coxph(Surv(time, status) ~ celltype, data = veteran) |> 
-#'   survfit() |>
-#'   endpoint()
-#' @export endpoint.survfitcox
-#' @export
-endpoint.survfitcox <- function(x) {
-  cox <- tryCatch(eval(x$call$formula), error = as.null.default, warning = as.null.default)
-  if (!length(cox) || !inherits(cox, what = 'coxph')) return('')
-  return(endpoint.default(cox))
-}
-
-
-
 

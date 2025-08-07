@@ -5,7 +5,6 @@
 \alias{endpoint.default}
 \alias{endpoint.formula}
 \alias{endpoint.glht}
-\alias{endpoint.survfitcox}
 \title{Endpoint}
 \usage{
 endpoint(x)
@@ -15,8 +14,6 @@ endpoint(x)
 \method{endpoint}{formula}(formula)
 
 \method{endpoint}{glht}(x)
-
-\method{endpoint}{survfitcox}(x)
 }
 \arguments{
 \item{x}{..}
@@ -33,8 +30,4 @@ Find the endpoint of an R regression model.
 endpoint(a ~ b)
 # endpoint(a ~ b ~ c) # stop support
 endpoint(a ~ b | c)
-library(survival)
-coxph(Surv(time, status) ~ celltype, data = veteran) |> 
-  survfit() |>
-  endpoint()
 }

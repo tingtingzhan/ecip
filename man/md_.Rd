@@ -75,14 +75,6 @@ library(ordinal); list(
  '`clmm`' = clmm(rating ~ temp + contact + (1|judge), data = wine)
 ) |> render_(file = 'clm_clmm')
 
-library(survival); list(
- '`coxph`' = rotterdam |>
- within.data.frame(expr = {
-  os = Surv(dtime, death)
- }) |>
- coxph(formula = os ~ size)
-) |> render_(file = 'coxph')
-
 library(lme4); list(
  '`glmerMod`' = glmer(cbind(incidence, size-incidence) ~ period + (1|herd), 
      data = cbpp, family = binomial)
