@@ -24,14 +24,13 @@ Imports: methods,
   DemographicTable,
   flextable.tzh,
   glmtoolbox.tzh,
-  lme4.tzh,
   MASS.tzh, multcomp.tzh,
   rmd.tzh
 Suggests: knitr (== 1.50),
   glmtoolbox (== 0.1.12),
   HSAUR3 (== 1.0.15),
-  lme4 (== 1.1.37),
   MatchIt (== 4.7.1), MASS (== 7.3.65),
   multcomp (== 1.4.28), 
   ordinal (== 2023.12.4.1),
-  VGAM (== 1.1.13)
+  VGAM (== 1.1.13),
+  lme4.tzh

@@ -4,7 +4,6 @@
 \alias{dataClasses}
 \alias{dataClasses.default}
 \alias{dataClasses.terms}
-\alias{dataClasses.merMod}
 \title{dataClasses}
 \usage{
 dataClasses(x)
@@ -12,8 +11,6 @@ dataClasses(x)
 \method{dataClasses}{default}(x)
 
 \method{dataClasses}{terms}(x)
-
-\method{dataClasses}{merMod}(x)
 }
 \arguments{
 \item{x}{a regression model}
@@ -32,13 +29,6 @@ There are two possible pipelines to achieve this purpose,
 
 \item{\emph{\strong{Default}} \code{\link[=dataClasses.default]{dataClasses.default()}}}{\code{x |> terms() |> dataClasses.terms()}.}
 
-\item{\emph{\strong{Alternative}}}{\code{x |> model.frame() |> attr(which = 'terms', exact = TRUE) |> dataClasses.terms()},
-e.g.,
-\itemize{
-\item{\code{\link[=dataClasses.merMod]{dataClasses.merMod()}} for \link[lme4]{merMod} object,
-as \code{lme4:::terms.merMod()} return does not have \code{'dataClasses'} attribute}
-}
-}
 }
 
 Therefore,

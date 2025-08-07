@@ -40,7 +40,7 @@ md_.listof <- md_flextable_
 
 #' @rdname md_flextable
 #' @examples
-#' library(lme4)
+#' library(lme4.tzh)
 #' library(HSAUR3)
 #' library(ordinal)
 #' m1 = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc)

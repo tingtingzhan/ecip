@@ -17,13 +17,6 @@
 #' 
 #' \item{***Default*** [dataClasses.default()]}{`x |> terms() |> dataClasses.terms()`.}
 #' 
-#' \item{***Alternative***}{`x |> model.frame() |> attr(which = 'terms', exact = TRUE) |> dataClasses.terms()`, 
-#' e.g., 
-#' \itemize{
-#' \item{[dataClasses.merMod()] for \link[lme4]{merMod} object, 
-#' as `lme4:::terms.merMod()` return does not have `'dataClasses'` attribute}
-#' }
-#' }
 #' }
 #' 
 #' Therefore, 
@@ -53,23 +46,6 @@ dataClasses.terms <- function(x) { # primary work horse!!!
   return(ret)
 }
 
-
-
-
-# requires [dataClasses.terms()]; do *not* move to \pkg{lme4.tzh}
-#' @rdname dataClasses
-#' @importFrom stats model.frame
-#' @export dataClasses.merMod
-#' @export
-dataClasses.merMod <- function(x) {
-  x |>
-    model.frame() |> # ?lme4:::model.frame.merMod
-    attr(which = 'terms', exact = TRUE) |>
-    # do *not* overwrite ?lme4:::terms.merMod (which does not have dataClasses)
-    dataClasses.terms()
-  # seems wrong for 'nlmerMod' object..
-  # 'glmerMod' and 'lmerMod' should be correct
-}
 
 
 

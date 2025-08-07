@@ -63,11 +63,6 @@ library(ordinal); list(
  '`clmm`' = clmm(rating ~ temp + contact + (1|judge), data = wine)
 ) |> render_(file = 'clm_clmm')
 
-library(lme4); list(
- '`glmerMod`' = glmer(cbind(incidence, size-incidence) ~ period + (1|herd), 
-     data = cbpp, family = binomial)
-) |> render_(file = 'glmerMod')
-  
 library(MASS); list(
  '`rlm`' = rlm(stack.loss ~ ., data = stackloss)
 ) |> render_(file = 'rlm')

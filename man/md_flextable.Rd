@@ -50,7 +50,7 @@
 \examples{
 library(rmd.tzh)
 
-library(lme4)
+library(lme4.tzh)
 library(HSAUR3)
 library(ordinal)
 m1 = lm(mpg ~ cyl + am + hp + wt + qsec + drat + disp, data = mtc)
