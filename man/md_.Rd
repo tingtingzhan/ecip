@@ -14,7 +14,6 @@
 \alias{md_.vlm}
 \alias{md_.lcmm}
 \alias{md_.mlm}
-\alias{md_.zeroinfl}
 \title{\pkg{rmarkdown} Lines based on \code{\link[=ecip]{ecip()}}}
 \usage{
 \method{md_}{lm}(x, xnm, ...)
@@ -40,8 +39,6 @@
 \method{md_}{lcmm}(x, xnm, ...)
 
 \method{md_}{mlm}(x, xnm, ...)
-
-\method{md_}{zeroinfl}(x, xnm, ...)
 }
 \arguments{
 \item{x}{..}
@@ -59,12 +56,6 @@ library(rmd.tzh)
 list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> render_(file = 'lm')
-
-library(nlme); list(
- '`lme`' = lme(distance ~ age, data = Orthodont, keep.data = TRUE),
- '`gls`' = gls(follicles ~ sin(2*pi*Time) + cos(2*pi*Time), 
-     data = Ovary, correlation = corAR1(form = ~ 1 | Mare))
-) |> render_(file = 'lme_gls')
 
 library(glmtoolbox); list(
  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
@@ -96,7 +87,4 @@ library(lcmm.tzh); list(
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 ) |> render_(file = 'mlm')
-library(pscl.tzh); list(
- '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)
-) |> render_(file = 'zeroinfl')
 }

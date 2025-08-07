@@ -1,5 +1,13 @@
 
-# multiple models
+#' @title R Markdown Lines for Multiple Models
+#' 
+#' @param x ..
+#' 
+#' @param xnm ..
+#' 
+#' @param ... ..
+#' 
+#' @export
 md_multiple_ <- function(x, xnm, ...) {
   
   n <- x |> ecip() |> length()
@@ -31,16 +39,4 @@ md_multiple_ <- function(x, xnm, ...) {
 #' @export md_.mlm
 #' @export
 md_.mlm <- md_multiple_
-
-#' @rdname md_
-#' @examples
-#' library(pscl.tzh); list(
-#'  '`zeroinfl`' = zeroinfl(art ~ . | 1, data = bioChemists)
-#' ) |> render_(file = 'zeroinfl')
-#' @export md_.zeroinfl
-#' @export
-md_.zeroinfl <- md_multiple_
-
-
-
 

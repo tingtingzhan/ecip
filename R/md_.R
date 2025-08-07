@@ -43,12 +43,6 @@ md_ecip <- function(x, xnm, ...) {
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 #' ) |> render_(file = 'lm')
 #' 
-#' library(nlme); list(
-#'  '`lme`' = lme(distance ~ age, data = Orthodont, keep.data = TRUE),
-#'  '`gls`' = gls(follicles ~ sin(2*pi*Time) + cos(2*pi*Time), 
-#'      data = Ovary, correlation = corAR1(form = ~ 1 | Mare))
-#' ) |> render_(file = 'lme_gls')
-#' 
 #' library(glmtoolbox); list(
 #'  '`glmgee`' = glmgee(breaks ~ tension, id = wool, data = warpbreaks, corstr = 'exchangeable')
 #' ) |> render_(file = 'glmgee')

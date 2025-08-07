@@ -15,13 +15,7 @@
 #' There are two possible pipelines to achieve this purpose,
 #' \describe{
 #' 
-#' \item{***Default*** [dataClasses.default()]}{`x |> terms() |> dataClasses.terms()`.
-#' Minor variation(s) include,
-#' \itemize{
-#' \item{[dataClasses.zeroinfl()] for \link[pscl]{zeroinfl} object, 
-#' as `pscl:::terms.zeroinfl()` return is not desired}
-#' }
-#' }
+#' \item{***Default*** [dataClasses.default()]}{`x |> terms() |> dataClasses.terms()`.}
 #' 
 #' \item{***Alternative***}{`x |> model.frame() |> attr(which = 'terms', exact = TRUE) |> dataClasses.terms()`, 
 #' e.g., 
@@ -35,7 +29,7 @@
 #' Therefore, 
 #' \itemize{
 #' \item{For object that has \link[stats]{terms} dispatch but no \link[stats]{model.frame} dispatch, 
-#' we use the default pipeline and do *not* write a `model.frame.*` function, e.g., \link[nlme]{lme} and \link[nlme]{gls} objects}
+#' we use the default pipeline and do *not* write a `model.frame.*` function, e.g., `nlme::lme` and `nlme::gls` objects}
 #' }
 #' 
 #' @name dataClasses
@@ -77,16 +71,6 @@ dataClasses.merMod <- function(x) {
   # 'glmerMod' and 'lmerMod' should be correct
 }
 
-
-# requires [dataClasses.terms()]; do *not* move to \pkg{pscl.tzh}
-#' @rdname dataClasses
-#' @export dataClasses.zeroinfl
-#' @export
-dataClasses.zeroinfl <- function(x) {
-  (x$terms$full) |> 
-    # do *not* overwrite ?pscl:::terms.zeroinfl; packageDate('pscl') # 2024-01-14
-    dataClasses.terms()
-}
 
 
 

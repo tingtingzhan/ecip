@@ -8,10 +8,7 @@
 #' @import glmtoolbox.tzh
 #' @import lcmm.tzh
 #' @import lme4.tzh
-#' @import ltm.tzh
 #' @import multcomp.tzh
-#' @import nlme.tzh
-#' @import pscl.tzh
 '_PACKAGE'
 
 #

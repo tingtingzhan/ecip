@@ -5,7 +5,6 @@
 \alias{dataClasses.default}
 \alias{dataClasses.terms}
 \alias{dataClasses.merMod}
-\alias{dataClasses.zeroinfl}
 \title{dataClasses}
 \usage{
 dataClasses(x)
@@ -15,8 +14,6 @@ dataClasses(x)
 \method{dataClasses}{terms}(x)
 
 \method{dataClasses}{merMod}(x)
-
-\method{dataClasses}{zeroinfl}(x)
 }
 \arguments{
 \item{x}{a regression model}
@@ -33,13 +30,7 @@ Function \code{\link[=dataClasses]{dataClasses()}} is inspired by the attribute 
 There are two possible pipelines to achieve this purpose,
 \describe{
 
-\item{\emph{\strong{Default}} \code{\link[=dataClasses.default]{dataClasses.default()}}}{\code{x |> terms() |> dataClasses.terms()}.
-Minor variation(s) include,
-\itemize{
-\item{\code{\link[=dataClasses.zeroinfl]{dataClasses.zeroinfl()}} for \link[pscl]{zeroinfl} object,
-as \code{pscl:::terms.zeroinfl()} return is not desired}
-}
-}
+\item{\emph{\strong{Default}} \code{\link[=dataClasses.default]{dataClasses.default()}}}{\code{x |> terms() |> dataClasses.terms()}.}
 
 \item{\emph{\strong{Alternative}}}{\code{x |> model.frame() |> attr(which = 'terms', exact = TRUE) |> dataClasses.terms()},
 e.g.,
@@ -53,6 +44,6 @@ as \code{lme4:::terms.merMod()} return does not have \code{'dataClasses'} attrib
 Therefore,
 \itemize{
 \item{For object that has \link[stats]{terms} dispatch but no \link[stats]{model.frame} dispatch,
-we use the default pipeline and do \emph{not} write a \verb{model.frame.*} function, e.g., \link[nlme]{lme} and \link[nlme]{gls} objects}
+we use the default pipeline and do \emph{not} write a \verb{model.frame.*} function, e.g., \code{nlme::lme} and \code{nlme::gls} objects}
 }
 }
