@@ -38,7 +38,7 @@ md_ecips <- function(x, xnm, ...) {
   
 }
 
-#' @rdname md_
+#' @rdname md_lm
 #' @examples
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)

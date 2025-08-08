@@ -29,9 +29,9 @@ md_ecip <- function(x, xnm, ...) {
 
 #' @title R Markdown Lines for \link[stats]{lm} Model
 #' 
-#' @param x a \link[stats]{lm} model
+#' @param x a regression model returned from function \link[stats]{lm} or \link[stats]{glm}
 #' 
-#' @param xnm ..
+#' @param xnm \link[base]{character} scalar
 #' 
 #' @param ... ..
 #' 
@@ -40,7 +40,8 @@ md_ecip <- function(x, xnm, ...) {
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 #' ) |> rmd.tzh::render_(file = 'lm')
 #' 
-#' @name md_
+#' @name md_lm
+#' @keywords internal
 #' @importFrom rmd.tzh md_
 #' @export md_.lm
 #' @export

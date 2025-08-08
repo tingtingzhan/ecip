@@ -3,6 +3,7 @@
 #' 
 #' @param x an R object
 #' 
+#' @keywords internal
 #' @name note
 #' @export
 note_ <- function(x) UseMethod(generic = 'note_')
@@ -10,6 +11,7 @@ note_ <- function(x) UseMethod(generic = 'note_')
 
 #' @rdname note
 #' @importFrom utils methods
+#' @export note_.default
 #' @export
 note_.default <- function(x) {
   

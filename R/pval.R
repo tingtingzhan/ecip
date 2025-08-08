@@ -5,6 +5,7 @@
 #' 
 #' @param x an R regression model
 #' 
+#' @keywords internal
 #' @name pval
 #' @export
 .pval <- function(x) {
@@ -36,12 +37,31 @@
 # ?AER:::coeftest.multinom
 # \link[lmtest]{coeftest.default} does not have parameter `alternative`
 # ?lmtest:::coef.coeftest good enough, since at least 2022-03-21
+#' @rdname pval
+#' @export .pval.coeftest
 #' @export
 .pval.coeftest <- function(x) {
   ret <- x[,'Pr(>|z|)']
   names(ret) <- rownames(x)
   return(ret)
 }
+
+
+
+
+# e.g.,
+# ?stats:::summary.mlm returns 'listof' 'summary.lm'
+#' @rdname pval
+#' 
+#' @details
+#' Function [.pval.listof()] applies to `'mlm' |> stats:::summary.mlm() |> .pval.listof()`.
+#' 
+#' @export .pval.listof
+#' @export
+.pval.listof <- function(x) {
+  x |> lapply(FUN = .pval)
+}
+
 
 
 

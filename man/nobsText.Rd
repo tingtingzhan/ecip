@@ -2,9 +2,12 @@
 % Please edit documentation in R/nobsText.R
 \name{nobsText}
 \alias{nobsText}
+\alias{nobsText.default}
 \title{Text of number of observations}
 \usage{
 nobsText(x)
+
+\method{nobsText}{default}(x)
 }
 \arguments{
 \item{x}{regression model}

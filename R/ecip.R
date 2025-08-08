@@ -151,6 +151,7 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 #' 
 #' @param ... additional parameters, currently not in use
 #' 
+#' @keywords internal
 #' @importFrom rmd.tzh label_pvalue_sym
 #' @method as.matrix ecip
 #' @export as.matrix.ecip
@@ -237,6 +238,7 @@ as.matrix.ecip <- function(
 #' and \link[flextable.tzh]{as_flextable.matrix}
 #' 
 #' @keywords internal
+#' @importFrom flextable as_flextable
 #' @importFrom flextable.tzh as_flextable.matrix
 #' @export as_flextable.ecip
 #' @export

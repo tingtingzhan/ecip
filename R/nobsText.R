@@ -6,6 +6,7 @@
 #' @param x regression model
 #' 
 #' @keywords internal
+#' @name nobsText
 #' @export
 nobsText <- function(x) {
   if (!length(x)) stop('do not allow') # return('')
@@ -13,7 +14,9 @@ nobsText <- function(x) {
 }
 
 
+#' @rdname nobsText
 #' @importFrom stats nobs
+#' @export nobsText.default
 #' @export
 nobsText.default <- function(x) {
   if (!length(n <- nobs(x))) stop(sprintf(fmt = 'write individual nobsText.%s function', class(x)[1L])) # return(invisible(character()))

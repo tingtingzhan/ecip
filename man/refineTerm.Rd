@@ -37,3 +37,4 @@ rename_xlevels(m2)
 rename_xlevels(m2a) # actually this is not ideal (but not wrong anyway) ..
 refineTerm_factor(names(coef(m2)), model = m2)
 }
+\keyword{internal}
