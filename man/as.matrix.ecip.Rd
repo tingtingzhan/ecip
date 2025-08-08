@@ -4,14 +4,19 @@
 \alias{as.matrix.ecip}
 \title{Convert \linkS4class{ecip} into \link[base]{matrix}}
 \usage{
-\method{as.matrix}{ecip}(x, fmt = "\%.2f", type = c("full", "ncol1", "p_only"), ...)
+\method{as.matrix}{ecip}(
+  x,
+  fmt = "\%.2f",
+  type = c("full", "ncol1", "p_samplesize", "p_only"),
+  ...
+)
 }
 \arguments{
 \item{x}{\linkS4class{ecip} object}
 
 \item{fmt}{..}
 
-\item{type}{\code{'full'} (default), \code{'ncol1'} or \code{p_only}}
+\item{type}{\code{'full'} (default), \code{'ncol1'}, \code{'p_samplesize'} \code{'p_only'}}
 
 \item{...}{additional parameters, currently not in use}
 }

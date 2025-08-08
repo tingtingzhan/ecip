@@ -147,7 +147,7 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 #' 
 #' @param fmt ..
 #' 
-#' @param type `'full'` (default), `'ncol1'` or `p_only`
+#' @param type `'full'` (default), `'ncol1'`, `'p_samplesize'` `'p_only'`
 #' 
 #' @param ... additional parameters, currently not in use
 #' 
@@ -159,19 +159,27 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 as.matrix.ecip <- function(
     x, 
     fmt = '%.2f', 
-    type = c('full', 'ncol1', 'p_only'),
+    type = c('full', 'ncol1', 'p_samplesize', 'p_only'),
     ...
 ) {
   
   type <- match.arg(type)
   
-  p <- x@p.value |> label_pvalue_sym(add_p = (type %in% c('ncol1', 'p_only')))()
+  p <- x@p.value |> label_pvalue_sym(add_p = (type %in% c('ncol1', 'p_samplesize', 'p_only')))()
   
   if (type == 'p_only') {
-    if (!length(p)) stop('not applicable to p_only')
+    if (!length(p)) stop('not applicable to `p_only`')
     ret <- p
     dim(ret) <- c(length(p), 1L)
     dimnames(ret) <- list(names(x@coef), paste(x@estnm, x@nobs, sep = '\n'))
+    return(ret)
+  }
+  
+  if (type == 'p_samplesize') {
+    if (!length(p)) stop('not applicable to `p_samplesize`')
+    ret <- paste(p, x@nobs, sep = '\n')
+    dim(ret) <- c(length(p), 1L)
+    dimnames(ret) <- list(names(x@coef), x@estnm)
     return(ret)
   }
   
@@ -341,30 +349,6 @@ intercept_rm.ecip <- function(x) {
 intercept_rm.matrix <- function(x) {
   x[!isIntercept(rownames(x)), , drop = FALSE] # `[.ecip`
 }
-
-
-#' @title [simple_matrix_ecip]
-#' 
-#' @param x ..
-#' 
-#' @keywords internal
-#' @importFrom rmd.tzh label_pvalue_sym
-#' @export
-simple_matrix_ecip <- function(x) {
-  if (!length(x@p.value)) stop('not meaningful in application!!')
-  
-  ret <- paste(x@p.value |> label_pvalue_sym(add_p = TRUE)(), x@nobs, sep = '\n')
-  dim(ret) <- c(length(x@coef), 1L)
-  dimnames(ret) <- list(names(x@coef), x@estnm)
-  return(ret)
-}
-
-
-
-
-
-
-
 
 
 
