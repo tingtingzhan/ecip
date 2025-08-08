@@ -22,19 +22,13 @@ S3 generic function \code{\link[=dataClasses]{dataClasses()}} returns a named \l
 ..
 }
 \details{
-Function \code{\link[=dataClasses]{dataClasses()}} is inspired by the attribute \code{'dataClasses'} of
+Function \code{\link[=dataClasses]{dataClasses()}} is inspired by \code{attr(, 'dataClasses')} of
 \link[stats]{terms} object.
-There are two possible pipelines to achieve this purpose,
-\describe{
-
-\item{\emph{\strong{Default}} \code{\link[=dataClasses.default]{dataClasses.default()}}}{\code{x |> terms() |> dataClasses.terms()}.}
-
 }
+\examples{
+x = lm(breaks ~ tension + wool, data = warpbreaks)
+x |> terms() |> attr(which = 'dataClasses')
+dataClasses(x)
 
-Therefore,
-\itemize{
-\item{For object that has \link[stats]{terms} dispatch but no \link[stats]{model.frame} dispatch,
-we use the default pipeline and do \emph{not} write a \verb{model.frame.*} function, e.g., \code{nlme::lme} and \code{nlme::gls} objects}
-}
 }
 \keyword{internal}

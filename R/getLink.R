@@ -7,9 +7,6 @@
 #' 
 #' @param x see **Usage**
 #' 
-#' @details 
-#' Not sure how useful `marked:::inverse.link` will be in future!
-#' 
 #' @keywords internal
 #' @name getLink
 #' @export
@@ -22,11 +19,6 @@ getLink <- function(x) UseMethod(generic = 'getLink')
 getLink.family <- function(x) {
   getElement(object = x, name = 'link')
   # S4 missing slot causes error; let err
-  #lk <- tryCatch(
-  #  expr = getElement(object = x, name = 'link'), 
-  #  error = \(e) return(character())
-  #)
-  #if (length(lk)) return(lk)
 } 
 
 
@@ -34,9 +26,12 @@ getLink.family <- function(x) {
 #' @importFrom stats family
 #' @export getLink.default
 #' @export
-getLink.default <- function(x) x |> family() |> getLink()
-# include ?pscl::zeroinfl return
-
+getLink.default <- function(x) {
+  x |> 
+    family() |> 
+    getLink()
+  # include ?pscl::zeroinfl return
+}
 
 
 

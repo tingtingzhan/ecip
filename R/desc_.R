@@ -22,7 +22,6 @@ desc_ <- function(x) {
 desc_.default <- function(x) stop('write desc_.', class(x)[1L])
 
 
-
 #' @rdname desc
 #' @export desc_.family
 #' @export

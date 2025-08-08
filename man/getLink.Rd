@@ -19,7 +19,4 @@ getLink(x)
 Get link function of a model fit,
 and determine whether the model is using the canonical link of the family!
 }
-\details{
-Not sure how useful \code{marked:::inverse.link} will be in future!
-}
 \keyword{internal}

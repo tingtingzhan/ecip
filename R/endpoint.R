@@ -1,6 +1,4 @@
 
-
-
 #' @title Endpoint 
 #' 
 #' @description Find the endpoint of an R regression model.
