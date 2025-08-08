@@ -21,7 +21,7 @@ md_autoplot_ <- function(x, xnm, ...) {
       attr(which = 'fig-width', exact = TRUE) |> 
       sprintf(fmt = '#| fig-width: %.1f'),
     
-    sprintf(fmt = '(%s) |> ggplot2::autoplot()', xnm),
+    xnm |> sprintf(fmt = 'ggplot2::autoplot(%s)', ),
     '```'
   ) |> 
     new(Class = 'md_lines')

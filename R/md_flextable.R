@@ -1,13 +1,25 @@
 
 
-#' @title R Markdown by \link[flextable]{flextable}
+#' @title \pkg{rmarkdown} Lines based on \link[flextable]{flextable}
 #' 
-#' @param x,xnm,font.size,... ..
+#' @param x ..
+#' 
+#' @param xnm ..
+#' 
+#' @param font.size see function \link[flextable]{set_flextable_defaults}
+#' 
+#' @param ... ..
+#' 
+#' @examples
+#' # none yet..
 #' 
 #' @keywords internal
 #' @importFrom methods new
+#' @export md_.listof
 #' @export
-md_flextable_ <- function(x, xnm, font.size, ...) {
+md_.listof <- function(x, xnm, font.size, ...) {
+  
+  .Defunct(msg = '[md_.listof]: where is this used?')
   
   z1 <- Sprintf(x) |> # S3 generic [Sprintf()]
     new(Class = 'md_lines')
@@ -25,25 +37,6 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
   c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
-
-
-
-#' @title \pkg{rmarkdown} Lines based on \link[flextable]{flextable}
-#' 
-#' @param x ..
-#' 
-#' @param xnm ..
-#' 
-#' @param font.size see function \link[flextable]{set_flextable_defaults}
-#' 
-#' @examples
-#' # none yet..
-#' 
-#' @keywords internal
-#' @name md_flextable
-#' @export md_.listof
-#' @export
-md_.listof <- md_flextable_
 
 
 
