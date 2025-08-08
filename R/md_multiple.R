@@ -35,7 +35,7 @@ md_multiple_ <- function(x, xnm, ...) {
 #' @examples
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
-#' ) |> render_(file = 'mlm')
+#' ) |> rmd.tzh::render_(file = 'mlm')
 #' @export md_.mlm
 #' @export
 md_.mlm <- md_multiple_

@@ -21,13 +21,11 @@
 \pkg{rmarkdown} Lines based on \code{\link[=ecip]{ecip()}}
 }
 \examples{
-library(rmd.tzh)
-
 list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-) |> render_(file = 'lm')
+) |> rmd.tzh::render_(file = 'lm')
 
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
-) |> render_(file = 'mlm')
+) |> rmd.tzh::render_(file = 'mlm')
 }

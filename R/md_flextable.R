@@ -37,7 +37,6 @@ md_flextable_ <- function(x, xnm, font.size, ...) {
 #' @param font.size see function \link[flextable]{set_flextable_defaults}
 #' 
 #' @examples
-#' # library(rmd.tzh)
 #' # none yet..
 #' 
 #' @keywords internal

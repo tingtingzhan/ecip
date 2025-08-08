@@ -18,7 +18,6 @@
 \pkg{rmarkdown} Lines based on \link[flextable]{flextable}
 }
 \examples{
-# library(rmd.tzh)
 # none yet..
 
 }

@@ -1,8 +1,8 @@
 
 
-# library(logistf); library(rmd.tzh); list(
+# library(logistf); list(
 #  '`logistf`' = logistf(case ~ age+oc+vic+vicl+vis+dia, data = sex2)
-# ) |> render_(file = 'logistf')
+# ) |> rmd.tzh::render_(file = 'logistf')
 # # I will finalize \pkg{logistf.tzh} when I have time :)
 # # this example works fine when logistf::logistf was supported in \pkg{tzh}
 
@@ -45,11 +45,9 @@ md_ecip <- function(x, xnm, ...) {
 #' @param ... ..
 #' 
 #' @examples
-#' library(rmd.tzh)
-#' 
 #' list(
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-#' ) |> render_(file = 'lm')
+#' ) |> rmd.tzh::render_(file = 'lm')
 #' 
 #' @name md_
 #' @importFrom rmd.tzh md_
