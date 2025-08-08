@@ -4,7 +4,7 @@
 \alias{intercept_rm}
 \alias{intercept_rm.ecip}
 \alias{intercept_rm.matrix}
-\title{\link{intercept_rm}}
+\title{Remove Intercept Term(s)}
 \usage{
 intercept_rm(x)
 
@@ -13,9 +13,9 @@ intercept_rm(x)
 \method{intercept_rm}{matrix}(x)
 }
 \arguments{
-\item{x}{..}
+\item{x}{\linkS4class{ecip} or \link[base]{matrix}}
 }
 \description{
-\link{intercept_rm}
+Remove Intercept Term(s)
 }
-\keyword{intercept_rm}
+\keyword{internal}

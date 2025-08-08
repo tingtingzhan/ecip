@@ -2,16 +2,16 @@
 % Please edit documentation in R/md_ecip.R
 \name{md_ecip}
 \alias{md_ecip}
-\title{R Markdown Lines via \link[ecip]{ecip}}
+\title{R Markdown Lines via \linkS4class{ecip}}
 \usage{
 md_ecip(x, xnm, ...)
 }
 \arguments{
-\item{x}{an R object convertible to one \link[ecip]{ecip}}
+\item{x}{an R object convertible to one \linkS4class{ecip}}
 
 \item{xnm, ...}{..}
 }
 \description{
-R Markdown Lines via \link[ecip]{ecip}
+R Markdown Lines via \linkS4class{ecip}
 }
 \keyword{internal}

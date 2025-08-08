@@ -203,6 +203,7 @@ as.matrix.ecip <- function(
   cf_ci_nm <- sprintf(fmt = '%s (%.f%% CI)', x@estnm, 1e2*level)
   
   switch(type, ncol1 = {
+    
     ret <- if (!length(p)) {
       cf_ci_
     } else if (length(x@note)) {
@@ -210,7 +211,9 @@ as.matrix.ecip <- function(
     } else paste(cf_ci_, p, sep = '\n')
     dim(ret) <- c(length(ret), 1L)
     dimnames(ret) <- list(names(cf), paste(cf_ci_nm, x@nobs, sep = '\n'))
+    
   }, full = {
+    
     if (length(p)) {
       ret <- cbind(cf_ci_, p)
       dimnames(ret) <- list(names(cf), c(cf_ci_nm, 'Signif.'))
@@ -220,6 +223,7 @@ as.matrix.ecip <- function(
       dimnames(ret) <- list(names(cf), c(cf_ci_nm))
     }
     if (length(x@note)) ret <- cbind(ret, Note = x@note)
+    
   })
   
   return(ret)
@@ -229,8 +233,39 @@ as.matrix.ecip <- function(
 
 
 
+#' @title [as.data.frame.ecip()]
+#' 
+#' @param x \linkS4class{ecip} object
+#' 
+#' @param row.title \link[base]{character} scalar
+#' 
+#' @param ... ..
+#' 
+#' @keywords internal
+#' @export as.data.frame.ecip
+#' @export
+as.data.frame.ecip <- function(
+    x, 
+    ..., 
+    row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs)
+) {
 
-
+  # tzh does not want to import flextable.tzh::as_flextable.matrix
+  
+  z <- x |>
+    as.matrix.ecip() |>
+    as.data.frame.matrix()
+  
+  ret <- data.frame(
+    ' ' = row.names.data.frame(z),
+    z,
+    check.names = FALSE
+  )
+  names(ret)[1L] <- row.title
+  
+  return(ret)
+  
+}
 
 
 
@@ -240,24 +275,18 @@ as.matrix.ecip <- function(
 #' 
 #' @param x \linkS4class{ecip} object
 #' 
-#' @param row.title ..
-#' 
-#' @param ... potential parameters of functions [as.matrix.ecip()] 
-#' and \link[flextable.tzh]{as_flextable.matrix}
+#' @param ... potential parameters of function [as.data.frame.ecip()] 
 #' 
 #' @keywords internal
-#' @importFrom flextable as_flextable
-#' @importFrom flextable.tzh as_flextable.matrix
+#' @importFrom flextable as_flextable flextable autofit vline
 #' @export as_flextable.ecip
 #' @export
-as_flextable.ecip <- function(
-    x, 
-    row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs),
-    ...
-) {
+as_flextable.ecip <- function(x, ...) {
   x |>
-    as.matrix.ecip(...) |>
-    as_flextable.matrix(row.title = row.title, ...)
+    as.data.frame.ecip(...) |>
+    flextable() |>
+    autofit(part = 'all') |>
+    vline(j = 1L)
 }
 
 
@@ -286,8 +315,20 @@ setMethod(f = show, signature = signature(object = 'ecip'), definition = functio
 
 
 
-
-
+#' @title Subset \linkS4class{ecip} Object
+#' 
+#' @param x an \linkS4class{ecip} object
+#' 
+#' @param i ..
+#' 
+#' @param ... ..
+#' 
+#' @examples
+#' (x = lm(breaks ~ tension + wool, data = warpbreaks) |> ecip())
+#' x[2:3]
+#' 
+#' @keywords internal
+#' @export [.ecip
 #' @export
 `[.ecip` <- function(x, i, ...) {# j-index always TRUE
   
@@ -315,6 +356,7 @@ setMethod(f = show, signature = signature(object = 'ecip'), definition = functio
 #' 
 #' @param x ..
 #' 
+#' @keywords internal
 #' @export
 isIntercept <- function(x) { 
   if (is.null(x)) return(FALSE)
@@ -326,11 +368,11 @@ isIntercept <- function(x) {
 }
 
 
-#' @title [intercept_rm]
+#' @title Remove Intercept Term(s)
 #' 
-#' @param x ..
+#' @param x \linkS4class{ecip} or \link[base]{matrix}
 #' 
-#' @keywords intercept_rm
+#' @keywords internal
 #' @name intercept_rm
 #' @export
 intercept_rm <- function(x) UseMethod(generic = 'intercept_rm')
@@ -339,7 +381,6 @@ intercept_rm <- function(x) UseMethod(generic = 'intercept_rm')
 #' @export intercept_rm.ecip
 #' @export
 intercept_rm.ecip <- function(x) {
-  # my old [trim_cibeta]
   x[!isIntercept(names(x@coef)), ] # `[.ecip`
 }
 
@@ -347,7 +388,7 @@ intercept_rm.ecip <- function(x) {
 #' @export intercept_rm.matrix
 #' @export
 intercept_rm.matrix <- function(x) {
-  x[!isIntercept(rownames(x)), , drop = FALSE] # `[.ecip`
+  x[!isIntercept(rownames(x)), , drop = FALSE]
 }
 
 

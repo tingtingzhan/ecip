@@ -12,3 +12,4 @@ isIntercept(x)
 \description{
 \link{isIntercept}
 }
+\keyword{internal}

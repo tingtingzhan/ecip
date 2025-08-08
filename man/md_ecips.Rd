@@ -2,19 +2,19 @@
 % Please edit documentation in R/md_ecips.R
 \name{md_ecips}
 \alias{md_ecips}
-\title{R Markdown Lines for via Multiple \link[ecip]{ecip}s}
+\title{R Markdown Lines for via Multiple \linkS4class{ecip}s}
 \usage{
 md_ecips(x, xnm, ...)
 }
 \arguments{
-\item{x}{an R object convertible to multiple \link[ecip]{ecip}s}
+\item{x}{an R object convertible to multiple \linkS4class{ecip}s}
 
 \item{xnm}{\link[base]{character} scalar}
 
 \item{...}{..}
 }
 \description{
-R Markdown Lines for via Multiple \link[ecip]{ecip}s
+R Markdown Lines for via Multiple \linkS4class{ecip}s
 }
 \details{
 \itemize{

@@ -1,7 +1,7 @@
 
-#' @title R Markdown Lines via \link[ecip]{ecip}
+#' @title R Markdown Lines via \linkS4class{ecip}
 #' 
-#' @param x an R object convertible to one \link[ecip]{ecip}
+#' @param x an R object convertible to one \linkS4class{ecip}
 #' 
 #' @param xnm,... ..
 #' 

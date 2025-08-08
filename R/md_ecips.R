@@ -1,7 +1,7 @@
 
-#' @title R Markdown Lines for via Multiple \link[ecip]{ecip}s 
+#' @title R Markdown Lines for via Multiple \linkS4class{ecip}s 
 #' 
-#' @param x an R object convertible to multiple \link[ecip]{ecip}s
+#' @param x an R object convertible to multiple \linkS4class{ecip}s
 #' 
 #' @param xnm \link[base]{character} scalar
 #' 
