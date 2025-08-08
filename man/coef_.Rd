@@ -19,3 +19,4 @@ or a \link[base]{list} of named \link[base]{numeric} \link[base]{vector}s.
 \description{
 User-Related Coefficient Estimates
 }
+\keyword{internal}

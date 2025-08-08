@@ -25,6 +25,7 @@
 #' we use the default pipeline and do *not* write a `model.frame.*` function, e.g., `nlme::lme` and `nlme::gls` objects}
 #' }
 #' 
+#' @keywords internal
 #' @name dataClasses
 #' @export
 dataClasses <- function(x) UseMethod(generic = 'dataClasses')

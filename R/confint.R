@@ -18,10 +18,14 @@
 #' \item{`attr(.,'conf.level')`}{\link[base]{double} scalar, the argument `level`}
 #' }
 #' 
+#' @keywords internal
+#' @name confint_
 #' @export
 confint_ <- function(x, level, ...) UseMethod(generic = 'confint_')
 
+#' @rdname confint_
 #' @importFrom stats confint
+#' @export confint_.default
 #' @export
 confint_.default <- function(x, level = .95, ...) {
   ci <- confint(x, level = level, ...) # let err

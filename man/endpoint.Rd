@@ -28,3 +28,4 @@ endpoint(a ~ b)
 # endpoint(a ~ b ~ c) # stop support
 endpoint(a ~ b | c)
 }
+\keyword{internal}

@@ -27,13 +27,6 @@
 }
 
 
-#' @rdname pval
-#' @export .pval.listof
-#' @export
-.pval.listof <- function(x) x |> lapply(FUN = .pval)
-# e.g., ?stats:::summary.mlm, returns 'listof' 'summary.lm'
-
-
 
 # \pkg{lmtest} and \pkg{AER} same author
 # ?lmtest::coeftest is the S3 generic, and has some dispatches

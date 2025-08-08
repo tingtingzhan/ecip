@@ -25,7 +25,9 @@ list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
 ) |> rmd.tzh::render_(file = 'lm')
 
+m = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 list(
-  '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
+  '`mlm`' = m,
+  '`stats:::summary.mlm()` return' = m |> summary()
 ) |> rmd.tzh::render_(file = 'mlm')
 }

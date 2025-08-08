@@ -37,3 +37,4 @@ Therefore,
 we use the default pipeline and do \emph{not} write a \verb{model.frame.*} function, e.g., \code{nlme::lme} and \code{nlme::gls} objects}
 }
 }
+\keyword{internal}

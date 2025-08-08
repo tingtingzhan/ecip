@@ -2,9 +2,12 @@
 % Please edit documentation in R/confint.R
 \name{confint_}
 \alias{confint_}
+\alias{confint_.default}
 \title{User-Related Confidence Interval}
 \usage{
 confint_(x, level, ...)
+
+\method{confint_}{default}(x, level = 0.95, ...)
 }
 \arguments{
 \item{x}{an R object}
@@ -24,3 +27,4 @@ with additional \link[base]{attributes},
 \description{
 ..
 }
+\keyword{internal}

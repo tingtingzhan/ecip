@@ -38,13 +38,6 @@ getLink.default <- function(x) x |> family() |> getLink()
 # include ?pscl::zeroinfl return
 
 
-#' @rdname getLink
-#' @export getLink.listof
-#' @export
-getLink.listof <- function(x) x |> lapply(FUN = getLink)
-
-
-
 
 
 

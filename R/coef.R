@@ -8,6 +8,7 @@
 #' Function [coef_()] returns either a named \link[base]{numeric} \link[base]{vector},
 #' or a \link[base]{list} of named \link[base]{numeric} \link[base]{vector}s.
 #' 
+#' @keywords internal
 #' @name coef_
 #' @export
 coef_ <- function(x) UseMethod(generic = 'coef_')

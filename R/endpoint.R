@@ -10,6 +10,7 @@
 #' @returns 
 #' Function [endpoint()] returns a \link[base]{language} object.
 #' 
+#' @keywords internal
 #' @name endpoint
 #' @export
 endpoint <- function(x) {
