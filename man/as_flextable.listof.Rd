@@ -7,13 +7,10 @@
 \method{as_flextable}{listof}(x, ...)
 }
 \arguments{
-\item{x}{\code{'listof'}}
+\item{x}{a \code{'listof'} object}
 
 \item{...}{..}
 }
 \description{
 Convert \code{'listof'} to \link[flextable]{flextable}
-}
-\note{
-This is quite exploratory
 }

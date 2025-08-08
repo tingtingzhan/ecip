@@ -19,3 +19,6 @@
 \description{
 ..
 }
+\details{
+Function \code{\link[=.pval.listof]{.pval.listof()}} applies to \code{'mlm' |> stats:::summary.mlm() |> .pval.listof()}.
+}

@@ -1,14 +1,9 @@
 
-
-# library(logistf); list(
-#  '`logistf`' = logistf(case ~ age+oc+vic+vicl+vis+dia, data = sex2)
-# ) |> rmd.tzh::render_(file = 'logistf')
-# # I will finalize \pkg{logistf.tzh} when I have time :)
-# # this example works fine when logistf::logistf was supported in \pkg{tzh}
-
 #' @title R Markdown Lines via \link[ecip]{ecip}
 #' 
-#' @param x,xnm,... ..
+#' @param x an R object convertible to one \link[ecip]{ecip}
+#' 
+#' @param xnm,... ..
 #' 
 #' @keywords internal
 #' @importClassesFrom rmd.tzh md_lines
@@ -32,13 +27,9 @@ md_ecip <- function(x, xnm, ...) {
 
 
 
-
-
-
-
-#' @title \pkg{rmarkdown} Lines based on [ecip()]
+#' @title R Markdown Lines for \link[stats]{lm} Model
 #' 
-#' @param x .. 
+#' @param x a \link[stats]{lm} model
 #' 
 #' @param xnm ..
 #' 

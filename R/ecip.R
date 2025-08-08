@@ -61,6 +61,7 @@ setValidity(Class = 'ecip', method = function(object) {
 
 #' @rdname ecip
 #' @param model see slot `@model`
+#' 
 #' @export
 ecip <- function(model) {
   
