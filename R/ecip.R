@@ -47,7 +47,11 @@ setValidity(Class = 'ecip', method = function(object) {
   ci <- object@conf.int
   
   if (length(p)) { # having \eqn{p}-value
-    if (!identical(names(p), names(cf))) stop('[.pval.*] must return the same set of parameters as [coef_.*]')
+    if (!identical(names(p), names(cf))) {
+      print(p)
+      print(cf)
+      stop('[.pval.*] must return the same set of parameters as [coef_.*]')
+    }
   }
   
   if (!identical(rownames(ci), names(cf))) stop('[confint_.*] must return the same set of parameters as [coef_.*]')
