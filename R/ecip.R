@@ -156,7 +156,7 @@ setMethod(f = initialize, signature = 'ecip', definition = function(.Object, ...
 #' @param ... additional parameters, currently not in use
 #' 
 #' @keywords internal
-#' @importFrom rmd.tzh label_pvalue_sym
+#' @importFrom fastmd label_pvalue_sym
 #' @method as.matrix ecip
 #' @export as.matrix.ecip
 #' @export
@@ -254,7 +254,7 @@ as.data.frame.ecip <- function(
     row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs)
 ) {
 
-  # tzh does not want to import flextable.tzh::as_flextable.matrix
+  # tzh does not want to import fastmd::as_flextable.matrix
   
   z <- x |>
     as.matrix.ecip() |>

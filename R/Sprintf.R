@@ -19,7 +19,7 @@ Sprintf <- function(x) UseMethod(generic = 'Sprintf')
 #' @rdname Sprintf
 #' @importFrom methods new
 #' @importFrom stats formula
-#' @importFrom rmd.tzh fromPackage pkg_text
+#' @importFrom fastmd fromPackage pkg_text
 #' @export Sprintf.default
 #' @export
 Sprintf.default <- function(x) {

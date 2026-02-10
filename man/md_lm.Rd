@@ -23,10 +23,10 @@ R Markdown Lines for \link[stats]{lm} Model
 \examples{
 list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-) |> rmd.tzh::render_(file = 'lm')
+) |> fastmd::render_(file = 'lm')
 
 list(
   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
-) |> rmd.tzh::render_(file = 'mlm')
+) |> fastmd::render_(file = 'mlm')
 }
 \keyword{internal}

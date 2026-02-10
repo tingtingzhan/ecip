@@ -6,7 +6,7 @@
 #' @param xnm,... ..
 #' 
 #' @keywords internal
-#' @importClassesFrom rmd.tzh md_lines
+#' @importClassesFrom fastmd md_lines
 #' @importFrom methods new
 #' @export 
 md_ecip <- function(x, xnm, ...) {
@@ -22,7 +22,7 @@ md_ecip <- function(x, xnm, ...) {
   ) |> 
     new(Class = 'md_lines')
   
-  c(z1, z2) # ?rmd.tzh::c.md_lines
+  c(z1, z2) # ?fastmd::c.md_lines
   
 }
 
@@ -39,11 +39,11 @@ md_ecip <- function(x, xnm, ...) {
 #' @examples
 #' list(
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-#' ) |> rmd.tzh::render_(file = 'lm')
+#' ) |> fastmd::render_(file = 'lm')
 #' 
 #' @name md_lm
 #' @keywords internal
-#' @importFrom rmd.tzh md_
+#' @importFrom fastmd md_
 #' @export md_.lm
 #' @export
 md_.lm <- md_ecip

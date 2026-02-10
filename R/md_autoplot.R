@@ -26,7 +26,7 @@ md_autoplot_ <- function(x, xnm, ...) {
   ) |> 
     new(Class = 'md_lines')
   
-  c(z1, z2) # ?rmd.tzh::c.md_lines
+  c(z1, z2) # ?fastmd::c.md_lines
   
 }
 

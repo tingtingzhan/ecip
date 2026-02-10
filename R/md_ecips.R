@@ -34,7 +34,7 @@ md_ecips <- function(x, xnm, ...) {
   ) |>
     new(Class = 'md_lines')
   
-  c(z1, z2) # ?rmd.tzh::c.md_lines
+  c(z1, z2) # ?fastmd::c.md_lines
   
 }
 
@@ -42,7 +42,7 @@ md_ecips <- function(x, xnm, ...) {
 #' @examples
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
-#' ) |> rmd.tzh::render_(file = 'mlm')
+#' ) |> fastmd::render_(file = 'mlm')
 #' @export md_.mlm
 #' @export
 md_.mlm <- md_ecips

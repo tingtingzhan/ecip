@@ -18,5 +18,5 @@ Depends: R (>= 4.5)
 Imports: methods,
   flextable (== 0.9.10),
   lmtest (== 0.9.40),
-  rmd.tzh
+  fastmd
 Suggests: knitr
