@@ -18,7 +18,7 @@
 #' @export
 md_ecips <- function(x, xnm, ...) {
   
-  z1 <- Sprintf(x) |> # S3 generic [Sprintf()]
+  z1 <- .md_reg(x) |>
     new(Class = 'md_lines')
   
   z2 <- c(

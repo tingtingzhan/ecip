@@ -17,7 +17,6 @@ endpoint <- function(x) {
 }
 
 #' @rdname endpoint
-#' @importFrom stats formula
 #' @export endpoint.default
 #' @export
 endpoint.default <- function(x) {

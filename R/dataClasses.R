@@ -25,7 +25,6 @@
 dataClasses <- function(x) UseMethod(generic = 'dataClasses')
 
 #' @rdname dataClasses
-#' @importFrom stats terms
 #' @export dataClasses.default
 #' @export
 dataClasses.default <- function(x) {

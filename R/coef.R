@@ -14,7 +14,6 @@
 coef_ <- function(x) UseMethod(generic = 'coef_')
 
 #' @rdname coef_
-#' @importFrom stats coef
 #' @export
 coef_.default <- function(x) {
   cf <- coef(x) # S3 generic

@@ -61,7 +61,6 @@ coef_.mlm <- function(x) {
 }
 
 #' @rdname confint_
-#' @importFrom stats confint.lm
 #' @export confint_.mlm
 #' @export
 confint_.mlm <- function(x, level = .95, ...) {

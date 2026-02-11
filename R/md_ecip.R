@@ -7,11 +7,10 @@
 #' 
 #' @keywords internal
 #' @importClassesFrom fastmd md_lines
-#' @importFrom methods new
 #' @export 
 md_ecip <- function(x, xnm, ...) {
   
-  z1 <- Sprintf(x) # S3 generic [Sprintf()]
+  z1 <- .md_reg(x)
   
   z2 <- c(
     '```{r}', 

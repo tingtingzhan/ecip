@@ -15,7 +15,6 @@ nobsText <- function(x) {
 
 
 #' @rdname nobsText
-#' @importFrom stats nobs
 #' @export nobsText.default
 #' @export
 nobsText.default <- function(x) {

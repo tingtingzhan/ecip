@@ -18,7 +18,6 @@ estnm <- function(x) UseMethod(generic = 'estnm')
 
 
 #' @rdname estnm
-#' @importFrom stats family
 #' @export estnm.default
 #' @export
 estnm.default <- function(x) {

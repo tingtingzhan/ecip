@@ -24,7 +24,6 @@
 confint_ <- function(x, level, ...) UseMethod(generic = 'confint_')
 
 #' @rdname confint_
-#' @importFrom stats confint
 #' @export confint_.default
 #' @export
 confint_.default <- function(x, level = .95, ...) {

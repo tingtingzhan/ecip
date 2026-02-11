@@ -10,7 +10,6 @@
 vterms <- function(x) UseMethod(generic = 'vterms')
 
 #' @rdname vterms
-#' @importFrom stats formula terms
 #' @export vterms.default
 #' @export
 vterms.default <- function(x) {
@@ -25,7 +24,6 @@ vterms.default <- function(x) {
 #' # see ?ordinal::clmm examples
 #' (SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD)) |>
 #'   vterms()
-#' @importFrom stats formula terms
 #' @export vterms.formula
 #' @export
 vterms.formula <- function(formula) {

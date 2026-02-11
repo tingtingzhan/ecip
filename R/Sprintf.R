@@ -1,28 +1,20 @@
 
-#' @title String Formatting of Statistical Models
+#' @title Fast Markdown Lines for Regression Model
 #' 
 #' @description ..
 #' 
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [Sprintf()] returns a \link[base]{noquote} \link[base]{character} scalar
+#' Function [.md_reg()] returns an S4 class `'md_lines'`.
+#' 
+#' @note
+#' Old generic function `Sprintf()` and method `Sprintf.default()`
 #' 
 #' @keywords internal
-#' @name Sprintf
-#' @export
-Sprintf <- function(x) UseMethod(generic = 'Sprintf')
-
-
-
-
-#' @rdname Sprintf
-#' @importFrom methods new
-#' @importFrom stats formula
 #' @importFrom fastmd fromPackage pkg_text
-#' @export Sprintf.default
 #' @export
-Sprintf.default <- function(x) {
+.md_reg <- function(x) {
   
   fixedfom <- if (inherits(x, what = 'clmm')) {
     x$terms # formula(), which dispatch to ?stats:::formula.default, gives fixed and random effect

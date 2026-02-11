@@ -13,7 +13,6 @@
 getLink <- function(x) UseMethod(generic = 'getLink')
 
 #' @rdname getLink
-#' @importFrom stats family
 #' @export getLink.family
 #' @export
 getLink.family <- function(x) {
@@ -23,7 +22,6 @@ getLink.family <- function(x) {
 
 
 #' @rdname getLink
-#' @importFrom stats family
 #' @export getLink.default
 #' @export
 getLink.default <- function(x) {
@@ -58,7 +56,6 @@ getLink.default <- function(x) {
 getCanonicalLink <- function(x) UseMethod(generic = 'getCanonicalLink') 
 
 #' @rdname getCanonicalLink
-#' @importFrom stats family
 #' @export getCanonicalLink.default
 #' @export
 getCanonicalLink.default <- function(x) x |> family() |> getCanonicalLink()

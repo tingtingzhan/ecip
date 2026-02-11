@@ -22,7 +22,6 @@ xlevels <- function(x) UseMethod(generic = 'xlevels')
 # we need dispatch(es), e.g., [xlevels.emmGrid]
 
 #' @rdname xlevels
-#' @importFrom stats .getXlevels model.frame
 #' @export xlevels.default
 #' @export
 xlevels.default <- function(x) {
