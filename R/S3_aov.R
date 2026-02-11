@@ -1,11 +1,5 @@
 
-if (FALSE) {
-  ?stats::aov
-  aov(breaks ~ tension + wool, data = warpbreaks) |>
-    summary() |>
-    class() # "summary.aov" "listof"
-  # must write [.pval.summary.aov()] so that not to dispatch to [.pval.listof()] !!!
-}
+
 
 #' @rdname pval
 #' @export .pval.anova

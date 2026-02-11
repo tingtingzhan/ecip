@@ -51,9 +51,3 @@ format.confint <- function(x, fmt = '%.2f', sep = ', ', ...) {
 
 
 
-
-
-
-
-
-

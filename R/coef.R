@@ -21,6 +21,3 @@ coef_.default <- function(x) {
   return(cf)
 }
 
-
-
-
