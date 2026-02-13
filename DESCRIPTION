@@ -16,7 +16,7 @@ Encoding: UTF-8
 License: GPL-2
 Depends: R (>= 4.5)
 Imports: methods,
-  flextable (== 0.9.10),
+  flextable (== 0.9.11),
   lmtest (== 0.9.40),
   fastmd
 Suggests: knitr
