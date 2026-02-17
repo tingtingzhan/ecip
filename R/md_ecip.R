@@ -38,7 +38,7 @@ md_ecip <- function(x, xnm, ...) {
 #' @examples
 #' list(
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-#' ) |> fastmd::render_(file = 'lm')
+#' ) |> fastmd::render2html(file = 'lm')
 #' 
 #' @name md_lm
 #' @keywords internal
