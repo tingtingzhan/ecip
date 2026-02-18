@@ -10,7 +10,6 @@ note_ <- function(x) UseMethod(generic = 'note_')
 
 
 #' @rdname note
-#' @importFrom utils methods
 #' @export note_.default
 #' @export
 note_.default <- function(x) {

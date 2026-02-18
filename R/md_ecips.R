@@ -23,7 +23,6 @@ md_ecips <- function(x, xnm, ...) {
   
   z2 <- c(
     '```{r}', 
-    '#| echo: false', 
     xnm |> sprintf(fmt = 'tmp = ecip(%s)'),
     x |> 
       ecip() |> 

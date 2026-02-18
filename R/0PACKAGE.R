@@ -3,6 +3,7 @@
 #' @keywords internal
 #' @import methods
 #' @import stats
+#' @import utils
 '_PACKAGE'
 
 

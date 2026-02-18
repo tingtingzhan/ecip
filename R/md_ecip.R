@@ -14,7 +14,6 @@ md_ecip <- function(x, xnm, ...) {
   
   z2 <- c(
     '```{r}', 
-    '#| echo: false', 
     '#| warning: false', # all kinds of warnings from [ecip()]
     sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()', xnm),
     '```'
