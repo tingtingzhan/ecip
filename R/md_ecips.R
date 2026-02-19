@@ -39,7 +39,7 @@ md_ecips <- function(x, xnm, ...) {
 #' @examples
 #' list(
 #'   '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
-#' ) |> fastmd::render2html(file = 'mlm')
+#' ) |> fastmd::render2html()
 #' @export md_.mlm
 #' @export
 md_.mlm <- md_ecips
