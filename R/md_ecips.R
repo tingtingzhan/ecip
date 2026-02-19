@@ -22,16 +22,14 @@ md_ecips <- function(x, xnm, ...) {
     new(Class = 'md_lines')
   
   z2 <- c(
-    '```{r}', 
     xnm |> sprintf(fmt = 'tmp = ecip(%s)'),
     x |> 
       ecip() |> 
       seq_along() |>
       vapply(FUN = sprintf, fmt = '(tmp[[%d]]) |> as_flextable.ecip()', FUN.VALUE = NA_character_),
-    'rm(tmp)',
-    '```'
+    'rm(tmp)'
   ) |>
-    new(Class = 'md_lines')
+    new(Class = 'md_lines', chunk.r = TRUE)
   
   c(z1, z2) # ?fastmd::c.md_lines
   
