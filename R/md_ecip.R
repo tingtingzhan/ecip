@@ -7,15 +7,16 @@
 #' 
 #' @keywords internal
 #' @importClassesFrom fastmd md_lines
+#' @importFrom fastmd md_flextable_
 #' @export 
 md_ecip <- function(x, xnm, ...) {
   
   z1 <- .md_reg(x)
   
   z2 <- xnm |> 
-    sprintf(fmt = '(%s) |> ecip() |> as_flextable.ecip()') |> 
-    new(Class = 'md_lines', chunk.r = TRUE)
-  
+    sprintf(fmt = '(%s) |> ecip()') |> 
+    md_flextable_(xnm = _, ...)
+    
   c(z1, z2) # ?fastmd::c.md_lines
   
 }
