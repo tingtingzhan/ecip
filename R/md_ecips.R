@@ -18,8 +18,7 @@
 #' @export
 md_ecips <- function(x, xnm, ...) {
   
-  z1 <- .md_reg(x) |>
-    new(Class = 'md_lines')
+  z1 <- md_regression_(x)
   
   z2 <- c(
     xnm |> sprintf(fmt = 'tmp = ecip(%s)'),

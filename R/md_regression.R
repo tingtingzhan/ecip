@@ -6,15 +6,12 @@
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [.md_reg()] returns an S4 class `'md_lines'`.
-#' 
-#' @note
-#' Old generic function `Sprintf()` and method `Sprintf.default()`
+#' Function [md_regression_()] returns an S4 class `'md_lines'`.
 #' 
 #' @keywords internal
 #' @importFrom fastmd fromPackage pkg_text
 #' @export
-.md_reg <- function(x) {
+md_regression_ <- function(x) {
   
   fixedfom <- if (inherits(x, what = 'clmm')) {
     x$terms # formula(), which dispatch to ?stats:::formula.default, gives fixed and random effect
@@ -46,7 +43,7 @@
     paste(desc., 'model with', xfam |> desc_.family())
   } else paste(desc., 'model')
   
-  print_endpoint <- function(e) {
+  print_endpoint <- \(e) {
     # `e` is returned value from `endpoint()`
     if (is.symbol(e)) return(as.character(e))
     if (is.language(e)) return(deparse1(e))
@@ -62,7 +59,7 @@
     
   pkg <- x |> fromPackage()
   
-  ret <- sprintf(
+  sprintf(
     fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.', 
     x |> endpoint() |> print_endpoint(),
     paste0('`', xvar, '`', collapse = ', '),
@@ -70,14 +67,15 @@
     if (length(xvar) > 1L) 'multi' else 'uni',
     model_name,
     pkg |> pkg_text()
-  )
+  ) |>
+    new(Class = 'md_lines', bibentry = desc.@bibentry, package = pkg)
   
-  bib <- desc.@bibentry
-  z <- if (length(bib)) {
-    ret |> 
-      new(Class = 'md_lines', bibentry = bib, package = pkg)
-  } else ret |> new(Class = 'md_lines', package = pkg)
-  return(z)
+  #bib <- desc.@bibentry
+  #z <- if (length(bib)) {
+  #  ret |> 
+  #    new(Class = 'md_lines', bibentry = bib, package = pkg)
+  #} else ret |> new(Class = 'md_lines', package = pkg)
+  #return(z)
   
 }
 

@@ -11,7 +11,7 @@
 #' @export 
 md_ecip <- function(x, xnm, ...) {
   
-  z1 <- .md_reg(x)
+  z1 <- md_regression_(x)
   
   z2 <- xnm |> 
     sprintf(fmt = '(%s) |> ecip()') |> 
