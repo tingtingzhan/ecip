@@ -4,12 +4,14 @@
 \alias{as_flextable.ecip}
 \title{Convert \linkS4class{ecip} into \link[flextable]{flextable}}
 \usage{
-\method{as_flextable}{ecip}(x, ...)
+\method{as_flextable}{ecip}(x, ..., row.title = sprintf(fmt = "\%s: \%s", x@endpoint, x@nobs))
 }
 \arguments{
 \item{x}{\linkS4class{ecip} object}
 
-\item{...}{potential parameters of the function \code{\link[=as.data.frame.ecip]{as.data.frame.ecip()}}}
+\item{...}{potential parameters of the \code{S3} method \code{\link[=as.matrix.ecip]{as.matrix.ecip()}}}
+
+\item{row.title}{\link[base]{character} scalar}
 }
 \description{
 ..

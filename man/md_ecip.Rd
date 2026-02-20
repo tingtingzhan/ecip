@@ -19,7 +19,5 @@ list(
  '`lm`' = lm(Sepal.Length ~ Species, data = iris),
  '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
 ) |> fastmd::render2html()
-
-
 }
 \keyword{internal}

@@ -21,8 +21,6 @@
 #' 
 #' @slot estnm ..
 #' 
-#' @slot note ..
-#' 
 #' @name ecip
 #' @aliases ecip-class
 #' @export
@@ -34,8 +32,7 @@ setClass(Class = 'ecip', slots = c(
   exp = 'logical',
   endpoint = 'character',
   nobs = 'character',
-  estnm = 'character',
-  note = 'character' # vector for each estimated values
+  estnm = 'character'
   #nrows = 'integer' # user friendly output for 'glht' object; .Defunct!!!
 ))
 
@@ -57,7 +54,6 @@ setValidity(Class = 'ecip', method = function(object) {
   if (!identical(rownames(ci), names(cf))) stop('[confint_.*] must return the same set of parameters as [coef_.*]')
   
   if (length(object@estnm) != 1L) stop('estnm must be of len-1')
-  if ((nnt <- length(object@note)) > 1L && (nnt != length(cf))) stop('length of note does not match!')
   if (length(object@nobs) != 1L) stop('`cip` object must have len-1 nobs_txt')
   
 })
@@ -97,7 +93,7 @@ ecip <- function(model) {
       exp = expo, 
       estnm = estname
     ), MoreArgs = list(
-      Class = 'ecip', model = model, nobs = nobsText(model), note = note_(model)
+      Class = 'ecip', model = model, nobs = nobsText(model)
     ))
     class(ret) <- c('eciplist', 'listof')
     return(ret)
@@ -112,8 +108,7 @@ ecip <- function(model) {
     endpoint = edp |> deparse1(),
     nobs = nobsText(model),
     exp = expo,
-    estnm = estname,
-    note = note_(model)
+    estnm = estname
   )
   
 }  
@@ -209,8 +204,6 @@ as.matrix.ecip <- function(
     
     ret <- if (!length(p)) {
       cf_ci_
-    } else if (length(x@note)) {
-      paste(cf_ci_, paste(p, x@note, sep = '; '), sep = '\n')
     } else paste(cf_ci_, p, sep = '\n')
     dim(ret) <- c(length(ret), 1L)
     dimnames(ret) <- list(names(cf), paste(cf_ci_nm, x@nobs, sep = '\n'))
@@ -225,7 +218,6 @@ as.matrix.ecip <- function(
       dim(ret) <- c(length(cf_ci_), 1L)
       dimnames(ret) <- list(names(cf), c(cf_ci_nm))
     }
-    if (length(x@note)) ret <- cbind(ret, Note = x@note)
     
   })
   
@@ -236,40 +228,6 @@ as.matrix.ecip <- function(
 
 
 
-#' @title [as.data.frame.ecip()]
-#' 
-#' @param x \linkS4class{ecip} object
-#' 
-#' @param row.title \link[base]{character} scalar
-#' 
-#' @param ... ..
-#' 
-#' @keywords internal
-#' @export as.data.frame.ecip
-#' @export
-as.data.frame.ecip <- function(
-    x, 
-    ..., 
-    row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs)
-) {
-
-  # tzh does not want to import fastmd::as_flextable.matrix
-  
-  z <- x |>
-    as.matrix.ecip() |>
-    as.data.frame.matrix()
-  
-  ret <- data.frame(
-    ' ' = row.names.data.frame(z),
-    z,
-    check.names = FALSE
-  )
-  names(ret)[1L] <- row.title
-  
-  return(ret)
-  
-}
-
 
 
 #' @title Convert \linkS4class{ecip} into \link[flextable]{flextable}
@@ -278,18 +236,22 @@ as.data.frame.ecip <- function(
 #' 
 #' @param x \linkS4class{ecip} object
 #' 
-#' @param ... potential parameters of the function [as.data.frame.ecip()] 
+#' @param ... potential parameters of the `S3` method [as.matrix.ecip()] 
+#' 
+#' @param row.title \link[base]{character} scalar
 #' 
 #' @keywords internal
 #' @importFrom flextable as_flextable flextable autofit vline
+#' @importFrom fastmd as_flextable.matrix
 #' @export as_flextable.ecip
 #' @export
-as_flextable.ecip <- function(x, ...) {
+as_flextable.ecip <- function(
+    x, ...,
+    row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs)
+) {
   x |>
-    as.data.frame.ecip(...) |>
-    flextable() |>
-    autofit(part = 'all') |>
-    vline(j = 1L)
+    as.matrix.ecip(...) |>
+    as_flextable.matrix(row.title = row.title)
 }
 
 
@@ -343,7 +305,6 @@ setMethod(f = show, signature = signature(object = 'ecip'), definition = functio
   newx@conf.int <- x@conf.int[i, , drop = FALSE]
   attr(newx@conf.int, which = 'conf.level') <- attr(x@conf.int, which = 'conf.level', exact = TRUE)
   if (length(x@p.value)) newx@p.value <- x@p.value[i]
-  if (length(x@note)) newx@note <- x@note[i]
   
   # return(new(Class = 'ecip', newx)) # I don't want to onset setValidity :)
   return(newx)
