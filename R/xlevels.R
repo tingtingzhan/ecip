@@ -7,7 +7,7 @@
 #' @param x an R object
 #' 
 #' @details 
-#' Function [xlevels()] is a wrapper of function \link[stats]{.getXlevels}.
+#' Function [xlevels()] is a wrapper of the function \link[stats]{.getXlevels}.
 #' 
 #' @note
 #' Function \link[stats]{.getXlevels} only reports \link[base]{factor} levels, 

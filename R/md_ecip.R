@@ -1,9 +1,16 @@
 
 #' @title R Markdown Lines via \linkS4class{ecip}
 #' 
-#' @param x an R object convertible to one \linkS4class{ecip}
+#' @param x an R object convertible to \linkS4class{ecip} or `eciplist`
 #' 
 #' @param xnm,... ..
+#' 
+#' @examples
+#' list(
+#'  '`lm`' = lm(Sepal.Length ~ Species, data = iris),
+#'  '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
+#' ) |> fastmd::render2html()
+#' 
 #' 
 #' @keywords internal
 #' @importClassesFrom fastmd md_lines
@@ -23,24 +30,14 @@ md_ecip <- function(x, xnm, ...) {
 
 
 
-#' @title R Markdown Lines for \link[stats]{lm} Model
-#' 
-#' @param x a regression model returned from function \link[stats]{lm} or \link[stats]{glm}
-#' 
-#' @param xnm \link[base]{character} scalar
-#' 
-#' @param ... ..
-#' 
-#' @examples
-#' list(
-#'  '`lm`' = lm(Sepal.Length ~ Species, data = iris)
-#' ) |> fastmd::render2html()
-#' 
-#' @name md_lm
-#' @keywords internal
+
 #' @importFrom fastmd md_
-#' @export md_.lm
 #' @export
 md_.lm <- md_ecip
 
+
+
+#' @importFrom fastmd md_
+#' @export
+md_.mlm <- md_ecip
 

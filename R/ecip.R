@@ -72,7 +72,7 @@ ecip <- function(model) {
   if (inherits(model, what = 'listof')) {
     return(model |>
       lapply(FUN = ecip) |>
-      structure(class = 'listof'))
+      structure(class = 'eciplist', 'listof'))
   }
   
   cf <- coef_(model)
@@ -99,7 +99,7 @@ ecip <- function(model) {
     ), MoreArgs = list(
       Class = 'ecip', model = model, nobs = nobsText(model), note = note_(model)
     ))
-    class(ret) <- 'listof'
+    class(ret) <- c('eciplist', 'listof')
     return(ret)
   }
 
@@ -278,7 +278,7 @@ as.data.frame.ecip <- function(
 #' 
 #' @param x \linkS4class{ecip} object
 #' 
-#' @param ... potential parameters of function [as.data.frame.ecip()] 
+#' @param ... potential parameters of the function [as.data.frame.ecip()] 
 #' 
 #' @keywords internal
 #' @importFrom flextable as_flextable flextable autofit vline

@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{\linkS4class{ecip} object}
 
-\item{...}{potential parameters of function \code{\link[=as.data.frame.ecip]{as.data.frame.ecip()}}}
+\item{...}{potential parameters of the function \code{\link[=as.data.frame.ecip]{as.data.frame.ecip()}}}
 }
 \description{
 ..

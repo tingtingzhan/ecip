@@ -7,11 +7,19 @@
 md_ecip(x, xnm, ...)
 }
 \arguments{
-\item{x}{an R object convertible to one \linkS4class{ecip}}
+\item{x}{an R object convertible to \linkS4class{ecip} or \code{eciplist}}
 
 \item{xnm, ...}{..}
 }
 \description{
 R Markdown Lines via \linkS4class{ecip}
+}
+\examples{
+list(
+ '`lm`' = lm(Sepal.Length ~ Species, data = iris),
+ '`mlm`' = lm(cbind(Sepal.Length, Petal.Length) ~ Species, data = iris)
+) |> fastmd::render2html()
+
+
 }
 \keyword{internal}
