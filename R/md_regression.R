@@ -40,7 +40,12 @@ md_regression_ <- function(x) {
   } else if (isS4(xfam)) {
     paste(desc., 'model')
   } else if ((xfam$family != 'gaussian') || (xfam$link != 'identity')) {
-    paste(desc., 'model with', xfam |> desc_.family())
+    tryCatch(expr = {
+      paste(desc., 'model with', xfam |> desc_.family())
+    }, error = \(e) {
+      # MASS::glm.nb
+      paste(desc., 'model')
+    })
   } else paste(desc., 'model')
   
   print_endpoint <- \(e) {

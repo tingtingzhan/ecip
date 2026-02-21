@@ -34,8 +34,3 @@ md_ecip <- function(x, xnm, ...) {
 md_.lm <- md_ecip
 
 
-
-#' @importFrom fastmd md_
-#' @export
-md_.mlm <- md_ecip
-
