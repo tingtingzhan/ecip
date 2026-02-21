@@ -78,38 +78,43 @@ ecip <- function(model) {
   expo <- expcoef(model)
   estname <- estnm(model)
   
+  foo <- \(cf, p, ci, edp, expo, estname, model) {
+    nm <- names(cf)
+    if (!identical(nm, rownames(ci))) stop('do not allow')
+    if (!identical(nm, names(p))) {
+      if (!all(nm %in% names(p))) stop('do not allow')
+      p <- p[nm]
+    }
+    new(Class = 'ecip',
+        model = model,
+        coef = cf,
+        p.value = p,
+        conf.int = ci,
+        endpoint = edp |> deparse1(),
+        nobs = nobsText(model),
+        exp = expo,
+        estnm = estname)
+  }
+  
   if (is.list(cf)) {
+    
     n <- length(cf)
     if (!is.list(p) || length(p) != n) stop()
     if (!is.list(ci) || length(ci) != n) stop()
     if (!is.list(edp) || length(edp) != n) stop()
-    if (length(expo) == 1L) expo <- replicate(n = n, expr = expo)
-    if (length(estname) == 1L) estname <- replicate(n = n, expr = estname)
-    ret <- .mapply(FUN = new, dots = list(
-      coef = cf, 
-      p.value = p, 
-      conf.int = ci, 
-      endpoint = edp |> lapply(FUN = deparse1), 
-      exp = expo, 
-      estnm = estname
+    ret <- .mapply(FUN = foo, dots = list(
+      cf = cf, p = p, ci = ci, edp = edp, 
+      exp = expo, # recycle
+      estname = estname # recycle
     ), MoreArgs = list(
-      Class = 'ecip', model = model, nobs = nobsText(model)
+      model = model
     ))
     class(ret) <- c('eciplist', 'listof')
     return(ret)
-  }
+    
+  } 
 
-  new(
-    Class = 'ecip',
-    model = model,
-    coef = cf,
-    p.value = p,
-    conf.int = ci,
-    endpoint = edp |> deparse1(),
-    nobs = nobsText(model),
-    exp = expo,
-    estnm = estname
-  )
+  foo(cf = cf, p = p, ci = ci, edp = edp, expo = expo, estname = estname, model = model)
   
 }  
 
