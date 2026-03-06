@@ -7,22 +7,19 @@
 #' @param x an R object
 #' 
 #' @details 
-#' Function [xlevels()] is a wrapper of the function \link[stats]{.getXlevels}.
+#' The function [xlevels()] is a wrapper of the function \link[stats]{.getXlevels}.
 #' 
 #' @note
-#' Function \link[stats]{.getXlevels} only reports \link[base]{factor} levels, 
+#' The function \link[stats]{.getXlevels} only reports \link[base]{factor} levels, 
 #' \link[base]{logical} predictors will *not* be included!
 #' 
 #' @keywords internal
-#' @name xlevels
 #' @export
 xlevels <- function(x) UseMethod(generic = 'xlevels')
 
 # we do need [xlevels()] to be S3 generic
 # we need dispatch(es), e.g., [xlevels.emmGrid]
 
-#' @rdname xlevels
-#' @export xlevels.default
 #' @export
 xlevels.default <- function(x) {
   

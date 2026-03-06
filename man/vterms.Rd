@@ -2,15 +2,9 @@
 % Please edit documentation in R/vterms.R
 \name{vterms}
 \alias{vterms}
-\alias{vterms.default}
-\alias{vterms.formula}
 \title{Variables in Terms}
 \usage{
 vterms(x)
-
-\method{vterms}{default}(x)
-
-\method{vterms}{formula}(formula)
 }
 \arguments{
 \item{x}{an \code{R} model fit}

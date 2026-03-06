@@ -2,18 +2,15 @@
 % Please edit documentation in R/estnm.R
 \name{expcoef}
 \alias{expcoef}
-\alias{expcoef.default}
 \title{Taking Exponential of Coefficients}
 \usage{
 expcoef(x)
-
-\method{expcoef}{default}(x)
 }
 \arguments{
 \item{x}{an R object}
 }
 \value{
-Function \code{\link[=expcoef]{expcoef()}} returns a \link[base]{logical} scalar.
+The function \code{\link[=expcoef]{expcoef()}} returns a \link[base]{logical} scalar.
 }
 \description{
 To determine whether to taking exponential of coefficients estimates and confidence intervals.

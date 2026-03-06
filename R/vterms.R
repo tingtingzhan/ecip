@@ -4,13 +4,14 @@
 #' 
 #' @param x an `R` model fit
 #' 
+#' @examples
+#' # see ?ordinal::clmm examples
+#' (SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD)) |>
+#'   vterms()
 #' @keywords internal
-#' @name vterms
 #' @export
 vterms <- function(x) UseMethod(generic = 'vterms')
 
-#' @rdname vterms
-#' @export vterms.default
 #' @export
 vterms.default <- function(x) {
   x |>
@@ -18,13 +19,6 @@ vterms.default <- function(x) {
     vterms.formula()
 }
 
-
-#' @rdname vterms
-#' @examples
-#' # see ?ordinal::clmm examples
-#' (SURENESS ~ PROD + (1|RESP) + (1|RESP:PROD)) |>
-#'   vterms()
-#' @export vterms.formula
 #' @export
 vterms.formula <- function(formula) {
   

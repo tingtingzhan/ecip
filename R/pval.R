@@ -6,16 +6,13 @@
 #' @param x an R regression model
 #' 
 #' @keywords internal
-#' @name pval
 #' @export
 .pval <- function(x) {
   if (!length(x)) stop('do not allow NULL input')
   UseMethod(generic = '.pval')
 }
 
-#' @rdname pval
 #' @importFrom lmtest coeftest
-#' @export .pval.default
 #' @export
 .pval.default <- function(x) {
   tryCatch(expr = {
@@ -37,8 +34,6 @@
 # ?AER:::coeftest.multinom
 # \link[lmtest]{coeftest.default} does not have parameter `alternative`
 # ?lmtest:::coef.coeftest good enough, since at least 2022-03-21
-#' @rdname pval
-#' @export .pval.coeftest
 #' @export
 .pval.coeftest <- function(x) {
   ret <- x[,'Pr(>|z|)']
@@ -51,12 +46,7 @@
 
 # e.g.,
 # ?stats:::summary.mlm returns 'listof' 'summary.lm'
-#' @rdname pval
-#' 
-#' @details
-#' Function [.pval.listof()] applies to `'mlm' |> stats:::summary.mlm() |> .pval.listof()`.
-#' 
-#' @export .pval.listof
+# 'mlm' |> stats:::summary.mlm() |> .pval.listof()
 #' @export
 .pval.listof <- function(x) {
   x |> lapply(FUN = .pval)

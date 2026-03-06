@@ -10,7 +10,7 @@
 #' S3 generic function [dataClasses()] returns a named \link[base]{character} \link[base]{vector}.
 #' 
 #' @details
-#' Function [dataClasses()] is inspired by `attr(, 'dataClasses')` of
+#' The function [dataClasses()] is inspired by `attr(, 'dataClasses')` of
 #' \link[stats]{terms} object.
 #' 
 #' 
@@ -20,12 +20,9 @@
 #' dataClasses(x)
 #' 
 #' @keywords internal
-#' @name dataClasses
 #' @export
 dataClasses <- function(x) UseMethod(generic = 'dataClasses')
 
-#' @rdname dataClasses
-#' @export dataClasses.default
 #' @export
 dataClasses.default <- function(x) {
   x |> 
@@ -33,8 +30,6 @@ dataClasses.default <- function(x) {
     dataClasses.terms()
 }
 
-#' @rdname dataClasses
-#' @export dataClasses.terms
 #' @export
 dataClasses.terms <- function(x) { # primary work horse!!!
   attr(x, which = 'dataClasses', exact = TRUE) %||% 

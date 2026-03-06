@@ -10,7 +10,7 @@ md_regression_(x)
 \item{x}{an R object}
 }
 \value{
-Function \code{\link[=md_regression_]{md_regression_()}} returns an S4 class \code{'md_lines'}.
+The function \code{\link[=md_regression_]{md_regression_()}} returns an S4 class \code{'md_lines'}.
 }
 \description{
 ..

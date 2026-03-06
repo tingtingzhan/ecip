@@ -2,18 +2,15 @@
 % Please edit documentation in R/estnm.R
 \name{estnm}
 \alias{estnm}
-\alias{estnm.default}
 \title{Proper Name of Estimates}
 \usage{
 estnm(x)
-
-\method{estnm}{default}(x)
 }
 \arguments{
 \item{x}{an R object}
 }
 \value{
-Function \code{\link[=estnm]{estnm()}} returns a \link[base]{character} scalar.
+The function \code{\link[=estnm]{estnm()}} returns a \link[base]{character} scalar.
 }
 \description{
 Proper name of estimates for various regression models

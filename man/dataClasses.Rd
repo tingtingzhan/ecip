@@ -2,15 +2,9 @@
 % Please edit documentation in R/dataClasses.R
 \name{dataClasses}
 \alias{dataClasses}
-\alias{dataClasses.default}
-\alias{dataClasses.terms}
 \title{dataClasses}
 \usage{
 dataClasses(x)
-
-\method{dataClasses}{default}(x)
-
-\method{dataClasses}{terms}(x)
 }
 \arguments{
 \item{x}{a regression model}
@@ -22,7 +16,7 @@ S3 generic function \code{\link[=dataClasses]{dataClasses()}} returns a named \l
 ..
 }
 \details{
-Function \code{\link[=dataClasses]{dataClasses()}} is inspired by \code{attr(, 'dataClasses')} of
+The function \code{\link[=dataClasses]{dataClasses()}} is inspired by \code{attr(, 'dataClasses')} of
 \link[stats]{terms} object.
 }
 \examples{

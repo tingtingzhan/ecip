@@ -2,15 +2,9 @@
 % Please edit documentation in R/ecip.R
 \name{intercept_rm}
 \alias{intercept_rm}
-\alias{intercept_rm.ecip}
-\alias{intercept_rm.matrix}
 \title{Remove Intercept Term(s)}
 \usage{
 intercept_rm(x)
-
-\method{intercept_rm}{ecip}(x)
-
-\method{intercept_rm}{matrix}(x)
 }
 \arguments{
 \item{x}{\linkS4class{ecip} or \link[base]{matrix}}

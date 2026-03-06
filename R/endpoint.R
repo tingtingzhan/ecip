@@ -5,8 +5,13 @@
 #' 
 #' @param x ..
 #' 
+#' @examples 
+#' endpoint(a ~ b)
+#' # endpoint(a ~ b ~ c) # stop support
+#' endpoint(a ~ b | c)
+#' 
 #' @returns 
-#' Function [endpoint()] returns a \link[base]{language} object.
+#' The function [endpoint()] returns a \link[base]{language} object.
 #' 
 #' @keywords internal
 #' @name endpoint
@@ -16,8 +21,6 @@ endpoint <- function(x) {
   UseMethod(generic = 'endpoint')
 }
 
-#' @rdname endpoint
-#' @export endpoint.default
 #' @export
 endpoint.default <- function(x) {
   x |>
@@ -26,13 +29,6 @@ endpoint.default <- function(x) {
 }
 
 
-#' @rdname endpoint
-#' @param formula \link[stats]{formula}
-#' @examples 
-#' endpoint(a ~ b)
-#' # endpoint(a ~ b ~ c) # stop support
-#' endpoint(a ~ b | c)
-#' @export endpoint.formula
 #' @export
 endpoint.formula <- function(formula) {
   if (!is.call(formula) || (formula[[1L]] != '~')) stop('formula must be formula')

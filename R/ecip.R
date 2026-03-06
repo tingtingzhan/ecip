@@ -341,19 +341,14 @@ isIntercept <- function(x) {
 #' @param x \linkS4class{ecip} or \link[base]{matrix}
 #' 
 #' @keywords internal
-#' @name intercept_rm
 #' @export
 intercept_rm <- function(x) UseMethod(generic = 'intercept_rm')
 
-#' @rdname intercept_rm
-#' @export intercept_rm.ecip
 #' @export
 intercept_rm.ecip <- function(x) {
   x[!isIntercept(names(x@coef)), ] # `[.ecip`
 }
 
-#' @rdname intercept_rm
-#' @export intercept_rm.matrix
 #' @export
 intercept_rm.matrix <- function(x) {
   x[!isIntercept(rownames(x)), , drop = FALSE]

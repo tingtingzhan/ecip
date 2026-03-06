@@ -6,24 +6,18 @@
 #' @param x an R object
 #' 
 #' @returns
-#' Function [desc_()] returns a \link[base]{character} scalar.
+#' The function [desc_()] returns a \link[base]{character} scalar.
 #' 
 #' @keywords internal
-#' @name desc
 #' @export
 desc_ <- function(x) {
   if (!length(x)) return(invisible())
   UseMethod(generic = 'desc_')
 }
 
-#' @rdname desc
-#' @export desc_.default
 #' @export
 desc_.default <- function(x) stop('write desc_.', class(x)[1L])
 
-
-#' @rdname desc
-#' @export desc_.family
 #' @export
 desc_.family <- function(x) {
   

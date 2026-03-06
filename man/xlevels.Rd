@@ -2,12 +2,9 @@
 % Please edit documentation in R/xlevels.R
 \name{xlevels}
 \alias{xlevels}
-\alias{xlevels.default}
 \title{Wrapper for \link[stats]{.getXlevels}}
 \usage{
 xlevels(x)
-
-\method{xlevels}{default}(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -16,10 +13,10 @@ xlevels(x)
 ..
 }
 \details{
-Function \code{\link[=xlevels]{xlevels()}} is a wrapper of the function \link[stats]{.getXlevels}.
+The function \code{\link[=xlevels]{xlevels()}} is a wrapper of the function \link[stats]{.getXlevels}.
 }
 \note{
-Function \link[stats]{.getXlevels} only reports \link[base]{factor} levels,
+The function \link[stats]{.getXlevels} only reports \link[base]{factor} levels,
 \link[base]{logical} predictors will \emph{not} be included!
 }
 \keyword{internal}

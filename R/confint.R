@@ -11,7 +11,7 @@
 #' @param ... additional parameters for S3 dispatch
 #' 
 #' @returns 
-#' Function [confint_()] returns 
+#' The function [confint_()] returns 
 #' a \link[base]{ncol}-`2L` \link[base]{double} \link[base]{matrix}, 
 #' with additional \link[base]{attributes},
 #' \describe{
@@ -19,12 +19,9 @@
 #' }
 #' 
 #' @keywords internal
-#' @name confint_
 #' @export
 confint_ <- function(x, level, ...) UseMethod(generic = 'confint_')
 
-#' @rdname confint_
-#' @export confint_.default
 #' @export
 confint_.default <- function(x, level = .95, ...) {
   ci <- confint(x, level = level, ...) # let err

@@ -2,15 +2,9 @@
 % Please edit documentation in R/getLink.R
 \name{getLink}
 \alias{getLink}
-\alias{getLink.family}
-\alias{getLink.default}
 \title{Get Link Function of a Model Fit}
 \usage{
 getLink(x)
-
-\method{getLink}{family}(x)
-
-\method{getLink}{default}(x)
 }
 \arguments{
 \item{x}{see \strong{Usage}}

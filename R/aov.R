@@ -1,8 +1,4 @@
 
-
-
-#' @rdname pval
-#' @export .pval.anova
 #' @export
 .pval.anova <- function(x) {
   ret <- x[, 'Pr(>F)']
@@ -11,9 +7,7 @@
 }
 
 
-#' @rdname pval
 #' @method .pval summary.aov
-#' @export .pval.summary.aov
 #' @export
 .pval.summary.aov <- function(x) {
   x |>

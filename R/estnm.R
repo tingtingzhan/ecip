@@ -8,17 +8,12 @@
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [estnm()] returns a \link[base]{character} scalar.
+#' The function [estnm()] returns a \link[base]{character} scalar.
 #' 
 #' @keywords internal
-#' @name estnm
 #' @export
 estnm <- function(x) UseMethod(generic = 'estnm')
 
-
-
-#' @rdname estnm
-#' @export estnm.default
 #' @export
 estnm.default <- function(x) {
 
@@ -54,18 +49,17 @@ estnm.default <- function(x) {
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [expcoef()] returns a \link[base]{logical} scalar.
+#' The function [expcoef()] returns a \link[base]{logical} scalar.
 #' 
 #' @keywords internal
-#' @name expcoef
 #' @export
 expcoef <- function(x) UseMethod(generic = 'expcoef')
 
-#' @rdname expcoef
-#' @export expcoef.default
 #' @export
 expcoef.default <- function(x) {
-  x |> estnm() |> grepl(pattern = 'Ratio')
+  x |> 
+    estnm() |> 
+    grepl(pattern = 'Ratio')
 }
 
 

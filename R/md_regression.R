@@ -6,7 +6,7 @@
 #' @param x an R object
 #' 
 #' @returns 
-#' Function [md_regression_()] returns an S4 class `'md_lines'`.
+#' The function [md_regression_()] returns an S4 class `'md_lines'`.
 #' 
 #' @keywords internal
 #' @importFrom fastmd fromPackage pkg_text

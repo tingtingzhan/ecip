@@ -2,27 +2,15 @@
 % Please edit documentation in R/getLink.R
 \name{getCanonicalLink}
 \alias{getCanonicalLink}
-\alias{getCanonicalLink.default}
-\alias{getCanonicalLink.family}
-\alias{getCanonicalLink.function}
-\alias{getCanonicalLink.character}
 \title{Get Canonical Link Function of a Model Fit or \link[stats]{family}}
 \usage{
 getCanonicalLink(x)
-
-\method{getCanonicalLink}{default}(x)
-
-\method{getCanonicalLink}{family}(x)
-
-\method{getCanonicalLink}{`function`}(x)
-
-\method{getCanonicalLink}{character}(x)
 }
 \arguments{
 \item{x}{an R object of model fit, or \link[stats]{family}}
 }
 \value{
-Function \code{\link[=getCanonicalLink]{getCanonicalLink()}} returns a \link[base]{character} scalar.
+The function \code{\link[=getCanonicalLink]{getCanonicalLink()}} returns a \link[base]{character} scalar.
 }
 \description{
 ..
