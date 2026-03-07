@@ -65,22 +65,14 @@ md_regression_ <- function(x) {
   pkg <- x |> fromPackage()
   
   sprintf(
-    fmt = 'The relationship between **`%s`** and %s is analyzed based on %s by fitting a %svariable %s using %s.', 
-    x |> endpoint() |> print_endpoint(),
-    paste0('`', xvar, '`', collapse = ', '),
-    nobsText(x),
+    fmt = 'A %svariable %s analyzes the endpoint **`%s`** based on %s using %s.', 
     if (length(xvar) > 1L) 'multi' else 'uni',
     model_name,
+    x |> endpoint() |> print_endpoint(),
+    nobsText(x),
     pkg |> pkg_text()
   ) |>
     new(Class = 'md_lines', bibentry = desc.@bibentry, package = pkg)
-  
-  #bib <- desc.@bibentry
-  #z <- if (length(bib)) {
-  #  ret |> 
-  #    new(Class = 'md_lines', bibentry = bib, package = pkg)
-  #} else ret |> new(Class = 'md_lines', package = pkg)
-  #return(z)
   
 }
 
