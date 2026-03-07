@@ -247,7 +247,6 @@ as.matrix.ecip <- function(
 #' 
 #' @keywords internal
 #' @importFrom flextable as_flextable flextable autofit vline
-#' @importFrom fastmd as_flextable.matrix
 #' @export as_flextable.ecip
 #' @export
 as_flextable.ecip <- function(
@@ -256,7 +255,7 @@ as_flextable.ecip <- function(
 ) {
   x |>
     as.matrix.ecip(...) |>
-    as_flextable.matrix(row.title = row.title)
+    as_flextable(row.title = row.title) # fastmd::as_flextable.matrix
 }
 
 
