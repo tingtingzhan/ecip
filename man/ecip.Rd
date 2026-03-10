@@ -34,5 +34,7 @@ inspired by the returned value of functions such as \link[stats]{t.test}.}
 \item{\code{exp}}{\link[base]{logical} scalar}
 
 \item{\code{estnm}}{..}
+
+\item{\code{desc}}{..}
 }}
 

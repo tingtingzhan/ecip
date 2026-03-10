@@ -21,8 +21,11 @@
 #' 
 #' @slot estnm ..
 #' 
+#' @slot desc ..
+#' 
 #' @name ecip
 #' @aliases ecip-class
+#' @importClassesFrom fastmd md_lines
 #' @export
 setClass(Class = 'ecip', slots = c(
   model = 'ANY',
@@ -32,7 +35,8 @@ setClass(Class = 'ecip', slots = c(
   exp = 'logical',
   endpoint = 'character',
   nobs = 'character',
-  estnm = 'character'
+  estnm = 'character',
+  desc = 'md_lines'
   #nrows = 'integer' # user friendly output for 'glht' object; .Defunct!!!
 ))
 
@@ -77,8 +81,9 @@ ecip <- function(model) {
   edp <- endpoint(model)
   expo <- expcoef(model)
   estname <- estnm(model)
+  desc <- desc_(model)
   
-  foo <- \(cf, p, ci, edp, expo, estname, model) {
+  foo <- \(cf, p, ci, edp, expo, estname, desc, model) {
     nm <- names(cf)
     if (!identical(nm, rownames(ci))) stop('do not allow')
     if (!identical(nm, names(p))) {
@@ -93,7 +98,8 @@ ecip <- function(model) {
         endpoint = edp |> deparse1(),
         nobs = nobsText(model),
         exp = expo,
-        estnm = estname)
+        estnm = estname, 
+        desc = desc)
   }
   
   if (is.list(cf)) {
@@ -107,6 +113,7 @@ ecip <- function(model) {
       exp = expo, # recycle
       estname = estname # recycle
     ), MoreArgs = list(
+      desc = desc, # recycle
       model = model
     ))
     class(ret) <- c('eciplist', 'listof')
@@ -114,7 +121,7 @@ ecip <- function(model) {
     
   } 
 
-  foo(cf = cf, p = p, ci = ci, edp = edp, expo = expo, estname = estname, model = model)
+  foo(cf = cf, p = p, ci = ci, edp = edp, expo = expo, estname = estname, desc = desc, model = model)
   
 }  
 
@@ -246,16 +253,24 @@ as.matrix.ecip <- function(
 #' @param row.title \link[base]{character} scalar
 #' 
 #' @keywords internal
-#' @importFrom flextable as_flextable flextable autofit vline
+#' @importFrom flextable as_flextable flextable autofit add_footer_lines
+#' @importFrom ftExtra as_paragraph_md colformat_md
 #' @export as_flextable.ecip
 #' @export
 as_flextable.ecip <- function(
     x, ...,
-    row.title = sprintf(fmt = '%s: %s', x@endpoint, x@nobs)
+    row.title = sprintf(fmt = '**`%s`**: %s', x@endpoint, x@nobs)
 ) {
+  
   x |>
     as.matrix.ecip(...) |>
-    as_flextable(row.title = row.title) # fastmd::as_flextable.matrix
+    as_flextable(row.title = row.title) |> # fastmd::as_flextable.matrix
+    add_footer_lines(
+      values = x@desc |> 
+        as_paragraph_md()
+    ) |>
+    colformat_md(part = 'header')
+    
 }
 
 

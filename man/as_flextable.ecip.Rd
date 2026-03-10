@@ -4,7 +4,11 @@
 \alias{as_flextable.ecip}
 \title{Convert \linkS4class{ecip} into \link[flextable]{flextable}}
 \usage{
-\method{as_flextable}{ecip}(x, ..., row.title = sprintf(fmt = "\%s: \%s", x@endpoint, x@nobs))
+\method{as_flextable}{ecip}(
+  x,
+  ...,
+  row.title = sprintf(fmt = "**`\%s`**: \%s", x@endpoint, x@nobs)
+)
 }
 \arguments{
 \item{x}{\linkS4class{ecip} object}

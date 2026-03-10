@@ -1,6 +1,10 @@
 
 #' @export
-desc_.lm <- function(x) 'ordinary least squares'
+desc_.lm <- function(x) {
+  'ordinary least squares regression' |>
+    sprintf(fmt = '*%s*') |>
+    new(Class = 'md_lines')
+}
 
 #' @method .pval summary.lm
 #' @export
@@ -32,8 +36,13 @@ desc_.glm <- function(x) 'generalized linear'
 # return from ?stats::lm; with multiple endpoints
 # note that we have ?stats:::vcov.mlm inside ?stats::confint.lm
 #' @export
-desc_.mlm <- function(x) 'multivariate linear regression' # ?stats::lm with endpoint `cbind(., .)`
-
+desc_.mlm <- function(x) {
+  # ?stats::lm with endpoint `cbind(., .)`
+  'multivariate linear regression' |>
+    # sprintf(fmt = '[%s]{style="text-color: #FFFF00"}') |> # ignored by \pkg{ftExtra}
+    sprintf(fmt = '*%s*') |>
+    new(Class = 'md_lines')
+}
 
 #' @export
 coef_.mlm <- function(x) {

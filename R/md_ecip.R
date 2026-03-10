@@ -12,7 +12,7 @@
 #' ) |> fastmd::render2html()
 #' @keywords internal
 #' @importClassesFrom fastmd md_lines
-#' @importFrom fastmd md_flextable_
+#' @importFrom fastmd md_int
 #' @export 
 md_ecip <- function(x, xnm, ...) {
   
@@ -20,7 +20,7 @@ md_ecip <- function(x, xnm, ...) {
   
   z2 <- xnm |> 
     sprintf(fmt = '(%s) |> ecip()') |> 
-    md_flextable_(xnm = _, ...)
+    md_int(x = x, xnm = _, engine = 'flextable', ...) 
     
   c(z1, z2) # ?fastmd::c.md_lines
   
