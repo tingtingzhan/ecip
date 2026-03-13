@@ -113,7 +113,7 @@ ecip <- function(model) {
       exp = expo, # recycle
       estname = estname # recycle
     ), MoreArgs = list(
-      desc = desc, # recycle
+      desc = desc,
       model = model
     ))
     class(ret) <- c('eciplist', 'listof')

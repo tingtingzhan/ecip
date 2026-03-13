@@ -16,13 +16,18 @@
 #' @export 
 md_ecip <- function(x, xnm, ...) {
   
-  z1 <- md_regression_(x)
+  #z1 <- md_regression_(x)
   
   z2 <- xnm |> 
     sprintf(fmt = '(%s) |> ecip()') |> 
-    md_int(x = x, xnm = _, engine = 'flextable', ...) 
-    
-  c(z1, z2) # ?fastmd::c.md_lines
+    md_int(
+      x = x, xnm = _, 
+      engine = 'flextable', 
+      package = desc_(x)@package,
+      ...
+    ) 
+  return(z2)  
+  #c(z1, z2) # ?fastmd::c.md_lines
   
 }
 

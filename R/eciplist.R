@@ -19,7 +19,16 @@ as_flextable.eciplist <- function(x, ...) {
     Reduce(f = `+`) +
     plot_layout(ncol = 1L)
   
+  # Patching happens **before** markdown-bib-referencing via \pkg{ftExtra}
+  # have not found a good solution yet
+  
 }
 
-
-
+# @importFrom fastmd md_ md_.list
+# @export
+#md_.eciplist <- function(x, xnm, ...) {
+#  xnm |>
+#    sprintf(fmt = 'as_flextable(%s)') |>
+#    md_.list(xnm = _)
+#  haha tzh does not remember how to make this work..
+#}
