@@ -5,6 +5,10 @@
 #' 
 #' @param xnm,... ..
 #' 
+#' @param bibentry (optional) \link[utils]{bibentry}
+#' 
+#' @param package (optional) \link[base]{character} scalar
+#' 
 #' @examples
 #' list(
 #'  '`lm`' = lm(Sepal.Length ~ Species, data = iris),
@@ -14,7 +18,11 @@
 #' @importClassesFrom fastmd md_lines
 #' @importFrom fastmd md_int
 #' @export 
-md_ecip <- function(x, xnm, ...) {
+md_ecip <- function(
+    x, xnm, ...,
+    bibentry. = desc_(x)@bibentry,
+    package = desc_(x)@package
+) {
   
   #z1 <- md_regression_(x)
   
@@ -23,7 +31,8 @@ md_ecip <- function(x, xnm, ...) {
     md_int(
       x = x, xnm = _, 
       engine = 'flextable', 
-      package = desc_(x)@package,
+      package = package,
+      bibentry. = bibentry.,
       ...
     ) 
   return(z2)  

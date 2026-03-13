@@ -4,12 +4,16 @@
 \alias{md_ecip}
 \title{R Markdown Lines via \linkS4class{ecip}}
 \usage{
-md_ecip(x, xnm, ...)
+md_ecip(x, xnm, ..., bibentry. = desc_(x)@bibentry, package = desc_(x)@package)
 }
 \arguments{
 \item{x}{an R object convertible to \linkS4class{ecip} or \code{eciplist}}
 
 \item{xnm, ...}{..}
+
+\item{package}{(optional) \link[base]{character} scalar}
+
+\item{bibentry}{(optional) \link[utils]{bibentry}}
 }
 \description{
 R Markdown Lines via \linkS4class{ecip}
