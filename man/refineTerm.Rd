@@ -29,7 +29,14 @@ rename_xlevels(model)
 ..
 }
 \examples{
-m1 = lm(mpg ~ cyl + am, data = mtc)
+m1 = datasets::mtcars |> 
+ within.data.frame(expr = {
+  cyl = factor(cyl)
+  gear = factor(gear)
+  vs = ifelse(as.logical(vs), yes = 'straight', no = 'V-shaped')
+  am = ifelse(as.logical(am), yes = 'manual', no = 'automatic')
+ }) |>
+ lm(mpg ~ cyl + am, data = _)
 refineTerm(names(coef(m1)), model = m1)
 summary(m2 <- lm(breaks ~ wool + tension, data = warpbreaks))
 summary(m2a <- lm(breaks ~ -1 + wool + tension, data = warpbreaks))
